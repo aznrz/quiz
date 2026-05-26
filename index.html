@@ -178,7 +178,7 @@
         </button>
       </div>
     </div>
-    <button id="referencesBtn" class="logout-btn" title="References (PL-300 cheatsheet)" aria-label="References"><span aria-hidden="true">📖</span></button>
+    <button id="referencesBtn" class="logout-btn" title="Справочник шиноби" aria-label="Справочник шиноби"><span aria-hidden="true">📖</span></button>
     <span class="header-divider" aria-hidden="true"></span>
     <!-- Admin entries (analytics, all-questions, drafts) moved into My Profile screen. -->
     <button id="adminBtn" class="logout-btn hidden" title="Analytics" aria-label="Analytics" style="display:none"><span aria-hidden="true">📊</span></button>
@@ -1733,10 +1733,10 @@
   <div class="s2-main">
   <header class="header s2-topbar" style="justify-content:space-between">
     <div class="s2-title-block">
-      <h1 class="s2-report-title">📖 Материалы</h1>
+      <h1 class="s2-report-title">📖 Справочник шиноби</h1>
     </div>
     <div class="s2-topbar-actions">
-      <button id="referencesCloseBtn" class="back-btn s2-back-btn" title="Back">← Back</button>
+      <button id="referencesCloseBtn" class="back-btn s2-back-btn" title="Назад">← Назад</button>
     </div>
   </header>
   <div class="references-layout">
@@ -1744,435 +1744,114 @@
       <div class="toc-title">📑 Содержание</div>
       <nav>
         <ul>
-          <li><a href="#ref-about" data-toc>Об экзамене</a></li>
-          <li><a href="#ref-logistics" data-toc>Логистика (числа)</a></li>
-          <li><a href="#ref-faq" data-toc>FAQ</a></li>
-          <li><a href="#ref-providers" data-toc>Pearson VUE / OnVUE / тест-центры</a></li>
-          <li><a href="#ref-test-centers" data-toc>Тест-центры в Казахстане</a></li>
-          <li>
-            <a href="#ref-modules" data-toc>4 модуля экзамена</a>
-            <ul>
-              <li><a href="#ref-mod-prep" data-toc>Prepare the Data</a></li>
-              <li><a href="#ref-mod-model" data-toc>Model the Data ⚡</a></li>
-              <li><a href="#ref-mod-viz" data-toc>Visualize and Analyze</a></li>
-              <li><a href="#ref-mod-deploy" data-toc>Deploy and Maintain</a></li>
-            </ul>
-          </li>
-          <li><a href="#ref-question-types" data-toc>Типы вопросов</a></li>
-          <li>
-            <a href="#ref-before" data-toc>Перед сдачей</a>
-            <ul>
-              <li><a href="#ref-when-register" data-toc>Когда регистрироваться</a></li>
-              <li><a href="#ref-register-steps" data-toc>Регистрация (7 шагов)</a></li>
-              <li><a href="#ref-discounts" data-toc>Скидки и ваучеры</a></li>
-              <li><a href="#ref-reschedule" data-toc>Перенос / отмена</a></li>
-            </ul>
-          </li>
-          <li><a href="#ref-onvue" data-toc>OnVUE — checklist</a></li>
-          <li><a href="#ref-test-center" data-toc>Тест-центр — checklist</a></li>
-          <li><a href="#ref-exam-day" data-toc>В день экзамена</a></li>
-          <li>
-            <a href="#ref-after" data-toc>После экзамена</a>
-            <ul>
-              <li><a href="#ref-results" data-toc>Результаты и отчёт</a></li>
-              <li><a href="#ref-scoring" data-toc>Как оценивается</a></li>
-              <li><a href="#ref-retake" data-toc>Политика пересдачи</a></li>
-            </ul>
-          </li>
-          <li><a href="#ref-renewal" data-toc>Продление сертификации</a></li>
-          <li><a href="#ref-strategy" data-toc>Стратегия подготовки</a></li>
-          <li><a href="#ref-links" data-toc>Полезные ссылки</a></li>
-          <li><a href="#ref-attribution" data-toc>Источник</a></li>
+          <li><a href="#ref-about" data-toc>О мире шиноби</a></li>
+          <li><a href="#ref-ranks" data-toc>Ранги ниндзя</a></li>
+          <li><a href="#ref-elements" data-toc>Стихии чакры</a></li>
+          <li><a href="#ref-sannin" data-toc>Легендарные Саннины</a></li>
+          <li><a href="#ref-villages" data-toc>Великие Деревни</a></li>
+          <li><a href="#ref-akatsuki" data-toc>Организация Акацуки</a></li>
+          <li><a href="#ref-faq" data-toc>Вопросы и ответы (FAQ)</a></li>
         </ul>
       </nav>
     </aside>
     <div class="references-content">
-    <h2 style="margin:0 0 6px">PL-300 — Cheatsheet</h2>
-    <p class="references-lede">Выжимка из гайда школы по аналитике данных <strong>DataBoom</strong> (KZ Data Community), версия апрель 2025. Все 138 ссылок из оригинала — кликабельны.</p>
+    <h2 style="margin:0 0 6px">Справочник шиноби — Коноха</h2>
+    <p class="references-lede">Краткое руководство по великой вселенной ниндзя. Изучи ранги, стихии чакры, легендарных персонажей и великие скрытые деревни, чтобы с легкостью пройти любой тест!</p>
 
-    <h3 id="ref-about">Об экзамене</h3>
-    <p>PL-300 — единственный сертификационный экзамен Microsoft по фундаментальному Power BI. Сдавший получает статус <strong>Microsoft Power BI Data Analyst</strong>. Для дата-аналитиков, бизнес-аналитиков и всех, кто использует Power BI в работе.</p>
-    <p><strong>Что проверяется:</strong> бизнес-требования → очистка/трансформация данных → построение моделей → отчёты → публикация в Power BI Service. Плюс Power Query и базовый DAX.</p>
-    <p>Официальная страница: <a href="https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/?practice-assessment-type=certification" target="_blank" rel="noopener">Microsoft PL-300 certification</a> · Бесплатный курс: <a href="https://learn.microsoft.com/en-us/training/courses/pl-300t00" target="_blank" rel="noopener">PL-300T00 на MS Learn</a>.</p>
+    <h3 id="ref-about">О мире шиноби</h3>
+    <p>Мир шиноби (ниндзя) — это удивительная вселенная, полная боевых искусств, дружбы, эпических сражений и древних тайн. Сюжет аниме сосредоточен вокруг юного ниндзя Наруто Узумаки из Деревни Скрытого Листа (Коноха). Наруто стремится преодолеть все трудности и стать <strong>Хокаге</strong> — сильнейшим шиноби и лидером своей деревни, чтобы завоевать уважение и признание окружающих.</p>
+    <p>Основой всех сверхъестественных способностей ниндзя является <strong>Чакра</strong> — энергия, сочетающая в себе физические силы тела и духовные силы разума. Шиноби используют её для выполнения трёх основных видов техник:</p>
+    <ul>
+      <li><strong>Ниндзюцу:</strong> Применение чакры для физических явлений (вызов стихий, теневое клонирование, Расенган).</li>
+      <li><strong>Гендзюцу:</strong> Иллюзии, воздействующие на нервную систему соперника и искажающие его восприятие реальности (Шаринган-иллюзии).</li>
+      <li><strong>Тайдзюцу:</strong> Техники рукопашного боя, не требующие преобразования чакры в стихии, но опирающиеся на физическую силу и выносливость (Бой в стиле Пьяного кулака Рока Ли).</li>
+    </ul>
 
-    <h3 id="ref-logistics">Логистика (числа)</h3>
+    <h3 id="ref-ranks">Звания и иерархия шиноби</h3>
+    <p>Каждый ниндзя проходит длинный путь развития, подтверждая свои навыки на суровых экзаменах и опасных миссиях. Иерархия в деревнях выглядит следующим образом:</p>
     <table class="ref-table">
-      <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
+      <thead><tr><th>Ранг</th><th>Описание</th><th>Роль и миссии</th></tr></thead>
       <tbody>
-        <tr><td>Стоимость в Казахстане</td><td><strong>$83</strong> (могут быть скидки от Microsoft и партнёров)</td></tr>
-        <tr><td>Длительность</td><td><strong>100 минут</strong></td></tr>
-        <tr><td>Количество вопросов</td><td><strong>40–60</strong></td></tr>
-        <tr><td>Проходной балл</td><td><strong>700 / 1000</strong> (≈ 70%)</td></tr>
-        <tr><td>Срок действия</td><td><strong>1 год</strong></td></tr>
-        <tr><td>Продление</td><td>Бесплатно, за 6 мес. до истечения, <strong>25 вопросов / 45 мин / 57%</strong> проходной</td></tr>
-        <tr><td>Языки</td><td>Русский, английский и другие</td></tr>
-        <tr><td>Сложность</td><td>средняя</td></tr>
-        <tr><td>Тест-центры в КЗ</td><td>Алматы, Астана, Атырау, Шымкент, Караганда</td></tr>
-        <tr><td>Online-платформа</td><td>OnVUE (Pearson VUE)</td></tr>
+        <tr><td><strong>Студент Академии</strong></td><td>Будущий ниндзя на этапе обучения. Осваивает базовую теорию и базовые техники (трансформация, клонирование).</td><td>Учеба, тренировки, миссии недоступны.</td></tr>
+        <tr><td><strong>Генин</strong></td><td>Низший ранг. Выпускники Академии, сдавшие экзамен. Объединяются в команды из 3-х человек под руководством Джонина.</td><td>Выполняют простые миссии рангов D и C (помощь жителям, охрана).</td></tr>
+        <tr><td><strong>Чунин</strong></td><td>Средний ранг. Шиноби, проявивший тактические навыки и лидерские качества на сложном Экзамене на Чунина.</td><td>Лидеры отрядов, преподаватели. Миссии рангов C и B.</td></tr>
+        <tr><td><strong>Джонин</strong></td><td>Высший ранг. Элитные шиноби с выдающейся силой, владеющие сложнейшими техниками. Бывают также Специальными Джонинами (мастера в узкой сфере).</td><td>Капитаны команд генинов, военные лидеры. Миссии рангов A и S.</td></tr>
+        <tr><td><strong>Каге</strong></td><td>Правитель Деревни. Сильнейший и мудрейший шиноби, несущий ответственность за защиту деревни, её жителей и дипломатию.</td><td>Лидерство, управление деревней, миссии особой важности.</td></tr>
       </tbody>
     </table>
 
-    <h3 id="ref-faq">FAQ — часто задаваемые вопросы</h3>
-    <details class="ref-faq" open><summary>Как можно сдавать экзамен PL-300?</summary><p>Экзамен можно сдавать как онлайн (через OnVUE), так и офлайн (в тест-центре).</p></details>
-    <details class="ref-faq"><summary>На каких языках доступен экзамен?</summary><p>На русском, английском и других языках. Полный список — на <a href="https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/" target="_blank" rel="noopener">официальном сайте Microsoft</a>.</p></details>
-    <details class="ref-faq"><summary>Какова сложность экзамена?</summary><p>Средняя.</p></details>
-    <details class="ref-faq"><summary>Сколько времени дается на прохождение?</summary><p>100 минут.</p></details>
-    <details class="ref-faq"><summary>Как долго действителен сертификат PL-300?</summary><p>1 год. Продлить нужно за 6 месяцев до истечения. Продление бесплатно, выполняется онлайн.</p></details>
-    <details class="ref-faq"><summary>Сколько вопросов содержит экзамен?</summary><p>40–60, точное количество может варьироваться.</p></details>
-    <details class="ref-faq"><summary>Какой проходной балл?</summary><p>700 из 1000 (≈ 70%).</p></details>
-    <details class="ref-faq"><summary>Сколько стоит экзамен в Казахстане?</summary><p>$83. Цена может зависеть от страны/региона. Microsoft и партнёры предоставляют скидочные ваучеры.</p></details>
-    <details class="ref-faq"><summary>Какие категории знаний проверяются?</summary><ul><li>Подготовка данных (15–20%)</li><li>Моделирование данных (30–35%) ⚡</li><li>Визуализация и анализ (25–30%)</li><li>Управление и безопасность Power BI (20–25%)</li></ul></details>
-    <details class="ref-faq"><summary>Какие типы вопросов встречаются?</summary><p>Single/multiple answer, drag-drop (перетаскивание), кейсы для анализа, симуляции в среде Power BI.</p></details>
-    <details class="ref-faq"><summary>Что запрещено использовать во время экзамена?</summary><p>Мобильные устройства, устройства для записи, бумага, ручки, камеры. На онлайн-сдаче — закрыть все ненужные приложения.</p></details>
-    <details class="ref-faq"><summary>Как можно продлить сертификацию PL-300?</summary><p>Бесплатно, через повторное тестирование онлайн без прокторинга. ~25 вопросов, 45 минут, проходной 57%.</p></details>
-
-    <h3 id="ref-providers">Pearson VUE / OnVUE / тест-центры</h3>
-    <p><strong>Pearson VUE</strong> — официальный партнёр Microsoft, предоставляет платформу (онлайн и офлайн) для сдачи PL-300. <strong>OnVUE</strong> — онлайн-платформа от Pearson VUE для сдачи удалённо с веб-камерой и проктором.</p>
-    <p>Тест-центр (solution/service provider) — уполномоченный офлайн-центр вне США, помогающий Pearson VUE проводить экзамены. Тест-центры предоставляют ваучеры (скидки) и консультируют по сдаче.</p>
-    <p>Проктор — администратор, контролирующий процесс сдачи и помогающий в случае вопросов или технических проблем.</p>
-    <p>Гайд по OnVUE: <a href="https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/onvue/pearson-vue-online-testing-guide-en.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://www.youtube.com/watch?v=987xaZLMkz4" target="_blank" rel="noopener">видео-инструкция (EN)</a> · <a href="https://www.youtube.com/watch?v=OSWXzhavOwg" target="_blank" rel="noopener">что ожидать в тест-центре (EN)</a>.</p>
-
-    <h3 id="ref-test-centers">Тест-центры в Казахстане (Pearson VUE)</h3>
-    <p>Список офлайн тест-центров с прямыми ссылками на расписание Pearson VUE:</p>
-    <ul class="ref-links">
-      <li>Алматы: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=63014&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 1</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=87883&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 2</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=49554&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 3</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=82790&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 4</a></li>
-      <li>Астана: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=81793&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 1</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=86198&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 2</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=56568&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 3</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=89814&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 4</a></li>
-      <li>Атырау: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=57663&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 1</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=63839&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 2</a></li>
-      <li>Шымкент: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=54952&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 1</a></li>
-      <li>Караганда / другие: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=89614&clientCode=MICROSOFT" target="_blank" rel="noopener">1</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=72076&clientCode=MICROSOFT" target="_blank" rel="noopener">2</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=83554&clientCode=MICROSOFT" target="_blank" rel="noopener">3</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=83675&clientCode=MICROSOFT" target="_blank" rel="noopener">4</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=90244&clientCode=MICROSOFT" target="_blank" rel="noopener">5</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=72491&clientCode=MICROSOFT" target="_blank" rel="noopener">6</a></li>
+    <h3 id="ref-elements">Стихии и свойства Чакры</h3>
+    <p>Почти все стихийные техники основаны на манипуляции пятью базовыми элементами природы. Каждый шиноби имеет врожденную предрасположенность к одной или нескольким стихиям:</p>
+    <ul>
+      <li><strong>Огонь (Катон):</strong> Техники высокой температуры и испепеляющего пламени. Визитная карточка великого клана Учиха (например, Огненный шар).</li>
+      <li><strong>Ветер (Футон):</strong> Тонкие, острые как бритва атаки средней и ближней дистанции. Обладателями этой редкой стихии являются Наруто Узумаки и Асума Сарутоби.</li>
+      <li><strong>Молния (Райтон):</strong> Молниеносные атаки высокой пробивающей мощи. Используется Какаши Хатаке (Райкири) и Саске Учиха (Чидори).</li>
+      <li><strong>Земля (Дотон):</strong> Создание прочных оборонительных стен, изменение плотности почвы и веса предметов.</li>
+      <li><strong>Вода (Суйтон):</strong> Манипуляция водными потоками, создание гигантских волн и водяных тюрем для обездвиживания врага.</li>
     </ul>
-    <p>Все 15 центров можно найти и через <a href="https://home.pearsonvue.com/Test-owners/Industry-expertise/Technology/VOC.aspx#myDIV" target="_blank" rel="noopener">официальный поиск Pearson VUE</a>.</p>
+    <p><strong>Улучшенный геном (Кеккей Генкай):</strong> Особые врожденные способности шиноби, передающиеся по наследству. Пример — слияние двух базовых стихий для создания новой (Вода + Земля = Дерево у Хаширамы Сенджу; Вода + Ветер = Лёд у Хаку). Сюда же относятся уникальные глаза (Додзюцу) — Шаринган, Бьякуган и Риннеган.</p>
 
-    <h3 id="ref-modules">4 модуля экзамена</h3>
+    <h3 id="ref-sannin">Легендарные Саннины Конохи</h3>
+    <p>Великая троица шиноби, ученики Третьего Хокаге Хирузена Сарутоби. Они прославились во время Второй мировой войны шиноби, когда выстояли в бою против лидера Деревни Дождя — Ханзо Саламандры, который и дал им это прозвище:</p>
     <table class="ref-table">
-      <thead><tr><th>Модуль</th><th>Вес</th><th>Ключевое</th></tr></thead>
+      <thead><tr><th>Имя</th><th>Специализация</th><th>Интересный факт</th></tr></thead>
       <tbody>
-        <tr><td><strong>Prepare the Data</strong></td><td>15–20%</td><td>Power Query, sources, transforms, joins, types, combine queries</td></tr>
-        <tr><td><strong>Model the Data</strong> ⚡</td><td><strong>30–35%</strong></td><td>Самый большой! Relationships, star schema, DAX, CALCULATE, Time Intelligence, RLS, Q&amp;A</td></tr>
-        <tr><td><strong>Visualize and Analyze</strong></td><td>25–30%</td><td>Reports, dashboards, bookmarks, tooltips, slicers, AI visuals, Forecast</td></tr>
-        <tr><td><strong>Deploy and Maintain</strong></td><td>20–25%</td><td>Workspaces, apps, gateways, scheduled refresh, sensitivity labels, certify content</td></tr>
+        <tr><td><strong>Джирайя (Жабий мудрец)</strong></td><td>Призыв жаб с горы Мёбоку, Режим Мудреца (Сэндзюцу), сбор информации. Писатель, автор серии романов «Ича-Ича».</td><td>Был учителем Четвертого Хокаге Минато Намиказе, Нагато (Пейна), Конан, Яхико и самого Наруто Узумаки.</td></tr>
+        <tr><td><strong>Цунаде (Принцесса слизней)</strong></td><td>Медицинские техники величайшего уровня, колоссальная физическая сила, призыв слизня Кацую. Обладает печатью Бякуго для мгновенного исцеления ран.</td><td>Внучка Первого Хокаге (Хаширамы Сенджу). Преодолела гемофобию (боязнь крови) и стала Пятой Хокаге Скрытого Листа.</td></tr>
+        <tr><td><strong>Орочимару (Змеиный мудрец)</strong></td><td>Эксперименты над людьми, запретные техники бессмертия (Нечестивое Воскрешение / Эдо Тенсей), призыв змей (Манда).</td><td>Гениальный учёный-отступник, покинувший Коноху. Основал собственную Деревню Скрытого Звука с целью уничтожить Лист.</td></tr>
       </tbody>
     </table>
 
-    <h4 id="ref-mod-prep">Prepare the Data — детальные темы</h4>
+    <h3 id="ref-villages">Пять Великих Стран и их Скрытые Деревни</h3>
+    <p>Географически мир шиноби разделен на множество стран, но ключевое влияние имеют Пять Великих Стран Шиноби, каждая из которых обладает собственной скрытой военной силой во главе с Каге:</p>
     <ul class="ref-links">
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources" target="_blank" rel="noopener">Identify and connect to a data source</a></li>
-      <li><a href="https://www.c-sharpcorner.com/article/how-to-change-data-source-of-existing-report-in-power-bi/" target="_blank" rel="noopener">Change data source settings</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/service-datasets-share" target="_blank" rel="noopener">Select shared dataset / create local</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode" target="_blank" rel="noopener">Storage mode</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-powerbi-connector" target="_blank" rel="noopener">Microsoft Dataverse connector</a></li>
-      <li><a href="https://biinsight.com/power-bi-desktop-query-parameters-part-1/" target="_blank" rel="noopener">Query parameters (часть 1)</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-configure-consume" target="_blank" rel="noopener">Connecting to a dataflow</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-query/data-profiling-tools" target="_blank" rel="noopener">Data profiling tools</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-query/error-handling" target="_blank" rel="noopener">Resolve null / quality issues</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-create-and-manage-relationships" target="_blank" rel="noopener">Identify keys for joins</a></li>
-      <li><a href="https://www.testpreptraining.com/tutorial/evaluating-and-transforming-column-data-types/" target="_blank" rel="noopener">Evaluate and transform column types</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-shape-and-combine-data" target="_blank" rel="noopener">Shape and transform tables</a></li>
-      <li><a href="https://blog.enterprisedna.co/how-to-merge-queries-in-power-bi/" target="_blank" rel="noopener">Combine queries (Append vs Merge)</a></li>
-      <li><a href="https://www.sqlbi.com/articles/data-import-best-practices-in-power-bi/" target="_blank" rel="noopener">Naming conventions</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/refresh-data" target="_blank" rel="noopener">Configure data loading / refresh</a></li>
-      <li><a href="https://powerbi.tips/2020/01/handle-errors-in-data-refreshes-with-power-automate/" target="_blank" rel="noopener">Resolve data import errors</a></li>
+      <li><strong>Конохагакуре (Скрытый Лист) · Страна Огня:</strong> Возглавляется <strong>Хокаге</strong>. Деревня, основанная Мадарой Учиха и Хаширамой Сенджу. Родина Наруто, Саске и большинства ключевых героев.</li>
+      <li><strong>Сунагакуре (Скрытый Песок) · Страна Ветра:</strong> Возглавляется <strong>Кадзэкаге</strong>. Находится посреди суровых пустынь. Известна своими кукловодами и мастерами песка. Родина Гаары.</li>
+      <li><strong>Киригакуре (Скрытый Туман) · Страна Воды:</strong> Возглавляется <strong>Мидзукаге</strong>. В прошлом носила мрачное прозвище «Деревня Кровавого Тумана» из-за жестоких экзаменов, где студенты сражались насмерть.</li>
+      <li><strong>Кумогакуре (Скрытое Облако) · Страна Молнии:</strong> Возглавляется <strong>Райкаге</strong>. Расположена на высоких горах прямо среди облаков. Отличается сильной армией, мастерами кэндзюцу (боя на мечах) и джинчурики.</li>
+      <li><strong>Ивагакуре (Скрытый Камень) · Страна Земли:</strong> Возглавляется <strong>Цучикаге</strong>. Имеет идеальную естественную защиту в виде горных хребтов. Славится стойкостью и техниками манипуляции землей и глиной.</li>
     </ul>
 
-    <h4 id="ref-mod-model">Model the Data ⚡ — детальные темы (САМЫЙ БОЛЬШОЙ модуль!)</h4>
-    <ul class="ref-links">
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-tables" target="_blank" rel="noopener">Define the tables</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-calculated-tables" target="_blank" rel="noopener">Create calculated tables</a></li>
-      <li><a href="https://data-mozart.com/welcome-to-powerbi-thetare-role-playing-dimensions/" target="_blank" rel="noopener">Role-playing dimensions</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-relationships-understand" target="_blank" rel="noopener">Cardinality &amp; cross-filter direction</a></li>
-      <li><a href="https://radacad.com/power-bi-basics-of-modeling-star-schema-and-how-to-build-it" target="_blank" rel="noopener">Star schema</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/model-date-tables" target="_blank" rel="noopener">Common date table</a></li>
-      <li><a href="https://spreadsheeto.com/power-bi-hierarchy/" target="_blank" rel="noopener">Hierarchies</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-tutorial-create-calculated-columns" target="_blank" rel="noopener">Calculated columns</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/admin/service-admin-rls" target="_blank" rel="noopener">Row-level security (RLS)</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/power-bi-tutorial-q-and-a" target="_blank" rel="noopener">Q&amp;A feature</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-measures" target="_blank" rel="noopener">Basic DAX measures</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/dax-avoid-avoid-filter-as-filter-argument" target="_blank" rel="noopener">CALCULATE + filters (best practice)</a></li>
-      <li><a href="https://www.red-gate.com/simple-talk/sql/bi/creating-time-intelligence-functions-in-dax/" target="_blank" rel="noopener">Time Intelligence в DAX</a></li>
-      <li><a href="https://radacad.com/explicit-vs-implicit-dax-measures-in-power-bi" target="_blank" rel="noopener">Explicit vs implicit measures</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/dax/statistical-functions-dax" target="_blank" rel="noopener">Statistical DAX functions</a></li>
-      <li><a href="https://www.sqlbi.com/articles/semi-additive-measures-in-dax/" target="_blank" rel="noopener">Semi-additive measures</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-quick-measures" target="_blank" rel="noopener">Quick measures</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/import-modeling-data-reduction" target="_blank" rel="noopener">Optimize: remove rows/columns</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/power-bi-optimization" target="_blank" rel="noopener">Performance optimization</a></li>
-      <li><a href="https://towardsdatascience.com/boost-power-bi-performance-by-improving-cardinality-levels-ace820e5bd6f" target="_blank" rel="noopener">Reduce cardinality</a></li>
-    </ul>
-
-    <h4 id="ref-mod-viz">Visualize and Analyze — детальные темы</h4>
-    <ul class="ref-links">
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-report-add-visualizations-i" target="_blank" rel="noopener">Add visualizations to reports</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a" target="_blank" rel="noopener">Choose visualization type</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/visuals/service-getting-started-with-color-formatting-and-axis-properties" target="_blank" rel="noopener">Format visualizations (color, axis)</a></li>
-      <li><a href="https://data-flair.training/blogs/power-bi-custom-visuals/" target="_blank" rel="noopener">Custom visuals</a></li>
-      <li><a href="https://data-flair.training/blogs/power-bi-conditional-formatting/" target="_blank" rel="noopener">Conditional formatting</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes" target="_blank" rel="noopener">Apply &amp; customize theme</a></li>
-      <li><a href="https://okviz.com/blog/design-guide-for-power-bi-slicers-and-filters/" target="_blank" rel="noopener">Slicers and filters design</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/power-bi-report-display-settings" target="_blank" rel="noopener">Configure report page</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-analyze-in-excel" target="_blank" rel="noopener">Analyze in Excel</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/report-paginated-or-power-bi" target="_blank" rel="noopener">Paginated reports</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboard-tiles" target="_blank" rel="noopener">Dashboard tiles</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-create-phone-report" target="_blank" rel="noopener">Mobile view</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-q-and-a" target="_blank" rel="noopener">Q&amp;A on dashboards</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-insights" target="_blank" rel="noopener">Quick Insights</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboard-themes" target="_blank" rel="noopener">Dashboard themes</a></li>
-      <li><a href="https://www.youtube.com/watch?v=QIVromazBw4" target="_blank" rel="noopener">Pin live report page (видео)</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-bookmarks" target="_blank" rel="noopener">Bookmarks</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-tooltips" target="_blank" rel="noopener">Custom tooltips</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/service-reports-visual-interactions" target="_blank" rel="noopener">Edit interactions between visuals</a></li>
-      <li><a href="https://data-marc.com/2020/05/22/personalize-your-power-bi-page-navigation/" target="_blank" rel="noopener">Page navigation</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-sort-by-column" target="_blank" rel="noopener">Sort by column</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/developer/visuals/enable-sync-slicers" target="_blank" rel="noopener">Sync Slicers</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/power-bi-create-mobile-optimized-report-order-layers" target="_blank" rel="noopener">Selection pane (group/layer)</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-drill" target="_blank" rel="noopener">Drilldown</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-export" target="_blank" rel="noopener">Export report data</a></li>
-      <li><a href="https://powerbi.microsoft.com/en-us/blog/create-stunning-mobile-reports-with-the-updated-mobile-authoring-in-power-bi-desktop/" target="_blank" rel="noopener">Mobile-optimised reports</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-analyze-visuals" target="_blank" rel="noopener">Analyze feature</a></li>
-      <li><a href="http://datacornering.com/how-to-identify-outliers-in-microsoft-power-bi/" target="_blank" rel="noopener">Identify outliers</a></li>
-      <li><a href="https://www.burningsuit.co.uk/7-secrets-of-the-line-chart/" target="_blank" rel="noopener">Continuous vs categorical axes</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning" target="_blank" rel="noopener">Groupings and binning</a></li>
-      <li><a href="https://www.tutorialgateway.org/power-bi-clusters/" target="_blank" rel="noopener">Clustering</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/learn/modules/ai-visuals-power-bi/" target="_blank" rel="noopener">AI visuals (MS Learn модуль)</a></li>
-      <li><a href="https://www.pluralsight.com/guides/forecasting-in-power-bi" target="_blank" rel="noopener">Forecast feature</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-analytics-pane" target="_blank" rel="noopener">Reference lines (Analytics pane)</a></li>
-    </ul>
-
-    <h4 id="ref-mod-deploy">Deploy and Maintain Assets — детальные темы</h4>
-    <ul class="ref-links">
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/service-gateway-onprem" target="_blank" rel="noopener">When a gateway is required</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/report-server/configure-scheduled-refresh" target="_blank" rel="noopener">Scheduled refresh</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/report-server/row-level-security-report-server" target="_blank" rel="noopener">RLS group membership</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/service-datasets-build-permissions" target="_blank" rel="noopener">Providing dataset access</a></li>
-      <li><a href="https://bi.unija.com/en/preparing-work-environment-in-power-bi-desktop/" target="_blank" rel="noopener">Manage global options</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-create-the-new-workspaces" target="_blank" rel="noopener">Create &amp; configure workspace</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-new-workspaces" target="_blank" rel="noopener">Workspace roles</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-create-distribute-apps#change-your-published-app" target="_blank" rel="noopener">Configure / update app</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-upload-desktop-files" target="_blank" rel="noopener">Publish / import / update assets</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/admin/service-security-apply-data-sensitivity-labels" target="_blank" rel="noopener">Sensitivity labels</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-report-subscribe" target="_blank" rel="noopener">Subscriptions</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/service-set-data-alerts" target="_blank" rel="noopener">Data alerts</a></li>
-      <li><a href="https://powerbi.microsoft.com/en-us/blog/certified-and-promoted-reports-and-apps/" target="_blank" rel="noopener">Promote / certify content</a></li>
-    </ul>
-
-    <h3 id="ref-question-types">Типы вопросов</h3>
+    <h3 id="ref-akatsuki">Преступная организация Акацуки</h3>
+    <p>Акацуки — таинственная группа шиноби-отступников S-ранга, собравшихся со всего мира. Первоначально созданная Яхико ради мира в своей стране, после его гибели организация переродилась под руководством Пейна (Нагато) и Обито Учихи в синдикат с целью захвата всех девяти Хвостатых Зверей (Биджу) для создания оружия абсолютной силы.</p>
+    <p><strong>Ключевые дуэты и члены организации:</strong></p>
     <ul>
-      <li>Single answer (один правильный)</li>
-      <li>Multiple answer (баллы за каждый правильный компонент — частичный скор)</li>
-      <li>Drag-drop (последовательность)</li>
-      <li>Case studies (кейсы для анализа)</li>
-      <li>Симуляции в Power BI</li>
-    </ul>
-    <p><strong>Скоринг:</strong> угадывание не наказывается, экспериментальные вопросы не учитываются (но не знаешь какие).</p>
-
-    <h3 id="ref-before">Перед сдачей экзамена</h3>
-
-    <h4 id="ref-when-register">Когда регистрироваться</h4>
-    <ul>
-      <li><strong>Завершение подготовки</strong> — записывайся, когда уверен в знаниях</li>
-      <li><strong>Доступность экзамена</strong> — для онлайн можно зарегистрироваться даже за день, для офлайн зависит от центра</li>
-      <li><strong>Личный график</strong> — не планируй на стрессовые моменты</li>
-      <li><strong>Акции и скидки</strong> — следи за предложениями Microsoft и Pearson VUE</li>
-      <li><strong>Цели сертификации</strong> — учитывай дедлайны карьерные/трудовые</li>
+      <li><strong>Пейн (Нагато) и Конан:</strong> Лидеры Акацуки. Пейн обладает Риннеганом и управляет Шестью Путями Пейна. Конан мастерски манипулирует бумажными техниками.</li>
+      <li><strong>Итачи Учиха и Кисаме Хошигаки:</strong> Итачи — гений Конохи, пожертвовавший кланом ради мира и использующий мощнейшие иллюзии Мангекьё Шарингана. Кисаме — беглый ниндзя Тумана, обладатель живого меча Самехада, поглощающего чакру.</li>
+      <li><strong>Сасори и Дейдара:</strong> Дуэт «искусства». Дейдара использует взрывную глину и считает, что «искусство — это взрыв». Сасори — легендарный кукловод, превративший собственное тело в марионетку.</li>
+      <li><strong>Хидан и Какузу:</strong> Бессмертные Акацуки. Хидан — религиозный безумец, приносящий жертвы богу Джашину с помощью ритуалов. Какузу — казначей организации, продлевающий свою жизнь за счет кражи сердец врагов (владеет 5 сердцами).</li>
+      <li><strong>Обито Учиха (Тоби) и Зецу:</strong> Истинные кукловоды организации, действующие из тени ради осуществления плана «Глаз Луны» (Вечного Цукуёми).</li>
     </ul>
 
-    <h4 id="ref-register-steps">Регистрация (7 шагов)</h4>
-    <ol>
-      <li>Открыть страницу экзамена на <a href="https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/" target="_blank" rel="noopener">learn.microsoft.com</a> → «Запланировать экзамен»</li>
-      <li>Войти в Microsoft Learn (или создать профиль)</li>
-      <li>Заполнить профиль — <strong>юридическое имя должно совпадать с ID</strong> (потом не изменить!)</li>
-      <li>Подтвердить контакты (для Pearson VUE)</li>
-      <li>Выбрать провайдера → <strong>Pearson VUE</strong></li>
-      <li>На сайте Pearson VUE: дата, время, формат (онлайн/офлайн)</li>
-      <li>Оплата (Visa/Amex/MasterCard) → email-подтверждение</li>
-    </ol>
-    <p>Видео-инструкция на русском: <a href="https://www.youtube.com/watch?v=987xaZLMkz4" target="_blank" rel="noopener">YouTube</a>.</p>
-
-    <h4 id="ref-discounts">Скидки и ваучеры</h4>
-    <ul>
-      <li><strong>Ваучеры от партнёров</strong>: KZ Data Community работает с центром в Грузии, периодически дают ваучеры — следи за <a href="https://t.me/%2B5JC3gaIp44tjNjAy" target="_blank" rel="noopener">чатом по сертификациям Microsoft</a></li>
-      <li><strong>Microsoft Learn / cert programs</strong> — периодические акции, бесплатные ваучеры через учебные курсы</li>
-      <li><strong>Microsoft Ignite</strong> и виртуальные челленджи — иногда раздают ваучеры</li>
-      <li><strong>Microsoft Imagine Academy</strong> — скидки для студентов и преподавателей</li>
-      <li><strong>Exam Replay</strong> — ваучер с возможностью повторной сдачи</li>
-      <li><strong>Партнёры Microsoft</strong> — компании со специальными соглашениями имеют скидки</li>
-      <li><strong>Некоммерческие / госслужащие</strong> — могут иметь право на снижение стоимости</li>
-    </ul>
-
-    <h4 id="ref-reschedule">Перенос / отмена / неявка</h4>
-    <ul>
-      <li><strong>Перенос:</strong> возможен в Microsoft Learn / Pearson VUE, не позднее <strong>24 ч</strong> до экзамена</li>
-      <li><strong>Плата:</strong> перенос менее чем за 24 ч → теряешь оплату</li>
-      <li><strong>Возврат:</strong> отмена за 24+ ч → полный возврат через 5–7 рабочих дней. Ваучеры не возвращаются</li>
-      <li><strong>Неявка:</strong> теряешь всю сумму</li>
-      <li><a href="https://learn.microsoft.com/ru-ru/credentials/support/reschedule-and-cancellation-policy?wt.mc_id=DP-MVP-5004137" target="_blank" rel="noopener">Официальная политика переноса/отмены</a></li>
-    </ul>
-
-    <h3 id="ref-onvue">OnVUE — онлайн-сдача (полный checklist)</h3>
-    <p>Документация: <a href="https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/onvue/pearson-vue-online-testing-guide-en.pdf" target="_blank" rel="noopener">PDF-гайд OnVUE</a> · <a href="https://www.youtube.com/watch?v=987xaZLMkz4" target="_blank" rel="noopener">видео о платформе</a> · <a href="https://www.pearsonvue.com/us/en/onvue/requirements.html?tab=id-requirements" target="_blank" rel="noopener">требования к ID</a>.</p>
-    <h4>Оборудование</h4>
-    <ul class="checklist">
-      <li>✅ Десктоп или ноутбук (планшет — только как экран с внешней клавиатурой)</li>
-      <li>✅ Один монитор (лишние убрать или отключить)</li>
-      <li>✅ Веб-камера, мышь, клавиатура</li>
-      <li>✅ Личный компьютер (не служебный — политики безопасности могут прервать)</li>
-    </ul>
-    <h4>Сеть</h4>
-    <ul class="checklist">
-      <li>✅ Проводное соединение &gt; Wi-Fi</li>
-      <li>❌ <strong>VPN отключить</strong> (OnVUE с ним работает плохо)</li>
-      <li>✅ Run system test за неделю и за 2–3 дня до экзамена</li>
-    </ul>
-    <h4>Помещение</h4>
-    <ul class="checklist">
-      <li>✅ Приватное, тихое, хорошо освещённое</li>
-      <li>✅ Стол очищен от личных вещей</li>
-      <li>✅ Телефон в комнате, но <strong>вне досягаемости</strong></li>
-    </ul>
-    <h4>Регистрация в OnVUE-сессии</h4>
-    <ul>
-      <li>Окно регистрации: за 30 мин до и до 15 мин после старта. Раньше нельзя</li>
-      <li>Нажми «Begin Exam» → получи Access Code → закрой все приложения → запусти OnVUE из папки загрузок</li>
-    </ul>
-    <h4>Фотографирование</h4>
-    <ul>
-      <li>Фото лица — на однотонной стене</li>
-      <li>Фото ID — фронт + зад (или паспортная страница)</li>
-      <li>4 фото рабочего пространства</li>
-    </ul>
-    <h4>Технические проблемы</h4>
-    <p>До начала — перенос/отмена с возвратом средств. Во время — ваучер на новый экзамен. Если сильно отключило — служба поддержки сама создаст запрос.</p>
-
-    <h3 id="ref-test-center">Тест-центр (офлайн) — checklist</h3>
-    <p>Документация: <a href="https://www.youtube.com/watch?v=OSWXzhavOwg" target="_blank" rel="noopener">видео о сдаче в тест-центре</a> · <a href="https://www.pearsonvue.com/content/dam/VUE/vue/global/documents/global-id-policy/Pearson-VUE-ID-Policies-1-English.pdf" target="_blank" rel="noopener">политика идентификации (PDF)</a>.</p>
-    <ul class="checklist">
-      <li>✅ Прийти за <strong>15 минут</strong> минимум — проверка/сверка/фото/подпись</li>
-      <li>✅ <strong>2 документа</strong>, удостоверяющих личность (паспорт + ID/права)</li>
-      <li>✅ Имя/фамилия буква в букву как в паспорте</li>
-      <li>✅ Регулярно проверяй почту — центр может отменить дату</li>
-      <li>✅ Личные вещи — в шкафчик</li>
-      <li>✅ На перерыве можно телефон/еду/медикаменты, нельзя учебные материалы</li>
-    </ul>
-
-    <h3 id="ref-exam-day">В день экзамена</h3>
-    <ul>
-      <li>Если офлайн — выдели достаточно времени на дорогу</li>
-      <li>Если онлайн — подготовь пространство и проверь систему</li>
-      <li><strong>Что взять:</strong> онлайн — ID + компьютер; офлайн — 2 документа ID</li>
-      <li>Имя на ID = имя в Microsoft Learn (исключения только за 5 рабочих дней до)</li>
-      <li>Чрезвычайные ситуации (погода/болезнь) — связаться со <a href="https://home.pearsonvue.com/microsoft/contact" target="_blank" rel="noopener">службой поддержки Pearson VUE</a></li>
-    </ul>
-
-    <h3 id="ref-after">После экзамена</h3>
-
-    <h4 id="ref-results">Результаты и отчёт</h4>
-    <ul>
-      <li>В тест-центре — отчёт сразу (до 30 мин печать)</li>
-      <li>Онлайн через <a href="https://learn.microsoft.com/" target="_blank" rel="noopener">Microsoft Learn</a> — в течение <strong>24 часов</strong></li>
-      <li>Отчёт: числовая оценка, pass/fail, гистограмма по областям навыков (короткие полосы — слабость, длинные — сила)</li>
-      <li><strong>Оспорить вопрос:</strong> форма в течение <strong>15 календарных дней</strong>. Microsoft редко изменяет результаты</li>
-    </ul>
-    <p>Где смотреть: Microsoft Learn → Credentials → Certifications → View details on provider site → Pearson VUE → My account → View score reports.</p>
-
-    <h4 id="ref-scoring">Как оценивается экзамен</h4>
-    <ul>
-      <li>Многокомпонентные вопросы: 1 балл за каждый правильный компонент (можно набрать частичный)</li>
-      <li>Угадывание не наказывается — за неверный ответ 0, никаких минусов</li>
-      <li>Часть вопросов — экспериментальные, не учитываются в оценке (но какие именно — не знаешь)</li>
-      <li>Microsoft вводит новые типы вопросов с альтернативной оценкой — это будет помечено в самом вопросе</li>
-    </ul>
-
-    <h4 id="ref-retake">Политика пересдачи</h4>
-    <table class="ref-table">
-      <thead><tr><th>Попытка</th><th>Ожидание</th></tr></thead>
-      <tbody>
-        <tr><td>1-я → 2-я</td><td><strong>24 часа</strong></td></tr>
-        <tr><td>2-я и далее (до 5-й)</td><td><strong>14 дней</strong></td></tr>
-        <tr><td>После 5 попыток</td><td><strong>12 месяцев</strong> до следующей</td></tr>
-        <tr><td>Каждая пересдача</td><td>Повторная оплата</td></tr>
-        <tr><td>Отказ от ожидания</td><td>Только при тех. сбое с номером инцидента Pearson VUE</td></tr>
-      </tbody>
-    </table>
-    <p>Связь по отказу: <a href="https://trainingsupport.microsoft.com/en-us/?auth=1" target="_blank" rel="noopener">служба поддержки Microsoft</a>.</p>
-
-    <h3 id="ref-renewal">Продление сертификации</h3>
-    <p>Сертификат PL-300 действителен <strong>1 год</strong>. Продлить нужно в течение 6 месяцев до истечения. Уведомление приходит за 180 дней до окончания.</p>
-    <h4>Формат продления</h4>
-    <ul>
-      <li>~25 вопросов, основанных на сценариях, формат multiple choice + fill-in-the-blanks</li>
-      <li>Длительность: 45 минут (таймер может не отображаться — следи сам)</li>
-      <li>Проходной балл: <strong>57%</strong></li>
-      <li>Проводится онлайн, без прокторинга, бесплатно</li>
-    </ul>
-    <h4>Оцениваемые навыки на продлении</h4>
-    <ul>
-      <li>Очистка, преобразование и загрузка данных в Power BI</li>
-      <li>Проектирование модели данных</li>
-      <li>Добавление мер в модели Power BI Desktop</li>
-      <li>Оптимизация модели для производительности</li>
-      <li>Проектирование отчётов</li>
-      <li>Улучшение дизайна для удобства пользователей</li>
-      <li>Выполнение аналитики</li>
-      <li>Создание и управление рабочими пространствами</li>
-      <li>Управление наборами данных</li>
-    </ul>
-
-    <h3 id="ref-strategy">Стратегия подготовки</h3>
-    <ol>
-      <li>Изучи <strong>skills measured</strong> на learn.microsoft.com</li>
-      <li><a href="https://learn.microsoft.com/en-us/training/courses/pl-300t00" target="_blank" rel="noopener">Microsoft Learn — бесплатный курс PL-300T00</a></li>
-      <li><a href="https://learn.microsoft.com/en-us/shows/exam-readiness-zone/preparing-for-pl-300-prepare-the-data" target="_blank" rel="noopener">Exam Readiness Zone — Preparing for PL-300</a></li>
-      <li>Решай практические тесты — для формата и слабых зон</li>
-      <li>Регулярно работай в Power BI Desktop — теория без практики не работает</li>
-      <li>Учебная группа / наставник</li>
-      <li>Управление временем: 100 мин / 40–60 вопросов = ≈1.5–2.5 мин на вопрос</li>
-      <li>Высыпайся перед экзаменом</li>
-    </ol>
-
-    <h3 id="ref-links">Полезные ссылки и сообщество</h3>
-    <h4>Официальные ресурсы Microsoft / Pearson VUE</h4>
-    <ul class="ref-links">
-      <li><a href="https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/?practice-assessment-type=certification" target="_blank" rel="noopener">Страница сертификации PL-300</a></li>
-      <li><a href="https://learn.microsoft.com/en-us/training/courses/pl-300t00" target="_blank" rel="noopener">PL-300T00 — официальный курс</a></li>
-      <li><a href="https://learn.microsoft.com/en-us/power-bi/" target="_blank" rel="noopener">Power BI documentation</a></li>
-      <li><a href="https://learn.microsoft.com/en-us/powerapps/" target="_blank" rel="noopener">Power Apps documentation</a></li>
-      <li><a href="https://home.pearsonvue.com/microsoft/contact" target="_blank" rel="noopener">Pearson VUE customer service</a></li>
-      <li><a href="https://trainingsupport.microsoft.com/en-us/?auth=1" target="_blank" rel="noopener">Microsoft Training Support</a></li>
-    </ul>
-    <h4>Сообщество Power Users</h4>
-    <ul class="ref-links">
-      <li><a href="https://powerusers.microsoft.com/t5/Power-Apps-Community/ct-p/PowerApps1" target="_blank" rel="noopener">Power Apps Community</a></li>
-      <li><a href="https://powerusers.microsoft.com/t5/Power-Query/bd-p/PA_PowerQuery" target="_blank" rel="noopener">Power Query forum</a></li>
-      <li><a href="https://powerusers.microsoft.com/t5/Building-Power-Apps/bd-p/PowerAppsForum1" target="_blank" rel="noopener">Building Power Apps forum</a></li>
-    </ul>
-    <h4>KZ Data Community</h4>
-    <ul class="ref-links">
-      <li><a href="https://t.me/kz_bi" target="_blank" rel="noopener">Telegram: KZ BI &amp; Data Analytics</a></li>
-      <li><a href="https://t.me/kz_bi_news" target="_blank" rel="noopener">Telegram: KZ BI News</a></li>
-      <li><a href="https://t.me/kz_bi_jobs" target="_blank" rel="noopener">Telegram: KZ BI Jobs</a></li>
-      <li><a href="https://t.me/datakz" target="_blank" rel="noopener">Telegram: DataKZ (Data Science)</a></li>
-      <li><a href="https://t.me/datanewskz" target="_blank" rel="noopener">Telegram: DataNews KZ</a></li>
-      <li><a href="https://t.me/datajobskz" target="_blank" rel="noopener">Telegram: DataJobs KZ</a></li>
-      <li><a href="https://www.instagram.com/kz_bi_community/" target="_blank" rel="noopener">Instagram: kz_bi_community</a></li>
-      <li><a href="https://t.me/%2B5JC3gaIp44tjNjAy" target="_blank" rel="noopener">Чат по сертификациям Microsoft (скидки)</a></li>
-      <li><a href="https://rekhert4.com/community" target="_blank" rel="noopener">Сайт rekhert4.com — бесплатные материалы</a></li>
-    </ul>
-    <h4>Видео-истории сдавших PL-300 (KZ Data community)</h4>
-    <ul class="ref-links">
-      <li><a href="https://www.youtube.com/watch?v=E-0h0uaDMPQ&list=PLCwOzG21fwctLbd9RgLS7A1feNcUnpLND&index=21&t=7s" target="_blank" rel="noopener">Митап со сдавшими PL-300 — март 2024</a></li>
-      <li><a href="https://www.youtube.com/watch?v=W94H5D9ZFxY&list=PLCwOzG21fwctLbd9RgLS7A1feNcUnpLND&index=5&pp=iAQB" target="_blank" rel="noopener">Митап со сдавшими PL-300 — сентябрь 2024</a></li>
-    </ul>
-    <h4>Excel и Office (для работы аналитика)</h4>
-    <ul class="ref-links">
-      <li><a href="https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188" target="_blank" rel="noopener">Все функции Microsoft Excel (алфавитный список)</a></li>
-      <li><a href="https://support.office.com/ru-ru/excel/?wt.mc_id=DP-MVP-5004137" target="_blank" rel="noopener">Справка Excel</a></li>
-      <li><a href="https://blogs.technet.microsoft.com/tasush/?wt.mc_id=DP-MVP-5004137" target="_blank" rel="noopener">Блог Microsoft Office</a></li>
-      <li><a href="https://www.microsoft.com/ru-ru/microsoft-365/blog/2019/02/06/excel-with-microsoft-excel-in-office-365/?wt.mc_id=DP-MVP-5004137" target="_blank" rel="noopener">Блог Microsoft Office о Excel в 365</a></li>
-    </ul>
+    <h3 id="ref-faq">Вопросы и ответы (FAQ)</h3>
+    <details class="ref-faq" open>
+      <summary>Как пробуждается Шаринган и в чём его отличие от Мангекьё?</summary>
+      <p>Шаринган — это наследственное додзюцу клана Учиха. Он пробуждается в моменты сильного душевного волнения (страх за друзей, ярость, горе). В этот момент в мозге выделяется особая чакра, активирующая глаза. Шаринган позволяет видеть чакру, предугадывать движения врага и копировать техники.</p>
+      <p>Мангекьё Шаринган — эволюционировавшая форма, пробуждающаяся только от глубокой личной трагедии (смерти близкого человека). Он дает уникальные техники (Аматерасу, Цукуёми, Сусаноо), но его чрезмерное использование ведет к слепоте.</p>
+    </details>
+    <details class="ref-faq">
+      <summary>Кто такие Хвостатые Звери (Биджу) и Джинчурики?</summary>
+      <p>Хвостатые Звери — это девять гигантских монстров, созданных из чакры Десятихвостого легендарным Мудрецом Шести Путей. Каждый имеет разное число хвостов (от Однохвостого Шукаку до Девятихвостого Курамы) и колоссальный запас разрушительной энергии.</p>
+      <p>Джинчурики — люди, внутри которых запечатаны Хвостатые Звери (например, Наруто — джинчурики Курамы, Гаара — Шукаку, Киллер Би — Гьюки). Многие джинчурики подвергались гонениям, но некоторые смогли подружиться со своими зверями и обрести невероятную силу.</p>
+    </details>
+    <details class="ref-faq">
+      <summary>Что такое Режим Мудреца (Sage Mode)?</summary>
+      <p>Это особое состояние шиноби, позволяющее ему собирать природную энергию вокруг себя и смешивать её с собственной духовной и физической чакрой. Это создает Сэндзюцу-чакру, увеличивающую в разы физическую силу, скорость, стойкость к атакам и позволяющую чувствовать присутствие других людей на огромных расстояниях. Обучиться этому можно у жаб на горе Мёбоку или у змей в пещере Рьючи.</p>
+    </details>
+    <details class="ref-faq">
+      <summary>Что представляет собой легендарный Восьмиглавый Змей Орочимару?</summary>
+      <p>Восьмиглавый змей (Ямата-но-Орочи) — это сильнейшая змеиная техника Орочимару, которую он использует, высвобождая спрятанную в проклятой печати Саске чакру во время боя с Итачи. Этот гигантский змей превосходит по размерам даже обычных змеиных боссов, но был побежден Итачи с помощью меча Тоцука, принадлежащего Сусаноо.</p>
+    </details>
+    <details class="ref-faq">
+      <summary>Какая разница между техниками Эдо Тенсей и Ринне Тенсей?</summary>
+      <p><strong>Эдо Тенсей (Нечестивое Воскрешение):</strong> Запретная техника, созданная Тобирамой Сенджу и усовершенствованная Кабуто и Орочимару. Она призывает душу умершего в тело живого человека, принося его в жертву. Призванные бессмертны, имеют бесконечную чакру и подчиняются призывателю.</p>
+      <p><strong>Ринне Тенсей (Божественное Воскрешение):</strong> Техника Риннегана, позволяющая полностью вернуть умерших людей к полноценной жизни (во плоти и крови) ценой жизни самого пользователя (как сделал Нагато после нападения на Коноху).</p>
+    </details>
 
     <div class="references-attribution" id="ref-attribution">
-      <div class="references-attribution-title">📚 Источник</div>
+      <div class="references-attribution-title">🏮 Источник мудрости</div>
       <div class="references-attribution-text">
-        Все права на оригинальный материал принадлежат <strong>школе по аналитике данных DataBoom</strong> (KZ Data Community).
-        <br>Версия гайда: апрель 2025.
+        Материалы подготовлены архивами Конохагакуре при содействии Хокаге. Удачи на экзамене, будущий великий ниндзя! Да пребудет с тобой Воля Огня! 🔥
       </div>
     </div>
     </div>
