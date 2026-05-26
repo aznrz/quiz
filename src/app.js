@@ -2645,7 +2645,10 @@ function updatePickersForExam() {
 
 function updateBadges() {
   $('badgePractice').textContent = `${Math.min(S.practiceQuestionCount, getPracticeQuestionPool(S.exam).length)} q.`;
-  $('badgeCase').textContent = S.csLabel ? `${$('casePicker').options.length} cases` : 'none';
+  const badgeCaseEl = $('badgeCase');
+  if (badgeCaseEl) {
+    badgeCaseEl.textContent = S.csLabel ? `${$('casePicker').options.length} cases` : 'none';
+  }
   const badgeWeakEl = $('badgeWeak');
   if (badgeWeakEl) badgeWeakEl.textContent = `${getWeakSections(S.exam).length} topics`;
   $('badgeSmart').textContent = `${getSmartReviewQuestions(S.exam, S.practiceQuestionCount).length} q.`;
