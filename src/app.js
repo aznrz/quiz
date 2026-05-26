@@ -5359,6 +5359,12 @@ function renderVisibleExamsPanel() {
     var fromLS = loadVisibleExamsFromLS();
     userProfile.visibleExams = (fromLS && fromLS.length) ? fromLS : accessible.slice();
   }
+  // Auto-merge: any newly added exam (not yet in saved list) is added automatically.
+  accessible.forEach(function(code) {
+    if (userProfile.visibleExams.indexOf(code) === -1) {
+      userProfile.visibleExams.push(code);
+    }
+  });
   var visible = userProfile.visibleExams;
   var profiles = (typeof EXAM_PROFILES === 'object' && EXAM_PROFILES) ? EXAM_PROFILES : {};
   grid.innerHTML = accessible.map(function(code) {
