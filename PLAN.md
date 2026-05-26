@@ -82,14 +82,10 @@ Synced to `functions/data/questions.v2.json` via `node functions/sync-data.js`.
 ### ✅ Step 8 — Cloudflare rename (DONE)
 `wrangler.jsonc` → `"name": "naruto"`
 
-### ⏳ Step 9 — First commit + push (PENDING)
+### ✅ Step 9 — First commit + push (DONE)
 
-No commits exist yet. All files are untracked. Run:
-```bash
-git add .
-git commit -m "fork: naruto quiz from exams-quiz, stripped admin/subscriptions/branding"
-git push -u origin main
-```
+Created the first commit and pushed to `main` branch. All files are tracked and up-to-date.
+
 
 ---
 
