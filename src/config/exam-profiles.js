@@ -38,6 +38,57 @@
         hard:   'Эксперт',
       },
     },
+    'SQUID_GAME': {
+      label: 'Игра Кальмаров',
+      supportsCaseStudy: false,
+      supportsMock: false,
+      pacingSecondsPerQuestion: 30,
+      passingScore: 700,
+      sectionWeights: {
+        easy:   0.34,
+        medium: 0.33,
+        hard:   0.33,
+      },
+      sectionLabels: {
+        easy:   'Лёгкие',
+        medium: 'Средние',
+        hard:   'Эксперт',
+      },
+    },
+    'MARVEL': {
+      label: 'Marvel Quiz',
+      supportsCaseStudy: false,
+      supportsMock: false,
+      pacingSecondsPerQuestion: 30,
+      passingScore: 700,
+      sectionWeights: {
+        easy:   0.34,
+        medium: 0.33,
+        hard:   0.33,
+      },
+      sectionLabels: {
+        easy:   'Лёгкие',
+        medium: 'Средние',
+        hard:   'Эксперт',
+      },
+    },
+    'DC': {
+      label: 'DC Comics Quiz',
+      supportsCaseStudy: false,
+      supportsMock: false,
+      pacingSecondsPerQuestion: 30,
+      passingScore: 700,
+      sectionWeights: {
+        easy:   0.34,
+        medium: 0.33,
+        hard:   0.33,
+      },
+      sectionLabels: {
+        easy:   'Лёгкие',
+        medium: 'Средние',
+        hard:   'Эксперт',
+      },
+    },
   };
 
   const DEFAULT_PROFILE = {
