@@ -5248,6 +5248,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 userProfile.visibleExams = _accessibleExamCodes();
               }
             }
+            // Auto-merge newly added exams so a fresh quiz appears in pickers
+            // without needing the user to open My Profile first.
+            if (Array.isArray(userProfile.visibleExams) && typeof _accessibleExamCodes === 'function') {
+              _accessibleExamCodes().forEach(function(code) {
+                if (userProfile.visibleExams.indexOf(code) === -1) {
+                  userProfile.visibleExams.push(code);
+                }
+              });
+            }
             // Cache to LS for next reload-before-firebase boot.
             if (Array.isArray(userProfile.visibleExams) && typeof saveVisibleExamsToLS === 'function') {
               saveVisibleExamsToLS(userProfile.visibleExams);
