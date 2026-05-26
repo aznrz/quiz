@@ -4,7 +4,7 @@
     "NARUTO": {
       "code": "NARUTO",
       "label": "Naruto Quiz",
-      "question_count": 60,
+      "question_count": 50,
       "questions": [
         {
           "id": "nrt-001",
@@ -755,10 +755,17 @@
           "correct": 0,
           "explanation": "Забуза («Дьявол Скрытого Тумана») был одним из Семи великих мечников Скрытого Тумана и владел мечом Кубикирибочо.",
           "prompt": "К какому элитному ордену шиноби из Скрытого Тумана принадлежал Забуза Мочизуки до дезертирства?"
-        },
+        }
+      ]
+    },
+    "BRIDGERTON": {
+      "code": "BRIDGERTON",
+      "label": "Бриджертоны",
+      "question_count": 10,
+      "questions": [
         {
           "id": "nrt-051",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "easy",
           "version": "gen1",
           "options": [
@@ -773,7 +780,7 @@
         },
         {
           "id": "nrt-052",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "easy",
           "version": "gen1",
           "options": [
@@ -788,7 +795,7 @@
         },
         {
           "id": "nrt-053",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "easy",
           "version": "gen1",
           "options": [
@@ -803,7 +810,7 @@
         },
         {
           "id": "nrt-054",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "medium",
           "version": "gen1",
           "options": [
@@ -818,7 +825,7 @@
         },
         {
           "id": "nrt-055",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "medium",
           "version": "gen1",
           "options": [
@@ -833,7 +840,7 @@
         },
         {
           "id": "nrt-056",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "medium",
           "version": "gen1",
           "options": [
@@ -848,7 +855,7 @@
         },
         {
           "id": "nrt-057",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "medium",
           "version": "gen1",
           "options": [
@@ -863,7 +870,7 @@
         },
         {
           "id": "nrt-058",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "hard",
           "version": "gen1",
           "options": [
@@ -878,7 +885,7 @@
         },
         {
           "id": "nrt-059",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "hard",
           "version": "gen1",
           "options": [
@@ -893,7 +900,7 @@
         },
         {
           "id": "nrt-060",
-          "exam_code": "NARUTO",
+          "exam_code": "BRIDGERTON",
           "section": "hard",
           "version": "gen1",
           "options": [

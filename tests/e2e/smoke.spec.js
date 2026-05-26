@@ -72,7 +72,8 @@ test.describe('smoke', () => {
 
     const codes = profiles.map(p => p.code);
     expect(codes).toContain('NARUTO');
-    expect(codes.length).toBe(1);
+    expect(codes).toContain('BRIDGERTON');
+    expect(codes.length).toBe(2);
 
     for (const p of profiles) {
       expect(p.sectionCount, `${p.code} has section weights`).toBe(3); // easy, medium, hard
