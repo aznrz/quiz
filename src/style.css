@@ -654,7 +654,7 @@ body {
 .stat-ticker[data-tone="bad"]  .ticker-value { color: #fee2e2; }
 
 /* ── Heatmap weekdays ─────────── */
-.heatmap-frame { display: grid; gap: 6px; margin-top: 12px; }
+.heatmap-frame { display: grid; gap: 6px; margin-top: 12px; min-width: 0; }
 .heatmap-weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -2981,9 +2981,12 @@ code.inline-code {
 
 .heatmap-wrap {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 6px;
   margin-top: 12px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 .heatmap-day {
   aspect-ratio: 7 / 6;
@@ -2998,6 +3001,9 @@ code.inline-code {
   gap: 2px;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .heatmap-day-count {
   font-size: 0.85rem;
