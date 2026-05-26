@@ -73,9 +73,9 @@ service cloud.firestore {
     match /ip_rate_limits/{id}       { allow read, write: if false; }
     match /promo_campaigns/{id}      { allow read, write: if false; }
     match /email_overrides/{email}   { allow read, write: if false; }
-    // Product events (Phase 4.1) — write via logEvent callable, read via
-    // admin_listEvents callable. Both bypass rules via admin SDK.
-    match /events/{eventId}          { allow read, write: if false; }
+    // Product events — write directly or via logEvent callable, read via
+    // admin_listEvents callable. Client has append-only (create) permissions.
+    match /events/{eventId}          { allow create: if signedIn(); allow read, update, delete: if false; }
     // Step 1B.5 redemptions subcollection: read self only (via callable
     // is the primary path; this rule is the back-compat for direct read).
     // Already covered by promo_codes/* deny — but redemptions subcoll

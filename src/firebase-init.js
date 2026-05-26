@@ -36,13 +36,21 @@ const _analyticsCache = { data: null, uid: null, ts: 0, TTL: 60_000 };
 window.cloudSync = {
   loadQuestions: async () => {
     try {
-      const result = await callGetQuestionsAllV2();
-      return result.data;
+      const response = await fetch('./data/questions.v2.json');
+      if (!response.ok) {
+        throw new Error(`Failed to load questions: ${response.statusText}`);
+      }
+      return await response.json();
     } catch (error) {
-      console.warn("getQuestionsAllV2 failed, trying legacy callable", error);
+      console.warn("Static questions load failed, trying callable", error);
+      try {
+        const result = await callGetQuestionsAllV2();
+        return result.data;
+      } catch (e) {
+        const result = await callGetQuestionsAll();
+        return result.data;
+      }
     }
-    const result = await callGetQuestionsAll();
-    return result.data;
   },
   login: async () => {
     try {
@@ -302,15 +310,34 @@ window.cloudSync = {
       if (!auth || !auth.currentUser) return { ok: false, error: 'no_auth' };
       const sessionId = (window.S && window.S.sessionId) || null;
       const appVersion = (typeof window.APP_VERSION === 'string' && window.APP_VERSION) || null;
-      const result = await callLogEvent({
-        event_name: eventName,
-        properties: properties || {},
-        session_id: sessionId,
-        app_version: appVersion,
-      });
-      return result && result.data ? result.data : { ok: true };
+
+      try {
+        const ref = doc(collection(db, "events"));
+        const expires = new Date(Date.now() + 365 * 86400000);
+        await setDoc(ref, {
+          uid: auth.currentUser.uid,
+          email: auth.currentUser.email,
+          plan_id: null,
+          event_name: eventName,
+          properties: properties || {},
+          session_id: sessionId,
+          app_version: appVersion,
+          created_at: new Date().toISOString(),
+          expires_at: expires.toISOString(),
+        });
+        return { ok: true };
+      } catch (firestoreError) {
+        console.warn("[cloudSync.logEvent] direct Firestore event write failed, trying callable", firestoreError);
+        const result = await callLogEvent({
+          event_name: eventName,
+          properties: properties || {},
+          session_id: sessionId,
+          app_version: appVersion,
+        });
+        return result && result.data ? result.data : { ok: true };
+      }
     } catch (e) {
-      try { console.warn('[cloudSync.logEvent]', eventName, e && (e.message || e)); } catch {}
+      try { console.warn('[cloudSync.logEvent] all event logging methods failed:', eventName, e && (e.message || e)); } catch {}
       return { ok: false, error: 'exception' };
     }
   },

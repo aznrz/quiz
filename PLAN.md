@@ -78,6 +78,132 @@ Synced to `functions/data/questions.v2.json` via `node functions/sync-data.js`.
 
 Created the first commit and pushed to `main` branch. All files are tracked and up-to-date.
 
+---
+
+# Next tasks (handover) — 2026-05-26
+
+Steps 1–9 done. Project `naruto-quiz-98b5` exists, code in git, Firebase config wired up.
+**User needs to manually enable Google Auth + Firestore in Firebase Console before deploy will work.** Link: https://console.firebase.google.com/project/naruto-quiz-98b5
+
+Below are the remaining tasks, ordered by priority. Pick them up in order.
+
+---
+
+## 🔥 Priority 1 — Make the site actually run
+
+### Task A — Deploy Firebase Functions
+```bash
+cd "C:\Users\AzizNazarov\GiHUB\naruto"
+firebase deploy --only functions
+```
+This deploys `getQuestionsAll`, `getQuestionsAllV2`, `logEvent` to project `naruto-quiz-98b5`.
+- If deploy fails with billing/permission errors, report to user (Blaze plan may be required for Gen 2 functions).
+- Verify `functions/data/questions.v2.json` exists before deploy (predeploy hook copies it).
+
+### Task B — Smoke test the app locally
+1. Start a local server: `npx http-server -p 8080 -c-1` (or `python -m http.server 8080`) in repo root
+2. Open `http://localhost:8080`
+3. Click Google sign-in → should open OAuth popup
+4. After login: app should call `getQuestionsAllV2` → load 10 questions → render quiz UI
+5. Take a few questions, check answer recording, explanation display
+6. If anything breaks, capture console errors and add them as TODOs
+
+If Auth/Firestore not enabled in console yet → login will fail. That's the user's blocker, document it.
+
+### Task C — Deploy to Cloudflare Worker
+```bash
+cd "C:\Users\AzizNazarov\GiHUB\naruto"
+npx wrangler deploy
+```
+Worker name is `naruto` per `wrangler.jsonc`. Should publish at `naruto.<account>.workers.dev`. Confirm site loads.
+
+---
+
+## 🟡 Priority 2 — Add more questions
+
+User wants to grow `data/questions.v2.json` over time for various quiz events. Currently 10 questions, target 50.
+
+**Generate 40 more Naruto questions** (next ids: `nrt-011` … `nrt-050`):
+- ~13 easy (basic characters, village names, simple plot facts)
+- ~14 medium (techniques, clans, team compositions, arcs)
+- ~13 hard (lore details, jutsu mechanics, character relationships, Shippuden/Boruto)
+
+Use the existing schema (see `data/questions.v2.json`). Keep all text in Russian. Each question must have 4 options, exactly one `correct` index, and a 1–2 sentence `explanation`.
+
+After editing, **always run**:
+```bash
+node functions/sync-data.js
+```
+to copy `data/` → `functions/data/`. Then redeploy functions.
+
+---
+
+## 🟢 Priority 3 — Visual polish
+
+### Task D — Replace icons
+`assets/icon-192.png` and `assets/icon-512.png` are still the old MS-cert purple icons. Replace with Naruto-themed orange icons (suggested: Konoha leaf symbol on orange #f97316 background, or a kunai). 192×192 and 512×512 PNG. User can provide, or use a placeholder generated from a simple SVG.
+
+### Task E — Audit CSS for MS purple
+Check `src/style.css` for hard-coded MS indigo `#6366f1` / `#4f46e5` colors. Replace with Naruto orange `#f97316` / red `#dc2626` palette where it makes sense (primary buttons, accents, focus rings). Be conservative — don't break the whole theme.
+
+### Task F — Remove dead MS assets
+Delete unused MS-specific image assets to shrink repo:
+- `assets/db2/` — all PL-300 question images (entire folder)
+- `assets/explanations/` — pl300_*.svg files
+- `assets/generated_explanations/` — same
+- `assets/manual/` — pl300_*.svg files
+- `assets/mini/` — check contents, likely MS-specific
+
+Check `index.html` and `src/app.js` first to make sure no img src references these paths — should be safe since these were tied to PL-300 questions that no longer exist.
+
+---
+
+## 🟢 Priority 4 — Repo cleanup
+
+### Task G — Clean up tests
+`tests/` folder has MS-specific Playwright tests that are now broken:
+- `tests/access-flow.spec.mjs` — references removed access/promo flow → DELETE
+- `tests/admin-flow.spec.mjs` — references removed admin UI → DELETE
+- `tests/e2e/learning-flows.spec.js` — likely PL-300 specific, check and delete or rewrite
+- `tests/e2e/smoke.spec.js` — keep as smoke test but update assertions for "Naruto Quiz" branding
+- `tests/e2e/next-button-ux.spec.js` — check if engine-level (keep) or MS-content (delete)
+- `tests/events-repo.test.mjs` — check; likely engine-level, keep if compatible
+- `tests/extension-logic.test.mjs` — check
+- `tests/sweep-smoke.spec.mjs` — check
+- `tests/e2e-checklist.spec.mjs` — check
+- `tests/auth-setup.mjs` — keep if generic auth helper
+
+Rule of thumb: if the test references `pl300`, `dp900`, `Power BI`, `Microsoft`, `mock_exam`, `promo`, `admin` — delete.
+
+### Task H — Audit README.md
+`README.md` still describes the MS-cert project. Rewrite as a short Naruto Quiz readme: what the project is, how to run locally, how to add questions, how to deploy.
+
+### Task I — Audit functions/package.json
+Check `functions/package.json` for now-unused deps after the cleanup (the old code used `firebase-admin` for many things). Keep `firebase-functions`, `firebase-admin`. Likely no other deps needed.
+
+### Task J — Audit firestore.rules
+After admin/access removal, `firestore.rules` may still reference deleted collections (`access`, `plans`, `promo_codes`, `drafts`, etc.). Simplify to the rules actually needed:
+- `users/{uid}` — owner read/write
+- `analytics/{uid}` — owner read/write
+- `daily_stats/{date}` — auth read, restricted write (via callable)
+- `question_stats/{qid}` — auth read, restricted write
+- `users/{uid}/reflections/{qid}` — owner read/write
+- `users/{uid}/question_feedback/{id}` — owner write, no read
+- `users/{uid}/data/{key}` — owner read/write
+
+### Task K — Audit index.html for dead references
+After removal of MS content, there may be orphan ids referenced by `src/app.js` (modal containers, etc). Grep `app.js` for `getElementById('xxxModal')` and check if the corresponding HTML still exists. Listeners on missing elements are no-op (already guarded with `if (element)`) so this is cleanup, not bug-fixing.
+
+---
+
+## After all tasks done
+
+Final commit + push:
+```bash
+git add .
+git commit -m "polish: deploy, cleanup MS assets, more questions, Naruto theming"
+git push
+```
 
 ---
 
@@ -85,15 +211,16 @@ Created the first commit and pushed to `main` branch. All files are tracked and 
 
 | File | Role |
 |------|------|
-| `src/firebase-init.js` | Firebase client — `window.cloudSync` global; **needs new config (Step 6)** |
+| `src/firebase-init.js` | Firebase client (`window.cloudSync`); configured for `naruto-quiz-98b5` |
 | `src/app.js` | Main app engine — Leitner, quiz flow, UI |
 | `src/config/exam-profiles.js` | NARUTO exam definition |
-| `src/branding.js` | SITE_NAME, updates `data-brand="name"` DOM nodes |
-| `index.html` | Single-page app shell |
+| `src/branding.js` | `SITE_NAME = 'Naruto Quiz'` |
+| `index.html` | SPA shell |
 | `manifest.json` | PWA manifest |
 | `sw.js` | Service worker, cache: `naruto-quiz-v1` |
 | `wrangler.jsonc` | Cloudflare Worker config, name: `naruto` |
-| `data/questions.v2.json` | Source of truth for questions |
-| `functions/data/questions.v2.json` | Copy for Cloud Functions (sync via sync-data.js) |
+| `data/questions.v2.json` | Source of truth for questions (currently 10) |
+| `functions/data/questions.v2.json` | Copy for Cloud Functions (auto-sync via `functions/sync-data.js`) |
 | `functions/index.js` | Cloud Functions: getQuestionsAll, getQuestionsAllV2, logEvent |
-| `.firebaserc` | Firebase project pointer — **update after Step 6** |
+| `.firebaserc` | `default: naruto-quiz-98b5` |
+| `firestore.rules` | Security rules (needs audit — Task J) |
