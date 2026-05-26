@@ -820,9 +820,9 @@ function formatQuestionText(text) {
 }
 
 let currentUser = null;
-let userProfile = { displayName: '', avatar: '🎯' };
+let userProfile = { displayName: '', avatar: '🍥' };
 
-const AVATARS = ['🦊','🐼','🦁','🐯','🐻','🦄','🐸','🦅','🦋','🎭','🤖','👾','🧠','💎','🔥','⚡','🌊','🎯','🚀','🏆'];
+const AVATARS = ['🍥','🦊','👁️','⚡','🐸','🐍','🐌','🌸','🥷','🍃','☁️','🏜️','🐶','🔥','💨','💀','🍜','⛩️','🐦','👑'];
 const TODAY_STR = new Date().toISOString().slice(0, 10);
 
 // ── Exam Countdown ───────────────────────────────────────────────
@@ -5304,7 +5304,7 @@ function openProfileScreen() {
   _hideAllAuxScreens('profileApp');
   const app = $('profileApp');
   app.style.display = 'flex';
-  $('profileAvatar').textContent = userProfile.avatar || '🎯';
+  $('profileAvatar').textContent = userProfile.avatar || '🍥';
   $('profileNameInput').value = userProfile.displayName || '';
   $('profileError').textContent = '';
   renderAvatarGrid();
