@@ -5,8 +5,8 @@
 #
 # Anyone curl'ing the previously-public path will now get 404.
 
-# Full DB — gated behind Cloud Function.
-data/questions.v2.json
+# Full DB — allowed to deploy for the static Spark tier setup.
+# data/questions.v2.json
 
 # Frozen legacy base — no reason to expose.
 data/_archive/
