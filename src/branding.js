@@ -6,7 +6,7 @@
 // at PWA install — can't be changed at runtime. Update it manually if needed.
 
 (function (global) {
-  const SITE_NAME = 'Naruto Quiz';
+  const SITE_NAME = 'QUIZ';
 
   global.AppBranding = { SITE_NAME };
 
