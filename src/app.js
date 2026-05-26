@@ -10418,7 +10418,8 @@ function initReferencesToc() {
 function syncAdminToolsVisibility() {
   var adminTools = $('profileAdminTools');
   if (adminTools) {
-    if (isPremium) adminTools.classList.remove('hidden');
+    var isAdmin = currentUser && Array.isArray(ALLOWED_EMAILS) && ALLOWED_EMAILS.indexOf(currentUser.email) !== -1;
+    if (isAdmin) adminTools.classList.remove('hidden');
     else adminTools.classList.add('hidden');
   }
   // Question feedback entry moved into the Profile → Admin tools block;
