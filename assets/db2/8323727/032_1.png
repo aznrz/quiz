@@ -1,0 +1,279 @@
+                <!DOCTYPE html>
+<html>
+<head>
+    <!-- init:start 0.010487079620361 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          id="meta-viewport">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="176">
+        <title></title>
+    
+        
+    <link rel="preload" href="/static/svgsprite.svg" as="image" type="image/svg+xml"/>
+
+    <link rel="dns-prefetch" href="https://filestorage.1iu.ru/"/>
+    <link rel="preconnect" href="https://filestorage.1iu.ru/" crossorigin/>
+
+    <link rel="dns-prefetch" href="https://317704.selcdn.ru/"/>
+    <link rel="preconnect" href="https://317704.selcdn.ru/" crossorigin/>
+
+    <link rel="dns-prefetch" href="https://static-cdn.1iu.ru/"/>
+    <link rel="preconnect" href="https://static-cdn.1iu.ru/" crossorigin/>
+
+    <!-- script:init 0.010560035705566 -->
+    <script type="text/javascript">
+
+        window.isNewYear = false;
+        window._userTimezone = 3;
+        window._isMobileApp = false;
+        window._isMobileAppCustom = false;
+        var _module = "default",
+            _controller = "login",
+            _action = "index";
+        var _user_id = 0;
+        var _git_revision = "39538";
+        var _is_production = '1';
+        var _request_id = "";
+        var _locale_revision = "77d5d70d52c32da0e5cb3597347b4147";
+        var _locale = "en";
+        var _fallback_locale = "";
+
+        <!-- window:init 0.01057505607605 -->
+                                window.isCurator = false;
+            window._user = {
+                id: 0,
+                plan: {
+                    id: "",
+                    brand_style: false,
+                    subscribe: false,
+                    shop: false,
+                    gamification: false
+                },
+                custom_domain: false,
+                isNewbie: false,
+                isSuperNewbie: false,
+                isWhitelabel: false
+            }
+        
+                        window.THEME_SETTINGS = {"mainColor":"#0e0d0e","buttonsColor":"#5002b3","buttonsRadius":4,"blockRadius":15,"bgImageURL":"","bgRepeat":"repeat","bgPosition":"50% 0","bgSize":"auto","customSvgSprite":"","palette":{"bgColor":"#bebebf","headerColor":"#d9ceff","headerTextColor":"rgba(0, 0, 0, 0.87)","headerElementsColor":"rgba(0, 0, 0, 0.87)","blockBgColor":"#ffffff","border":"#d3d3d3","borderOuter":"#e1e1e1","common":{"black":"#000000","white":"#ffffff"},"default":{"main":"rgb(220, 204, 239)","light":"rgb(234, 224, 245)","dark":"rgb(154, 142, 167)","contrastText":"rgb(56, 1, 125)","hover":"rgb(198, 183, 215)","hoverContrastText":"rgb(56, 1, 125)"},"disabled":{"main":"rgb(246, 242, 251)","light":"rgb(249, 247, 252)","dark":"rgb(172, 169, 175)","contrastText":"#6d6d6d"},"base":{"main":"#2f90e0","light":"rgb(130, 188, 236)","dark":"rgb(32, 100, 156)","contrastText":"#fff","hover":"rgb(42, 129, 201)","hoverContrastText":"#fff"},"primary":{"main":"#5002b3","light":"rgb(150, 103, 209)","dark":"rgb(56, 1, 125)","contrastText":"#fff","hover":"rgb(56, 1, 125)","hoverContrastText":"#fff"},"shop":{"main":"#ff8c11","light":"rgb(255, 186, 112)","dark":"rgb(178, 98, 11)","contrastText":"#ffffff","hover":"#e57e0f","hoverContrastText":"#ffffff"},"subscribe":{"main":"#db24b6","light":"rgb(233, 123, 211)","dark":"rgb(153, 25, 127)","contrastText":"#ffffff","hover":"#c520a3","hoverContrastText":"#ffffff"},"success":{"main":"#30ab59","light":"rgb(234, 246, 238)","dark":"rgb(192, 229, 205)","contrastText":"rgb(33, 119, 62)"},"info":{"main":"#2f90e0","light":"rgb(234, 243, 251)","dark":"rgb(192, 221, 245)","contrastText":"rgb(32, 100, 156)"},"warning":{"main":"#f58814","light":"rgb(254, 243, 231)","dark":"rgb(252, 219, 184)","contrastText":"rgb(171, 95, 14)"},"error":{"main":"#e35248","light":"rgb(252, 237, 236)","dark":"rgb(246, 203, 200)","contrastText":"rgb(158, 57, 50)"},"marks":["#e35248","#f58814","#f2c410","#acc214","#30ab59","#02a8a1","#2f90e0","#3a47e0","#6f3bd9","#8835a6","#e03496","#3F53D9","#3F53D9"],"grey":{"50":"#000000","100":"#000000","200":"rgb(225, 225, 225)","300":"rgb(211, 211, 211)","400":"#000000","500":"rgb(182, 182, 182)","600":"#6d6d6d","700":"#797a7a","800":"#4d4e4e","900":"#d5e9f9","A100":"#f8fcfe","A200":"rgb(242, 242, 242)","A400":"rgb(238, 238, 238)","A700":"rgb(230, 230, 230)","A900":"rgb(206, 206, 206)","A950":"rgb(4, 3, 4)"},"fader":"rgba(0, 0, 0, 0.8)","faderControls":"rgba(77, 78, 78, 0.75)"},"breakpoints":{"xs":0,"sm":768,"md":1000,"lg":1200,"xl":1600},"border":"1px solid #d3d3d3","borderOuter":"1px solid #e1e1e1","spacing":8,"shape":{"borderRadius":4},"typography":{"body1":{"fontSize":13,"lineHeight":1.1539}},"bgZoom":4};
+        if (window.THEME_SETTINGS) {
+            window.THEME_SETTINGS.bgImageURL = "";
+            window.THEME_SETTINGS.logoImageURL = "";
+        }
+            </script>
+    <link rel="stylesheet" href="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/plugins/perfect-scrollbar/perfect-scrollbar.min.css" type="text/css">
+<link rel="stylesheet" href="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/plugins/impromptu/jquery-impromptu.css" type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- js:window 0.011296033859253 -->
+    <link rel="stylesheet" href="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/styles/_anti/mini/style.css" type="text/css" />
+    <script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/jquery.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/lazy/jquery.lazy.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/lazy/jquery.lazy.plugins.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/js-cookie/js.cookie.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/translator/translator.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/modernizr/modernizr.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/moment/moment-with-locales.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/underscore/underscore.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/dateformat/dateformat.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/select2/select2.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/select2/select2_locale_ru.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/device/device.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/clipboardjs/clipboard.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/popperjs/popper.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/tippy/tippy.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/ui/jquery-ui.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/ui/jquery.ui-contextmenu.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/ui/jquery.ui.touch-punch.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/ui/jquery-ui.datepicker.timepicker.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/ui/jquery-ui.datepicker.ru.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/jquery.scrollbar.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/jquery.sticky-kit.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/plugins/impromptu/jquery-impromptu.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/jquery.device.detector.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/jquery.validate.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/jquery.validate.messages_ru.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/jquery.inputs.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/plugins/form/js/jquery.form.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery/plugins/perfect-scrollbar/perfect-scrollbar.jquery.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/jquery2/plugins/scrollTo/jquery.scrollTo.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/mediaelement/mediaelement-and-player.min.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/externalScripts/mediaelement/lang/en.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/lib/auth/login.js" type="main"></script>
+    <!-- scripts:end 0.011297941207886 -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/2.5.4/themes/translucent.css"
+          integrity="sha512-dWBQD/Xe0nNL1i41lgke8ZvPLqos/dGKi2u4h95v8c0tB2JgiULjCYWptWfBqEW58bxP6wHsFI0DwTZlCRYtHQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+            <link rel="icon" href="/media/32/aHR0cHM6Ly9maWxlc3RvcmFnZS4xaXUucnUvYXBpL2ZpbGUvYjkwYmVmMjYtZGVmMS00NDE1LWJjYWEtNjUwOGE2MjQ2M2U0L2dldA==">
+        <link rel="apple-touch-icon" href="/media/180/aHR0cHM6Ly9maWxlc3RvcmFnZS4xaXUucnUvYXBpL2ZpbGUvYjkwYmVmMjYtZGVmMS00NDE1LWJjYWEtNjUwOGE2MjQ2M2U0L2dldA==">
+    
+
+    <link href="/build/39538/styles/_anti/svgsprite.css" rel="stylesheet"/>
+
+                    <style type="text/css">
+            
+        </style>
+                            <link href="/themes/9c9f2342e18694d7410c38f6c16a6c19-theme.css" rel="stylesheet">
+
+
+    
+    <script>
+        var cdnCookie = Cookies.get("useCDN");
+        if (cdnCookie === undefined) {
+            $.get({
+                url:'https://96c4942c-e1a5-4336-a586-e0a937657db9.selstorage.ru/logo.png',
+                error:  function() {
+                    Cookies.set("useCDN", true);
+                },
+                success: function() {
+                    Cookies.set("useCDN", false);
+                },
+                timeout: 3000,
+            });
+        }
+        window.AudioContextExist = true;
+        if (!window.AudioContext && !window.webkitAudioContext) {
+            window.AudioContextExist = false;
+            window.AudioContext = function () {
+                this.createAnalyser = function () {
+                    return false;
+                };
+                return false;
+            };
+        } else {
+            var actx = new (window.AudioContext || window.webkitAudioContext)();
+            if (actx) {
+                actx.close().catch(() => {
+                    window.AudioContextExist = false;
+                });
+            } else {
+                window.AudioContextExist = false;
+            }
+        }
+        var require = {
+            baseUrl: 'https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/scripts/_anti/module/',
+            waitSeconds: 360,
+            paths: {
+                'Widget/Widget': 'https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/scripts/_anti/module/Widget/Widget',
+                'RecordRTC': 'https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/lib/RecordRTC/RecordRTC.min',
+                'SockJS': 'https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/scripts/lib/sockjs/dist/sockjs.min',
+                'Centrifuge': 'https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/scripts/lib/centrifuge/centrifuge',
+                'ChannelClient': 'https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/lib/channel/Channel',
+                'css': 'https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/scripts/lib/requirejs/css'
+            },
+            config: {
+                'ChannelClient': {
+                    'websocket_uri': 'ws.1iu.ru',
+                    'token': '',
+                    'token_time': '1778472923',
+                    'refresh': '/refreshtoken.php'
+                }
+            },
+            shim: {
+                jquery: {
+                    exports: '$'
+                },
+                underscore: {
+                    exports: '_'
+                }
+            }
+        };
+    </script>
+    <!-- init:end 0.011683940887451 -->
+</head>
+<body class="mod-default
+					"
+                >
+<div id="react_root_services_disabled"></div>
+
+<!-- body:start 0.011687040328979 -->
+
+
+<div class="page page_signin" id="react_root_loginPage"></div>
+<script>
+  (function (data) {
+    var waitForIt = function () {
+      if (typeof load_react === "undefined") {
+        setTimeout(waitForIt, 100);
+      } else {
+        window.load_react("react_root_loginPage", "login", data);
+      }
+    };
+    waitForIt();
+  })({
+    showHeader: true,
+    socials:  {
+        vkontakte: "https://auth.1iu.ru/api/account/oauth/vkontakte?consumer=at&host=my.rekhert.com",
+            } ,
+    page: {
+      title:  "\u043e\u043d\u043b\u0430\u0439\u043d \u0448\u043a\u043e\u043b\u0430 \u0415\u043a\u0430\u0442\u0435\u0440\u0438\u043d\u044b \u0420\u0435\u0445\u0435\u0440\u0442, Microsoft MVP" ,
+      logo:  "/media/400/aHR0cHM6Ly9maWxlc3RvcmFnZS4xaXUucnUvYXBpL2ZpbGUvMGIwZTM1NDgtYzQ5Ni00MzkxLTk3NzctNGJjZWY3OTJmYTY5L2dldD9wdWJsaWM9eWVz" ,
+      info:  null ,
+      footer:  null ,
+    },
+    course_info:  null ,
+    authed_info:  null ,
+    doubleauth_data:  null ,
+    forms: {
+      login: {
+        url: "https:\/\/gw.1iu.ru",
+        redirect: "\/student\/file\/c382790\/l8323727\/f23277939\/image-17-05-2024_21%3A22%3A41.png",
+      },
+      restore: {
+        url: "\/account\/lostpassword",
+        redirect: "/",
+      },
+    },
+    host: "my.rekhert.com",
+    isCustom: true,
+    error: "",
+  });
+</script>
+
+<div class="js-fader" id="fader"></div>
+<div class="modal" id="puDynamicNotice">
+    <div class="modal-head js-modal-title"></div>
+    <div class="modal-text info js-modal-text"></div>
+    <div class="modal-close js-modal-close"><i></i></div>
+</div>
+
+
+
+<script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/vendor.js"></script><script type="text/javascript" src="https://static-cdn.1iu.ru/release-6a027acb-39538/www/public/loader.js"></script>
+
+      
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NS954T5');</script>
+      <!-- End Google Tag Manager -->
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS954T5"
+                        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    
+
+            <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(92259511, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92259511" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+    </body>
+</html>

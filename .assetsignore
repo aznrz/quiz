@@ -1,0 +1,100 @@
+# Files in this list are NOT deployed to Cloudflare Workers static assets.
+# Cloud Function getQuestionsAll (Firebase) is the sole channel for the live
+# questions DB; the static fallback path inside src/app.js (loadDB) only
+# hits this file under the localhost dev-bypass.
+#
+# Anyone curl'ing the previously-public path will now get 404.
+
+# Full DB — gated behind Cloud Function.
+data/questions.v2.json
+
+# Frozen legacy base — no reason to expose.
+data/_archive/
+
+# Curated title→learn_url справочник, used only by scripts/merge_batch.py.
+data/title-learn-links.json
+
+# Generation/staging artifacts that should not ship to the live site.
+generated new data/
+new data/
+study-materials/
+audit-screens-local/
+audit-screens-local-v2/
+audit-screens-local-v3/
+audit-screens-local-v4/
+audit-screens/
+audit-local-v4.json
+audit-*.json
+
+# Tooling and notes — not for the public site.
+.claude/
+scripts/
+sql/
+wiki/
+ROADMAP.md
+CLAUDE.md
+README.md
+HANDOVER.md
+ACCESS-PLAN.md
+SCALE-CHECKLIST.md
+UX_QA_BASELINE.md
+design.md
+playwright.config.js
+playwright-report/
+test-results/
+tests/
+functions/
+
+# Firebase admin/infra files — only Firebase CLI uses these.
+.firebase/
+.firebaserc
+firebase.json
+firestore.rules
+firestore.indexes.json
+storage.rules
+
+# Secrets / env — must never ship.
+.env
+.env.*
+
+# Local-only admin tooling and scratch input files.
+inject_admin.ps1
+_role-questions-input.json
+_role-questions-review.md
+_*-input.json
+_*-review.md
+.tmp-*
+
+# Version control — leaks full history including past
+# data/questions.v2.json snapshots.
+.git/
+.gitignore
+.gitattributes
+
+# Dependencies — never serve raw npm packages.
+node_modules/
+package.json
+package-lock.json
+
+# Worker source — Cloudflare bundles _worker.js automatically as `main`,
+# but list explicitly so a config typo never serves the source.
+_worker.js
+_rate-limiter.js
+wrangler.jsonc
+.assetsignore
+# Wrangler's local build cache (sourcemaps, build artifacts).
+.wrangler/
+
+# Project meta / Python tooling — already covered by scripts/ but be
+# explicit in case someone drops a .py at the root.
+AGENTS.md
+LICENSE
+requirements.txt
+*.log
+
+# Editor/OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

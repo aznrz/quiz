@@ -1,0 +1,15 @@
+{
+  "name": "exams-quiz",
+  "version": "1.18.0",
+  "private": true,
+  "description": "Static PWA for Microsoft exam practice. Node deps are dev-only (Playwright).",
+  "scripts": {
+    "serve": "python -m http.server 8000",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

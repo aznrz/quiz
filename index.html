@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f97316">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Naruto Quiz</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css?v=20260520g">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <!-- Tailwind CDN — DISABLED while Home v2 is frozen. Compilation of the
+       Stitch class set was causing the main thread to hang on first paint.
+       Re-enable along with Home v2 when reworking. -->
+  <script>
+    /* tailwind.config preserved for future use — Tailwind script disabled above. */
+    window.__pendingTailwindConfig = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'surface-variant': '#36343b',
+            'on-surface-variant': '#cac4d4',
+            'on-tertiary': '#490081',
+            'inverse-primary': '#674bb5',
+            'warning': '#fbbf24',
+            'success': '#34d399',
+            'secondary-fixed': '#a2eeff',
+            'on-error-container': '#ffdad6',
+            'surface-hover': '#222848',
+            'tertiary-container': '#be82f9',
+            'streak-end': '#ef4444',
+            'surface-bright': '#3b383f',
+            'surface-tint': '#cebdff',
+            'surface-container-low': '#1d1a21',
+            'surface-container-high': '#2b2930',
+            'on-primary': '#381385',
+            'on-background': '#e6e0ea',
+            'on-secondary-container': '#00515d',
+            'primary-fixed': '#e8ddff',
+            'surface-container': '#211e25',
+            'streak-start': '#f59e0b',
+            'error': '#f87171',
+            'surface-sunken': '#1c2138',
+            'surface-container-highest': '#36343b',
+            'on-secondary-fixed': '#001f25',
+            'on-tertiary-fixed-variant': '#62259b',
+            'outline-variant': '#494552',
+            'on-primary-container': '#3c1989',
+            'inverse-on-surface': '#322f37',
+            'primary-container': '#a78bfa',
+            'surface-card': '#13172a',
+            'tertiary': '#ddb8ff',
+            'tertiary-fixed': '#f0dbff',
+            'on-tertiary-fixed': '#2c0051',
+            'on-primary-fixed-variant': '#4f319c',
+            'secondary-container': '#00cbe6',
+            'tertiary-fixed-dim': '#ddb8ff',
+            'surface-container-lowest': '#0f0d14',
+            'on-secondary-fixed-variant': '#004e5a',
+            'on-tertiary-container': '#4e0587',
+            'primary': '#cebdff',
+            'secondary-fixed-dim': '#2fd9f4',
+            'on-primary-fixed': '#21005e',
+            'surface-dim': '#141219',
+            'secondary': '#5de6ff',
+            'inverse-surface': '#e6e0ea',
+            'on-error': '#690005',
+            'primary-fixed-dim': '#cebdff',
+            'outline': 'rgba(148, 163, 184, 0.12)',
+            'background': '#080b14',
+            'on-surface': '#e6e0ea',
+            'error-container': '#93000a',
+            'surface': '#141219',
+            'on-secondary': '#00363e',
+            'stitch-bg': '#080b14',
+            'stitch-surface': '#13172a',
+            'stitch-purple': '#a78bfa',
+            'stitch-purple-light': '#c4b5fd',
+            'stitch-border': 'rgba(148, 163, 184, 0.12)',
+            'stitch-success': '#34d399',
+            'stitch-warning': '#fbbf24',
+            'stitch-danger': '#f87171'
+          },
+          borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' },
+          spacing: { 'card-gap-h': '18px', gutter: '18px', 'container-padding': '18px', 'container-max': '1440px', 'card-gap-v': '14px', base: '4px', 'card-padding': '18px', 'card-gap': '14px' },
+          fontFamily: {
+            'title-md': ['Inter'], 'headline-sm': ['Inter'], 'body-sm': ['Inter'],
+            'label-caps': ['Inter'], 'data-mono': ['JetBrains Mono'], 'headline-md': ['Inter'],
+            'display-lg': ['Inter'], 'body-md': ['Inter']
+          },
+          fontSize: {
+            'title-md': ['16px', { lineHeight: '1.4', fontWeight: '700' }],
+            'headline-sm': ['18px', { lineHeight: '1.4', fontWeight: '600' }],
+            'body-sm': ['13px', { lineHeight: '1.5', fontWeight: '400' }],
+            'label-caps': ['11px', { lineHeight: '1', letterSpacing: '0.08em', fontWeight: '700' }],
+            'data-mono': ['13px', { lineHeight: '1', fontWeight: '500' }],
+            'headline-md': ['24px', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '700' }],
+            'display-lg': ['32px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
+            'body-md': ['14px', { lineHeight: '1.55', fontWeight: '400' }]
+          }
+        }
+      }
+    };
+    /* End of preserved tailwind.config. */
+  </script>
+  <style>
+    /* Home v2 — Stitch Material Symbols sizing */
+    #homeV2App .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    /* Hide scrollbar on horizontal pill row (no-scrollbar utility) */
+    #homeV2App .no-scrollbar::-webkit-scrollbar { display: none; }
+    #homeV2App .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    /* Custom scrollbar */
+    #homeV2App .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    #homeV2App .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    #homeV2App .custom-scrollbar::-webkit-scrollbar-thumb { background: #36343b; border-radius: 10px; }
+    /* MS Cert Production export — glass cards + hero gradient + circular progress */
+    #homeV2App .glass-card { background-color: #13172a; border: 1px solid rgba(148, 163, 184, 0.12); backdrop-filter: blur(8px); }
+    #homeV2App .hero-gradient { background-image: radial-gradient(ellipse at top left, rgba(167, 139, 250, 0.15), transparent 70%), linear-gradient(135deg, rgba(167, 139, 250, 0.06), rgba(34, 211, 238, 0.04)); }
+    #homeV2App .circular-progress { position: relative; width: 48px; height: 48px; }
+    #homeV2App .deep-space-bg { background-color: #080b14; background-image: radial-gradient(circle at 50% 0%, rgba(167, 139, 250, 0.05) 0%, transparent 50%), radial-gradient(circle at 100% 100%, rgba(167, 139, 250, 0.03) 0%, transparent 40%); }
+  </style>
+</head>
+<body>
+
+<!-- Global SVG gradient defs — referenced by .s2-kpi-spark sparklines on every
+     screen (Statistics v2, Detailed Statistics, Result). Kept at body root so
+     gradient `url(#...)` refs resolve even when the source screen is
+     display:none. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="s2GradLineUp" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="s2GradFillUp" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="s2GradLineDown" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#f87171"/>
+    </linearGradient>
+    <linearGradient id="s2GradFillDown" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- Top header — kept in DOM (existing code references its child IDs for
+     click-chains and bindings) but hidden permanently after 1A.3.a UX
+     consolidation. All navigation/actions live in #appSidebar now. -->
+<header class="header hidden" id="mainHeader" style="display:none">
+  <h1 data-brand="name">MS Cert Practice</h1>
+  <div class="header-actions">
+    <button id="headerHomeBtn" class="logout-btn" title="Home" aria-label="Home"><span aria-hidden="true">🏠</span></button>
+    <span class="header-divider" aria-hidden="true"></span>
+    <button id="favoritesBtn" class="logout-btn" title="Favorite questions" aria-label="Favorite questions"><span aria-hidden="true">⭐</span></button>
+    <!-- Study insights dropdown — opens menu of My statistics / Topics / Weak -->
+    <div class="header-dropdown" id="studyDropdown">
+      <button id="studyDropdownTrigger" class="logout-btn" title="Study insights" aria-label="Study insights" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true">📚</span></button>
+      <div class="header-dropdown-menu hidden" id="studyDropdownMenu" role="menu">
+        <button class="header-dropdown-item" data-action="myStats" role="menuitem" type="button">
+          <span aria-hidden="true">📊</span><span>My statistics v1</span>
+        </button>
+        <button class="header-dropdown-item" data-action="myStatsV2" role="menuitem" type="button">
+          <span aria-hidden="true">✨</span><span>My statistics v2</span>
+        </button>
+        <button class="header-dropdown-item" data-action="topics" role="menuitem" type="button">
+          <span aria-hidden="true">🧩</span><span>Statistics by topic</span>
+        </button>
+        <button class="header-dropdown-item" data-action="weak" role="menuitem" type="button">
+          <span aria-hidden="true">📉</span><span>My weak questions</span>
+        </button>
+      </div>
+    </div>
+    <button id="referencesBtn" class="logout-btn" title="References (PL-300 cheatsheet)" aria-label="References"><span aria-hidden="true">📖</span></button>
+    <span class="header-divider" aria-hidden="true"></span>
+    <!-- Admin entries (analytics, all-questions, drafts) moved into My Profile screen. -->
+    <button id="adminBtn" class="logout-btn hidden" title="Analytics" aria-label="Analytics" style="display:none"><span aria-hidden="true">📊</span></button>
+    <button id="allQuestionsBtn" class="logout-btn hidden" title="All questions (admin)" aria-label="All questions" style="display:none"><span aria-hidden="true">📋</span></button>
+    <a id="adminPanelBtn" class="logout-btn hidden" href="/admin.html" title="Admin drafts (my1)" aria-label="Admin drafts" style="display:none"><span aria-hidden="true">📝</span></a>
+    <button id="profileBtn" class="logout-btn" title="My profile" aria-label="My profile"><span aria-hidden="true">👤</span></button>
+    <button id="logoutBtn" class="logout-btn" title="Sign out" aria-label="Sign out"><span aria-hidden="true">⏏</span></button>
+  </div>
+</header>
+
+<div class="progress-bar-wrap hidden" id="progressWrap">
+  <div class="progress-bar" id="progressBar" style="width:0%"></div>
+</div>
+
+<!-- Persistent sidebar — fixed, always visible after sign-in. Hidden on the
+     login screen via body.is-logged-out. Replaces the inline sidebars on
+     dashboard pages (those are hidden by CSS when this one is shown). -->
+<aside class="app-sidebar hidden" id="appSidebar" aria-label="Sections">
+  <div class="s2-sidebar-brand">
+    <button id="sidebarCollapseBtn" type="button" class="sidebar-toggle-btn"
+            aria-label="Collapse sidebar" aria-expanded="true" aria-controls="appSidebar">
+      <span aria-hidden="true">«</span>
+    </button>
+    <span class="s2-sidebar-logo" aria-hidden="true">📊</span>
+    <span class="s2-sidebar-brand-title" data-brand="name">BI Visualization</span>
+  </div>
+  <nav class="s2-sidebar-nav" role="navigation" aria-label="Sections">
+    <button type="button" class="s2-sidebar-item" data-nav="home"><span class="s2-sidebar-icon" aria-hidden="true">🏠</span><span>Home</span></button>
+    <button type="button" class="s2-sidebar-item" data-nav="stats" data-feature="history_charts"><span class="s2-sidebar-icon" aria-hidden="true">📊</span><span>Statistics</span></button>
+    <button type="button" class="s2-sidebar-item" data-nav="statsV1" data-feature="history_charts"><span class="s2-sidebar-icon" aria-hidden="true">📈</span><span>Detailed Statistics</span></button>
+    <button type="button" class="s2-sidebar-item" data-nav="weak" data-feature="weak_topics"><span class="s2-sidebar-icon" aria-hidden="true">📉</span><span>Weak questions</span></button>
+    <button type="button" class="s2-sidebar-item" data-nav="favorites"><span class="s2-sidebar-icon" aria-hidden="true">⭐</span><span>My Favorites</span></button>
+    <button type="button" class="s2-sidebar-item" data-nav="topics" data-feature="weak_topics"><span class="s2-sidebar-icon" aria-hidden="true">🧩</span><span>Statistics by topic</span></button>
+    <button type="button" class="s2-sidebar-item" data-nav="references"><span class="s2-sidebar-icon" aria-hidden="true">📖</span><span>References</span></button>
+  </nav>
+  <div class="s2-sidebar-foot">
+    <button type="button" class="s2-sidebar-item" data-nav="hotkeys"><span class="s2-sidebar-icon" aria-hidden="true">⌨️</span><span>Hotkeys</span></button>
+    <button type="button" class="s2-sidebar-item" data-nav="profile"><span class="s2-sidebar-icon" aria-hidden="true">👤</span><span>My profile</span></button>
+    <button type="button" class="s2-sidebar-item s2-sidebar-logout" data-nav="logout"><span class="s2-sidebar-icon" aria-hidden="true">⏏</span><span>Sign out</span></button>
+  </div>
+</aside>
+
+<button id="sidebarExpandBtn" type="button" class="sidebar-rail-btn"
+        aria-label="Expand sidebar" aria-expanded="false" aria-controls="appSidebar">
+  <span aria-hidden="true">»</span>
+</button>
+
+<div class="app">
+
+  <div class="screen active" id="screenLogin">
+    <div class="login-wrap">
+      <div class="login-logo">📝</div>
+      <h2 class="login-title" data-brand="name">MS Cert Practice</h2>
+      <p class="login-sub">Тест по вселенной Наруто</p>
+
+      <div class="landing-exams" id="landingExams">
+        <div class="landing-exams-title">Available now</div>
+        <div class="landing-exam-grid">
+          <div class="landing-exam"><strong>PL-300</strong><span>3026 questions</span></div>
+          <div class="landing-exam"><strong>DP-900</strong><span>240 questions</span></div>
+          <div class="landing-exam"><strong>AI-900</strong><span>354 questions</span></div>
+          <div class="landing-exam"><strong>MO-200</strong><span>125 questions</span></div>
+          <div class="landing-exam"><strong>Python IT-Specialist</strong><span>84 questions</span></div>
+        </div>
+      </div>
+
+      <div class="landing-demo" id="landingDemo" style="display:none">
+        <div class="landing-demo-title">Try without registration</div>
+        <div class="landing-demo-exam" id="landingDemoExam"></div>
+        <div class="landing-demo-prompt" id="landingDemoPrompt"></div>
+        <div class="landing-demo-opts" id="landingDemoOpts"></div>
+        <button class="landing-demo-submit" id="landingDemoSubmit" disabled>Check answer</button>
+        <div class="landing-demo-result hidden" id="landingDemoResult"></div>
+      </div>
+
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin:18px 0 12px;text-align:center">Sign in with Google to sync your progress across devices</p>
+      <button class="start-btn" id="googleSignInBtn" style="display:flex;align-items:center;justify-content:center;gap:10px;">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Sign in with Google
+      </button>
+      <div id="loginError" class="login-error hidden">Sign-in failed. Please try again.</div>
+    </div>
+  </div>
+
+  <!-- Main header + progress bar moved out of .app to body root, so they're
+       always visible on every screen (Home, Quiz, Weak, Favorites, etc.). -->
+
+
+  <div class="screen home-screen" id="screenHome">
+   <header class="lift-strip" id="liftStrip">
+     <div class="lift-strip-rule" aria-hidden="true"></div>
+     <div class="lift-meta">
+       <span class="lift-eyebrow">Today</span>
+       <h2 class="lift-title">
+         <span class="lift-number" id="liftTodayCount">0</span>
+         <span class="lift-unit">questions</span>
+       </h2>
+       <p class="lift-sub" id="liftSubline">Pick up where you left off.</p>
+       <p class="lift-plan-inline" id="liftPlanInline">🎯 <strong>0<span class="lift-plan-inline-sep">/</span>30</strong> daily plan · 0%</p>
+     </div>
+     <div class="lift-streak" id="liftStreak">
+       <div class="lift-streak-flame" aria-hidden="true">🔥</div>
+       <div class="lift-streak-meta">
+         <span class="lift-streak-num" id="liftStreakNum">0</span>
+         <span class="lift-streak-label">day streak</span>
+       </div>
+     </div>
+     <button class="lift-cta" id="liftCta" type="button">
+       <span class="lift-cta-label">Start</span>
+       <span class="lift-cta-key">↵</span>
+     </button>
+   </header>
+   <div class="home-main">
+    <div class="home-panel filter-stack">
+      <div class="filter-block hidden" id="languageFilterPanel">
+        <div class="section-label">Question language</div>
+        <div class="version-pills" id="languagePills"></div>
+      </div>
+      <div class="filter-block hidden" id="versionFilterPanel">
+        <div class="section-label">Question database version</div>
+        <div class="version-pills" id="versionPills"></div>
+      </div>
+      <div class="filter-block">
+        <div class="section-label">Exam</div>
+        <div class="version-pills" id="examSelector"></div>
+      </div>
+      <div class="filter-block" id="coverageFilterPanel">
+        <div class="section-label">Question status</div>
+        <div class="version-pills" id="coveragePills"></div>
+      </div>
+    </div>
+
+    <div class="home-panel is-collapsible is-collapsed" id="domainSection">
+      <button type="button" class="section-label section-toggle" id="domainSectionToggle" aria-expanded="false" aria-controls="domainCards">
+        <span id="domainSectionLabel">Section</span>
+        <span id="domainExamLabel"></span>
+        <span class="section-toggle-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="domain-cards" id="domainCards"></div>
+    </div>
+
+    <div class="home-panel is-collapsible is-collapsed hidden" id="flashDomainSection">
+      <button type="button" class="section-label section-toggle" id="flashDomainSectionToggle" aria-expanded="false" aria-controls="flashDomainCards">
+        <span>Section</span>
+        <span class="section-toggle-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="domain-cards" id="flashDomainCards"></div>
+    </div>
+
+    <div class="home-panel hidden" id="flashcardCountWrap">
+      <div class="section-label">Number of cards</div>
+      <select class="domain-selector" id="flashcardCountPicker">
+        <option value="5">5 cards</option>
+        <option value="10" selected>10 cards</option>
+        <option value="20">20 cards</option>
+        <option value="30">30 cards</option>
+        <option value="40">40 cards</option>
+        <option value="9999">All</option>
+      </select>
+    </div>
+
+    <div id="practiceCountWrap" class="home-panel hidden">
+      <div class="practice-count-row">
+        <div class="practice-count-cell">
+          <div class="section-label">Number of questions</div>
+          <select class="domain-selector" id="practiceCountPicker">
+            <option value="5">5 questions</option>
+            <option value="10" selected>10 questions</option>
+            <option value="20">20 questions</option>
+            <option value="30">30 questions</option>
+            <option value="40">40 questions</option>
+            <option value="50">50 questions</option>
+            <option value="100">100 questions</option>
+            <option value="200">200 questions</option>
+          </select>
+        </div>
+        <div class="practice-count-cell hidden" id="lessonFilterCell">
+          <div class="section-label">Lesson</div>
+          <select class="domain-selector" id="lessonFilterPicker"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-panel" id="modeSelectorSection">
+      <div class="section-label">Mode</div>
+      <div class="mode-selector">
+        <div class="mode-card selected" data-mode="practice">
+          <div class="mode-icon-wrap"><div class="mode-icon">🎲</div></div>
+          <div class="mode-text">
+            <div class="mode-title">Practice</div>
+            <div class="mode-desc">All sections by exam weights, or a single section — your choice</div>
+            <div class="mode-meta">5–200 questions · 2 minutes per question</div>
+          </div>
+          <div class="mode-aside">
+            <div class="mode-badge" id="badgePractice">—</div>
+            <div class="mode-arrow">→</div>
+          </div>
+        </div>
+        <div class="mode-card" data-mode="case_study">
+          <div class="mode-icon-wrap"><div class="mode-icon">📋</div></div>
+          <div class="mode-text">
+            <div class="mode-title">Case study</div>
+            <div class="mode-desc">A single case_study scenario</div>
+            <div class="mode-meta">Practice analyzing real-world situations</div>
+          </div>
+          <div class="mode-aside">
+            <div class="mode-badge" id="badgeCase">—</div>
+            <div class="mode-arrow">→</div>
+          </div>
+        </div>
+        <div class="mode-card" data-mode="smart">
+          <div class="mode-icon-wrap"><div class="mode-icon">🧠</div></div>
+          <div class="mode-text">
+            <div class="mode-title">Smart Review</div>
+            <div class="mode-desc">Questions with low mastery and weak history</div>
+            <div class="mode-meta">Spaced repetition at the question level</div>
+          </div>
+          <div class="mode-aside">
+            <div class="mode-badge" id="badgeSmart">—</div>
+            <div class="mode-arrow">→</div>
+          </div>
+        </div>
+        <!-- Mock exam — gated by access.features.mock_exam (Step 1A.3.b).
+             Free users see a 🔒 overlay; click opens the plans modal. -->
+        <div class="mode-card" data-mode="mock_exam" id="modeCardMockExam">
+          <div class="mode-icon-wrap"><div class="mode-icon">🎯</div></div>
+          <div class="mode-text">
+            <div class="mode-title">Mock exam</div>
+            <div class="mode-desc">Full-length timed exam — closest to the real test</div>
+            <div class="mode-meta">Available on Gold+ · 60 questions · 120 min · official exam pace</div>
+          </div>
+          <div class="mode-aside">
+            <div class="mode-badge mode-badge-locked" id="badgeMock" aria-hidden="true">🔒</div>
+            <div class="mode-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-eta-row">
+      <div class="home-panel home-eta-countdown" id="examCountdownPanel"></div>
+      <div class="home-panel home-eta-readiness" id="homeReadinessEtaPanel" style="display:none">
+        <div class="section-label">⏳ Readiness ETA</div>
+        <div id="homeReadinessEta"></div>
+      </div>
+    </div>
+
+    <div class="home-panel" id="dailyChallengeSection"></div>
+
+    <div id="casePickerWrap" class="home-panel hidden">
+      <div class="section-label">Case study</div>
+      <select class="domain-selector" id="casePicker"></select>
+    </div>
+
+   </div>
+
+   <aside class="home-rail">
+    <div class="home-panel resume-panel hidden" id="resumePanel">
+      <div class="section-label">Continue</div>
+      <div class="resume-copy">
+        <div class="resume-title" id="resumeTitle">You can resume your last session</div>
+        <div class="resume-desc" id="resumeDesc">Progress is saved locally and waiting for you.</div>
+      </div>
+      <button class="result-btn primary" id="resumeBtn">Resume session</button>
+    </div>
+
+    <div class="home-action-bar hidden" id="homeActionBar">
+      <div class="home-action-copy">
+        <div class="home-action-title" id="startHintTitle">Ready to start</div>
+        <div class="home-action-sub" id="startHintSub">Review your selection and start the session.</div>
+      </div>
+      <button class="start-btn" id="startBtn">Start test</button>
+    </div>
+
+    <div class="home-panel">
+      <div class="section-label">Overall progress</div>
+      <div class="s2-kpi-grid s2-kpi-grid--home" id="statsGrid">
+        <div class="s2-kpi">
+          <div class="s2-kpi-label">Pool</div>
+          <div class="s2-kpi-row">
+            <div class="s2-kpi-val" id="statTotal">—</div>
+            <div class="s2-kpi-delta is-flat" id="statTotalFilterNote"></div>
+          </div>
+          <div class="s2-kpi-spark" id="homeSparkPool"></div>
+        </div>
+        <div class="s2-kpi" title="Total answers given on questions matching the current filter">
+          <div class="s2-kpi-label">Attempts</div>
+          <div class="s2-kpi-row">
+            <div class="s2-kpi-val" id="statSessions">—</div>
+            <div class="s2-kpi-delta is-flat" id="homeDeltaAttempts"></div>
+          </div>
+          <div class="s2-kpi-spark" id="homeSparkAttempts"></div>
+        </div>
+        <div class="s2-kpi">
+          <div class="s2-kpi-label">Accuracy</div>
+          <div class="s2-kpi-row">
+            <div class="s2-kpi-val" id="statAccuracy">—</div>
+            <div class="s2-kpi-delta is-flat" id="homeDeltaAccuracy"></div>
+          </div>
+          <div class="s2-kpi-spark" id="homeSparkAccuracy"></div>
+        </div>
+        <div class="s2-kpi" title="Уникально пройдено вопросов из общего числа в базе">
+          <div class="s2-kpi-label">Coverage</div>
+          <div class="s2-kpi-row">
+            <div class="s2-kpi-val" id="statCoverage">—</div>
+            <div class="s2-kpi-delta is-flat" id="homeDeltaCoverage"></div>
+          </div>
+          <div class="s2-kpi-spark" id="homeSparkCoverage"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-panel hidden" id="studyPlanCard"></div>
+
+    <div class="home-panel">
+      <div class="section-label">Activity (last 28 days)</div>
+      <div class="heatmap-frame">
+        <div class="heatmap-weekdays" aria-hidden="true"></div>
+        <div class="heatmap-wrap" id="heatmapWrap"></div>
+      </div>
+    </div>
+
+   </aside>
+
+    <details class="site-meta">
+      <summary>
+        <span>DB: <span id="dbDate">—</span></span>
+        <span class="app-version-badge">v1.32</span>
+        <span class="site-meta-hint">© 2026 <span data-brand="name">MS Cert Practice</span> · 🤖 AI · more</span>
+      </summary>
+      <div class="site-meta-body">
+        <p>🤖 Questions were generated with the help of artificial intelligence. Most of the material is based on official Microsoft Learn resources (learn.microsoft.com). The content is for educational purposes only and is not an official Microsoft product or partner material.</p>
+        <p>© 2026 <span data-brand="name">MS Cert Practice</span>. All rights reserved. Materials are intended exclusively for personal certification-preparation use. Reproduction and commercial use without permission are prohibited.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="screen" id="screenQuiz">
+    <div class="quiz-meta">
+      <div class="quiz-meta-left">
+        <span id="qCounter">Q1 / 1</span>
+        <button type="button" class="question-id-badge question-id-badge--meta hidden" id="qIdBadge" title="Click to copy ID"></button>
+        <span class="quiz-accuracy hidden" id="qAccuracy" title="Session accuracy"></span>
+        <span class="quiz-domain-tag" id="qDomainTag"></span>
+      </div>
+      <div class="timer hidden" id="timerDisplay">30:00</div>
+    </div>
+
+    <details class="scenario-block hidden" id="scenarioBlock">
+      <summary class="scenario-summary">📋 Scenario — read before answering</summary>
+      <div class="scenario-text" id="scenarioText"></div>
+    </details>
+
+    <div class="question-card">
+      <div class="question-meta-pills">
+        <span class="question-version-badge hidden" id="qVersionBadge"></span>
+        <span class="question-stats-badge hidden" id="qStatsBadge" title=""></span>
+        <span class="question-box-badge hidden" id="qBoxBadge" title=""></span>
+      </div>
+      <button type="button" class="favorite-btn hidden" id="favoriteBtn" aria-pressed="false" title="Add to favorites">
+        <span class="favorite-icon" aria-hidden="true">☆</span>
+      </button>
+      <div class="question-title" id="qTitle"></div>
+      <span class="difficulty-badge hidden" id="qDifficultyBadge" title=""></span>
+      <div class="question-text" id="qText"></div>
+      <div class="question-images hidden" id="qImages"></div>
+      <div class="question-multi-hint hidden" id="qMultiHint">Multiple choice — each correctly selected option earns 1 point, wrong picks reduce the score.</div>
+
+      <div class="options-list hidden" id="optionsList"></div>
+
+      <div class="dd-block hidden" id="ddBlock">
+        <div class="dd-columns">
+          <div class="dd-column">
+            <div class="dd-column-title">Actions</div>
+            <div class="dd-pool" id="ddPool"></div>
+          </div>
+          <div class="dd-column">
+            <div class="dd-column-title">Answer Area</div>
+            <div class="dd-answer" id="ddAnswer"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotspot-block hidden" id="hotspotBlock">
+        <div class="hotspot-rows" id="hotspotRows"></div>
+      </div>
+
+      <div class="matching-block hidden" id="matchingBlock">
+        <div class="matching-rows" id="matchingRows"></div>
+        <div class="matching-bank-label">Answer bank</div>
+        <div class="matching-bank" id="matchingBank"></div>
+      </div>
+
+      <button class="hint-btn hidden" id="hintBtn">💡 Show hint</button>
+      <button class="mcq-submit-btn hidden" id="mcqSubmitBtn">Check answer</button>
+      <button class="mcq-submit-btn hidden" id="ddSubmitBtn">Check order</button>
+      <button class="mcq-submit-btn hidden" id="hotspotSubmitBtn">Check answers</button>
+      <button class="mcq-submit-btn hidden" id="matchingSubmitBtn">Check answers</button>
+
+      <div class="open-answer-block hidden" id="openBlock">
+        <button class="reveal-btn" id="revealBtn">Show answer</button>
+        <div class="answer-reveal" id="answerReveal">
+          <strong>Correct answer:</strong>
+          <span id="revealText"></span>
+        </div>
+        <div class="self-assess" id="selfAssess">
+          <div class="self-assess-label">How easy was it to recall?</div>
+          <div class="self-assess-btns-anki">
+            <button class="assess-btn wrong-btn" id="assessHard">🔴 Hard</button>
+            <button class="assess-btn normal-btn" id="assessNormal">🟡 OK</button>
+            <button class="assess-btn correct-btn" id="assessEasy">🟢 Easy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="explanation" id="explanation">
+        <!-- Explanation images — only populated when q.explanation_images is
+             set. Hidden during the answering phase; revealed by showExplanation
+             after the user clicks Check. Expanded by default (the user just
+             asked to see the answer — don't hide it behind another click). -->
+        <div class="q-explanation-images hidden" id="qExplanationImages"></div>
+        <span id="explanationText"></span>
+        <div class="tip hidden" id="tipText"></div>
+        <div id="learnUrlWrap" class="learn-url-wrap hidden"></div>
+        <details id="explanation2Wrap" class="explanation2-wrap hidden">
+          <summary class="explanation2-summary"></summary>
+          <div id="explanation2Text" class="explanation2-text"></div>
+        </details>
+
+        <div class="q-feedback hidden" id="questionFeedback">
+          <div class="q-feedback-head">
+            <span class="q-feedback-title">Question feedback</span>
+            <div class="q-feedback-stars" role="radiogroup" aria-label="Rate this question">
+              <button type="button" class="q-fb-star" data-rating="1" aria-label="1 star">☆</button>
+              <button type="button" class="q-fb-star" data-rating="2" aria-label="2 stars">☆</button>
+              <button type="button" class="q-fb-star" data-rating="3" aria-label="3 stars">☆</button>
+              <button type="button" class="q-fb-star" data-rating="4" aria-label="4 stars">☆</button>
+              <button type="button" class="q-fb-star" data-rating="5" aria-label="5 stars">☆</button>
+            </div>
+          </div>
+          <div class="q-feedback-reasons">
+            <button type="button" class="q-fb-reason" data-reason="too_easy">Вопрос лёгкий</button>
+            <button type="button" class="q-fb-reason" data-reason="too_hard">Вопрос очень сложный</button>
+            <button type="button" class="q-fb-reason" data-reason="unclear_or_disputed_answers">Ответы спорные</button>
+            <button type="button" class="q-fb-reason" data-reason="ai_insights_mismatch">AI Insights не соответствует</button>
+            <button type="button" class="q-fb-reason" data-reason="wrong_question">Вопрос неверный</button>
+          </div>
+          <div class="q-feedback-comment hidden" id="qFbCommentWrap">
+            <textarea id="qFbComment" maxlength="500" rows="2" placeholder="Add a short comment..."></textarea>
+          </div>
+          <div class="q-feedback-actions">
+            <button type="button" class="q-fb-submit" id="qFbSubmit">Submit feedback</button>
+            <span class="q-feedback-status hidden" id="qFbStatus"></span>
+          </div>
+          <div class="q-feedback-public hidden" id="qFbPublic"></div>
+        </div>
+
+        <div class="crowd-stats hidden" id="crowdStatsEl"></div>
+      </div>
+
+      <div class="remediation-card hidden" id="remediationCard"></div>
+
+      <div class="reflection-prompt hidden" id="reflectionPrompt">
+        <div class="reflection-title">🧠 You've missed this one before. What's tripping you up?</div>
+        <textarea id="reflectionText" maxlength="500" rows="3" placeholder="Write it in your own words — that strengthens memory. Optional."></textarea>
+        <div class="reflection-actions">
+          <button class="reflection-save" id="reflectionSaveBtn">Save</button>
+          <button class="reflection-skip" id="reflectionSkipBtn">Skip</button>
+          <span class="reflection-status hidden" id="reflectionStatus"></span>
+        </div>
+      </div>
+
+      <button class="next-btn hidden" id="nextBtn">Next →</button>
+      <div class="quiz-secondary-actions">
+        <button class="skip-btn hidden" id="skipBtn">Skip ⏭</button>
+        <button class="finish-early-btn hidden" id="finishEarlyBtn">Finish test</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="screen" id="screenResult">
+    <div class="result-left">
+      <div class="result-score">
+        <div class="result-eyebrow" id="resEyebrow">Session result</div>
+        <div class="score-circle">
+          <div class="score-pct" id="resPct">0%</div>
+          <div class="score-sub" id="resCount">0/0</div>
+        </div>
+        <div class="result-message" id="resMessage"></div>
+        <div class="score-grade" id="resGrade"></div>
+        <div id="resDelta" class="result-delta hidden"></div>
+        <div class="result-summary" id="resultSummary">
+          <div class="result-summary-card">
+            <div class="result-summary-label">Accuracy</div>
+            <div class="result-summary-value" id="resSummaryAccuracy">0%</div>
+          </div>
+          <div class="result-summary-card">
+            <div class="result-summary-label">Answers</div>
+            <div class="result-summary-value" id="resSummaryAnswers">0</div>
+          </div>
+          <div class="result-summary-card">
+            <div class="result-summary-label">Weak topics</div>
+            <div class="result-summary-value" id="resSummaryWeak">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button class="result-btn" id="retryWrongBtn">Review mistakes</button>
+        <button class="result-btn" id="retryBtn">Retry this session</button>
+        <button class="result-btn" id="weakBtn">Weak topics</button>
+      </div>
+    </div>
+
+    <div class="result-right">
+      <div id="radarSection" class="hidden">
+        <div class="section-label">📊 Sections in this session</div>
+        <div class="result-bars-sub">Each row is one section. Bar width reflects how many questions came from it; the green fill is what you got right.</div>
+        <div id="sessionSectionsBars" class="result-bars"></div>
+      </div>
+
+      <div id="examCoachMini" class="result-coach-mini hidden">
+        <div class="ec-mini-head">
+          <span class="ec-mini-icon" aria-hidden="true">🧠</span>
+          <span class="ec-mini-label">Exam Coach</span>
+        </div>
+        <div class="ec-mini-headline" id="ecMiniHeadline"></div>
+        <div class="ec-mini-cta-block">
+          <div class="ec-mini-cta-meta">
+            <div class="ec-mini-cta-label" id="ecMiniCtaLabel">Next step</div>
+            <div class="ec-mini-cta-reason" id="ecMiniReason"></div>
+          </div>
+          <button id="ecMiniReviewBtn" class="ec-mini-review-btn" type="button">Start</button>
+        </div>
+      </div>
+
+      <div id="resRecommend" class="res-recommend hidden"></div>
+    </div>
+
+    <section class="result-history">
+      <div class="result-charts-head">
+        <div class="result-charts-label">History</div>
+        <div class="admin-chart-scope result-chart-range" id="resultChartRange" role="tablist" aria-label="History range">
+          <button type="button" class="admin-chart-scope-btn" data-range="7" role="tab" aria-selected="false">1 wk</button>
+          <button type="button" class="admin-chart-scope-btn" data-range="14" role="tab" aria-selected="false">2 wks</button>
+          <button type="button" class="admin-chart-scope-btn is-active" data-range="30" role="tab" aria-selected="true">Month</button>
+        </div>
+      </div>
+      <div class="result-charts">
+        <div class="result-chart-card">
+          <div class="result-chart-title" id="resActivityChartTitle">📅 Activity over 14 days</div>
+          <div class="result-chart-canvas-wrap"><canvas id="resActivityChart"></canvas></div>
+        </div>
+        <div class="result-chart-card">
+          <div class="result-chart-title" id="resReadinessChartTitle">Readiness · last 14 days</div>
+          <div class="result-chart-canvas-wrap"><canvas id="resReadinessChart"></canvas></div>
+        </div>
+        <div class="result-chart-card">
+          <div class="result-chart-title" id="resPassChartTitle">Pass probability · last 14 days</div>
+          <div class="result-chart-canvas-wrap"><canvas id="resPassChart"></canvas></div>
+        </div>
+        <div class="result-chart-card">
+          <div class="result-chart-title" id="resLeitnerBoxChartTitle">Mastery distribution · last 14 days</div>
+          <div class="result-chart-canvas-wrap"><canvas id="resLeitnerBoxChart"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="examCoachReport" class="exam-coach-report hidden"></div>
+  </div>
+
+  <div id="resultStickyCta" class="result-sticky-cta hidden">
+    <button class="result-btn primary" id="stickyPrimaryBtn"></button>
+  </div>
+
+</div>
+
+<!-- Weak Questions Screen -->
+<div class="app s2-shell wq2-shell" id="weakQApp" style="display:none">
+  <aside class="s2-sidebar" id="weakQSidebar">
+    <div class="s2-sidebar-brand">
+      <span class="s2-sidebar-logo" aria-hidden="true">📊</span>
+      <span class="s2-sidebar-brand-title" data-brand="name">BI Visualization</span>
+    </div>
+    <nav class="s2-sidebar-nav" role="navigation" aria-label="Sections">
+      <button type="button" class="s2-sidebar-item" data-nav="home"><span class="s2-sidebar-icon" aria-hidden="true">🏠</span><span>Home</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="stats"><span class="s2-sidebar-icon" aria-hidden="true">📊</span><span>Statistics</span></button>
+      <button type="button" class="s2-sidebar-item is-active" data-nav="weak" aria-current="page"><span class="s2-sidebar-icon" aria-hidden="true">📉</span><span>Weak questions</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="favorites"><span class="s2-sidebar-icon" aria-hidden="true">⭐</span><span>My Favorites</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="topics"><span class="s2-sidebar-icon" aria-hidden="true">🧩</span><span>Statistics by topic</span></button>
+    </nav>
+  </aside>
+  <div class="s2-main">
+    <header class="header s2-topbar" style="justify-content:space-between">
+      <div class="s2-title-block">
+        <h1 class="s2-report-title">📉 My weak questions</h1>
+      </div>
+      <div class="s2-topbar-actions">
+        <button id="weakQCloseBtn" class="back-btn s2-back-btn" title="Back">← Back</button>
+      </div>
+    </header>
+    <div class="global-exam-bar">
+      <nav class="s2-tabs global-exam-tabs" id="weakGlobalExamTabs" role="tablist" aria-label="Exam"></nav>
+    </div>
+
+    <div class="s2-canvas wq2-canvas">
+      <!-- Primary CTA + reflection tagline. Same metacognition prompt
+           that pops in-quiz after the 3rd consecutive miss, surfaced
+           permanently here because every row on this page is a question
+           the user has been getting wrong. -->
+      <section class="wq2-hero wq2-hero--tagline">
+        <div class="wq2-hero-tagline">🧠 You've missed these before. What's tripping you up?</div>
+        <button id="weakQStartBtn" class="wq2-hero-cta" disabled>🔁 Retry these questions</button>
+      </section>
+
+      <!-- Filter bar -->
+      <section id="weakQFilters" class="wq2-filterbar">
+        <div class="wq2-filter-block">
+          <div class="wq2-filter-label">Question language</div>
+          <div class="version-pills" id="weakLanguagePills"></div>
+        </div>
+        <div class="wq2-filter-block">
+          <div class="wq2-filter-label">Question database version</div>
+          <div class="version-pills" id="weakVersionPills"></div>
+        </div>
+        <div class="wq2-filter-block">
+          <div class="wq2-filter-label">Section</div>
+          <div class="version-pills" id="weakSectionPills"></div>
+        </div>
+        <div class="wq2-filter-block">
+          <div class="wq2-filter-label">Accuracy</div>
+          <div class="version-pills" id="weakAccuracyPills"></div>
+        </div>
+        <div class="wq2-filter-block">
+          <div class="wq2-filter-label">Leitner box</div>
+          <div class="version-pills" id="weakBoxPills"></div>
+        </div>
+      </section>
+
+      <!-- Toolbar: hidden toggle -->
+      <div class="wq2-toolbar">
+        <label class="weak-show-hidden wq2-show-hidden">
+          <input type="checkbox" id="weakShowHiddenToggle">
+          <span>Show hidden questions (<span id="weakHiddenCount">0</span>)</span>
+        </label>
+      </div>
+
+      <!-- Stats summary -->
+      <div id="weakQSummary" class="weak-summary-grid wq2-summary"></div>
+
+      <!-- Charts -->
+      <div id="weakChartsWrap" class="weak-charts-wrap wq2-charts">
+        <div class="s2-card wq2-chart-card">
+          <div class="s2-card-head"><span class="s2-card-icon">🧩</span><span class="s2-card-title">Weak by section</span></div>
+          <div class="s2-card-body" style="position:relative;height:220px"><canvas id="weakSectionChart"></canvas></div>
+        </div>
+        <div class="s2-card wq2-chart-card">
+          <div class="s2-card-head"><span class="s2-card-icon">🔥</span><span class="s2-card-title">Severity</span></div>
+          <div class="s2-card-body" style="position:relative;height:220px"><canvas id="weakSeverityChart"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Question list (JS-rendered into .weak-group / .weak-row) -->
+      <div id="weakQList" class="wq2-list"></div>
+
+      <!-- Wrong-answer patterns — moved here from My Statistics v1 (2026-05-19) -->
+      <div id="weakPicksPanel" class="home-panel" style="display:none;margin-top:14px">
+        <div class="section-label">🎯 Wrong-answer patterns</div>
+        <div id="weakPicksSubtitle" style="font-size:0.72rem;color:var(--text-muted);margin:0 0 10px">Questions where you keep selecting the same wrong option.</div>
+        <div id="weakPicks"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Topics by Exam Screen -->
+<div class="app s2-shell" id="topicsApp" style="display:none">
+  <aside class="s2-sidebar" id="topicsSidebar">
+    <div class="s2-sidebar-brand">
+      <span class="s2-sidebar-logo" aria-hidden="true">📊</span>
+      <span class="s2-sidebar-brand-title" data-brand="name">BI Visualization</span>
+    </div>
+    <nav class="s2-sidebar-nav" role="navigation" aria-label="Sections">
+      <button type="button" class="s2-sidebar-item" data-nav="home"><span class="s2-sidebar-icon" aria-hidden="true">🏠</span><span>Home</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="stats"><span class="s2-sidebar-icon" aria-hidden="true">📊</span><span>Statistics</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="weak"><span class="s2-sidebar-icon" aria-hidden="true">📉</span><span>Weak questions</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="favorites"><span class="s2-sidebar-icon" aria-hidden="true">⭐</span><span>My Favorites</span></button>
+      <button type="button" class="s2-sidebar-item is-active" data-nav="topics" aria-current="page"><span class="s2-sidebar-icon" aria-hidden="true">🧩</span><span>Statistics by topic</span></button>
+    </nav>
+  </aside>
+  <div class="s2-main">
+  <header class="header s2-topbar" style="justify-content:space-between">
+    <div class="s2-title-block">
+      <h1 class="s2-report-title">🧩 Statistics by topic</h1>
+    </div>
+    <div class="s2-topbar-actions">
+      <button id="topicsCloseBtn" class="back-btn s2-back-btn" title="Back">← Back</button>
+    </div>
+  </header>
+  <div class="global-exam-bar">
+    <nav class="s2-tabs global-exam-tabs" id="topicsGlobalExamTabs" role="tablist" aria-label="Exam"></nav>
+  </div>
+  <div class="s2-canvas" style="display:flex;flex-direction:column;gap:12px">
+    <!-- Inline exam picker — hidden because the global exam tabs above
+         control the same value. Kept in DOM so JS that reads/writes
+         $('topicsExamSelect').value keeps working. -->
+    <div style="display:none">
+      <label for="topicsExamSelect">Exam</label>
+      <select id="topicsExamSelect"></select>
+    </div>
+    <!-- Filter bar — same layout as the Weak Questions page. Language and
+         Version blocks self-hide via .hidden when there's nothing to show. -->
+    <section class="wq2-filterbar">
+      <div class="wq2-filter-block hidden" id="topicsLangPanel">
+        <div class="wq2-filter-label">Question language</div>
+        <div class="version-pills" id="topicsLangPills"></div>
+      </div>
+      <div class="wq2-filter-block hidden" id="topicsVersionPanel">
+        <div class="wq2-filter-label">Question database version</div>
+        <div class="version-pills" id="topicsVersionPills"></div>
+      </div>
+      <div class="wq2-filter-block" id="topicsAccuracyPanel">
+        <div class="wq2-filter-label">Accuracy</div>
+        <div class="version-pills" id="topicsAccuracyPills"></div>
+      </div>
+      <div class="wq2-filter-block" id="topicsBoxPanel">
+        <div class="wq2-filter-label">Leitner box</div>
+        <div class="version-pills" id="topicsBoxPills"></div>
+      </div>
+    </section>
+    <div class="home-panel" id="topicsStartPanel" style="padding:12px 14px;display:flex;flex-direction:column;gap:12px">
+      <div class="practice-count-row">
+        <div class="practice-count-cell">
+          <div class="section-label">Number of questions</div>
+          <select class="domain-selector" id="topicsCountPicker">
+            <option value="5">5 questions</option>
+            <option value="10" selected>10 questions</option>
+            <option value="20">20 questions</option>
+            <option value="30">30 questions</option>
+            <option value="40">40 questions</option>
+            <option value="50">50 questions</option>
+            <option value="100">100 questions</option>
+            <option value="200">200 questions</option>
+          </select>
+        </div>
+        <div class="practice-count-cell hidden" id="topicsLessonCell">
+          <div class="section-label">Lesson</div>
+          <select class="domain-selector" id="topicsLessonPicker"></select>
+        </div>
+      </div>
+      <button id="topicsStartBtn" class="start-btn" disabled>▶ Start test</button>
+    </div>
+    <div id="topicsSummary" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px"></div>
+    <div class="home-panel" style="padding:0;overflow:hidden">
+      <div id="topicsList" style="display:flex;flex-direction:column;gap:0"></div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- Favorites Screen -->
+<div class="app s2-shell" id="favoritesApp" style="display:none">
+  <div class="s2-main">
+    <header class="header s2-topbar" style="justify-content:space-between">
+      <h1 style="font-size:1.1rem">⭐ Favorite questions</h1>
+      <button id="favoritesCloseBtn" class="back-btn s2-back-btn" title="Back">← Back</button>
+    </header>
+    <div class="global-exam-bar">
+      <div class="s2-tabs-row" style="margin:0">
+        <nav class="s2-tabs global-exam-tabs" id="favoritesExamTabs" role="tablist" aria-label="Exam"></nav>
+      </div>
+    </div>
+    <div style="padding:16px 16px 40px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;flex:1">
+      <div id="favoritesSummary" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px"></div>
+      <button id="favoritesStartBtnTop" class="start-btn" disabled>🔁 Practice these questions</button>
+      <div class="home-panel" style="padding:0;overflow:hidden">
+        <div id="favoritesList" style="display:flex;flex-direction:column;gap:0"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- All Questions Admin Screen -->
+<div class="app" id="allQuestionsApp" style="display:none">
+  <header class="header" style="justify-content:space-between">
+    <h1 style="font-size:1.1rem">📋 All questions</h1>
+    <button id="allQuestionsCloseBtn" class="back-btn" title="Back">← Back</button>
+  </header>
+  <div style="padding:16px 16px 40px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;flex:1">
+    <div class="home-panel hidden" id="aqLangPanel" style="padding:12px 14px">
+      <div class="section-label" style="margin-bottom:8px">Question language</div>
+      <div class="version-pills" id="aqLangPills"></div>
+    </div>
+    <div class="home-panel hidden" id="aqVersionPanel" style="padding:12px 14px">
+      <div class="section-label" style="margin-bottom:8px">Question database version</div>
+      <div class="version-pills" id="aqVersionPills"></div>
+    </div>
+    <div class="home-panel" style="padding:12px 14px">
+      <div class="section-label" style="margin-bottom:8px">Exam</div>
+      <div class="version-pills" id="aqExamPills"></div>
+    </div>
+    <div class="home-panel hidden" id="aqLessonPanel" style="padding:12px 14px">
+      <div class="section-label" style="margin-bottom:8px">Lesson</div>
+      <select id="aqLessonSelect" style="background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-light);border-radius:10px;padding:8px 12px;font-size:0.9rem;font-weight:600;cursor:pointer;width:100%"></select>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <input type="text" id="aqSearchInput" placeholder="Search by id (pl300_3174), seq (3174), text, options, explanation…" style="flex:1;min-width:220px;background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-light);border-radius:10px;padding:9px 12px;font-size:0.9rem">
+      <select id="aqSortSelect" style="background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-light);border-radius:10px;padding:8px 12px;font-size:0.85rem;font-weight:600;cursor:pointer">
+        <option value="id" style="color:#0f172a;background:#fff">Sort: ID</option>
+        <option value="lesson" style="color:#0f172a;background:#fff">Sort: Lesson</option>
+        <option value="section" style="color:#0f172a;background:#fff">Sort: Section</option>
+        <option value="version" style="color:#0f172a;background:#fff">Sort: Version</option>
+      </select>
+      <div class="version-pills" id="aqDensityPills" style="flex-shrink:0"></div>
+      <div id="aqCountBadge" style="font-size:0.8rem;color:var(--text-muted);font-weight:600">—</div>
+    </div>
+    <div class="home-panel" style="padding:0;overflow:hidden">
+      <div id="aqList" style="display:flex;flex-direction:column;gap:0"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Shared question preview modal (used by Favorites + Weak Questions) -->
+<div id="questionPreviewOverlay" class="fav-preview-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="qPreviewTitle">
+  <div class="fav-preview-card" id="questionPreviewCard">
+    <button type="button" class="fav-preview-close" id="questionPreviewClose" title="Close">✕</button>
+    <div class="question-meta-pills">
+      <button type="button" class="question-id-badge hidden" id="qPreviewIdBadge" title="Click to copy ID"></button>
+      <span class="question-version-badge hidden" id="qPreviewVersionBadge"></span>
+      <span class="question-stats-badge hidden" id="qPreviewStatsBadge"></span>
+    </div>
+    <div class="fav-preview-meta" id="qPreviewMeta"></div>
+    <div class="fav-preview-title" id="qPreviewTitle"></div>
+    <div class="fav-preview-prompt" id="qPreviewPrompt"></div>
+    <div class="fav-preview-options" id="qPreviewOptions"></div>
+    <div class="fav-preview-section hidden" id="qPreviewExplanationWrap">
+      <div class="fav-preview-section-label">Explanation</div>
+      <div class="fav-preview-section-body" id="qPreviewExplanation"></div>
+    </div>
+    <div class="fav-preview-section hidden" id="qPreviewTipWrap">
+      <div class="fav-preview-section-label">💡 Hint</div>
+      <div class="fav-preview-section-body" id="qPreviewTip"></div>
+    </div>
+    <div id="qPreviewLearnUrlWrap" class="learn-url-wrap hidden"></div>
+  </div>
+</div>
+
+<!-- Admin Analytics Screen -->
+<div class="app s2-shell" id="adminApp" style="display:none">
+  <div class="s2-main">
+  <header class="header s2-topbar" style="justify-content:space-between">
+    <div class="s2-title-block">
+      <h1 class="s2-report-title">📈 Detailed Statistics</h1>
+    </div>
+    <div class="s2-topbar-actions">
+      <button id="adminCloseBtn" class="back-btn s2-back-btn" title="Back">← Back</button>
+    </div>
+  </header>
+  <!-- Exam slicer — same s2-tabs style as Statistics v2.
+       Lives outside .s2-canvas so it sits flush with the page edges,
+       matching the Weak/Topics/Favorites pages.
+       Page-level scope toggle (All / Just me) sits on the right so it
+       clearly applies to every section below, not only the charts. -->
+  <div class="global-exam-bar">
+    <nav class="s2-tabs global-exam-tabs" id="adminExamTabs" role="tablist" aria-label="Exam"></nav>
+    <div class="admin-chart-scope admin-scope-top s2-scope-toggle" id="adminChartScope" role="tablist" aria-label="Data scope">
+      <button type="button" class="admin-chart-scope-btn s2-scope-btn is-active" data-scope="me" role="tab" aria-selected="true">👤 Just me</button>
+      <button type="button" class="admin-chart-scope-btn s2-scope-btn" data-scope="all" role="tab" aria-selected="false">👥 All</button>
+    </div>
+  </div>
+  <div class="s2-canvas" style="gap:20px">
+
+    <!-- Top KPI row — 6 cards in one line on desktop. Two render targets
+         (#adminSummary, #adminSessionQuality) feed one outer 6-column grid
+         via display: contents, so each renderer keeps its own scope. -->
+    <div class="s2-kpi-grid s2-kpi-grid--admin-row">
+      <div id="adminSummary" class="s2-kpi-subgrid"></div>
+      <div id="adminSessionQuality" class="s2-kpi-subgrid"></div>
+    </div>
+
+    <!-- Cohort percentile banner (only when scope=All & user logged in) -->
+    <div id="adminCohortBanner"></div>
+
+    <!-- Leaderboard -->
+    <div class="home-panel">
+      <div class="section-label">🏆 Leaderboard</div>
+      <div id="adminLeaderboard"></div>
+    </div>
+
+    <!-- Focus areas + Mastery — side-by-side row on wide screens, stacked on narrow -->
+    <div class="admin-focus-mastery-row">
+      <!-- Focus areas: top-3 weakest sections -->
+      <div id="adminFocusPanel" class="home-panel" style="display:none">
+        <div class="section-label">🎯 Focus areas — your weakest sections</div>
+        <div id="adminFocus"></div>
+      </div>
+
+      <!-- Mastery distribution (Leitner) -->
+      <div id="adminMasteryPanel" class="home-panel" style="display:none">
+        <div class="section-label">🧠 Mastery distribution</div>
+        <div id="adminMasterySubtitle" style="font-size:0.72rem;color:var(--text-muted);margin:0 0 10px"></div>
+        <div id="adminMastery"></div>
+      </div>
+    </div>
+
+    <!-- Study Insights — how to improve readiness -->
+    <div id="adminStudyInsightsPanel" class="home-panel" style="display:none">
+      <div class="section-label">📚 Study Insights — как двигать Readiness</div>
+      <div id="adminStudyInsights"></div>
+    </div>
+
+    <!-- Readiness ETA -->
+    <div id="adminReadinessEtaPanel" class="home-panel" style="display:none">
+      <div class="section-label">⏳ Readiness ETA</div>
+      <div id="adminReadinessEta"></div>
+    </div>
+
+    <!-- Speed × Accuracy quadrant (per-section) -->
+    <div id="adminSpeedAccPanel" class="home-panel" style="display:none">
+      <div class="section-label">🎯 Readiness budget by section</div>
+      <div id="adminSpeedAccSubtitle" style="font-size:0.72rem;color:var(--text-muted);margin:0 0 10px"></div>
+      <div style="position:relative;height:340px"><canvas id="adminSpeedAccChart"></canvas></div>
+    </div>
+
+    <!-- Hour-of-day strip -->
+    <div id="adminHourPanel" class="home-panel" style="display:none">
+      <div class="section-label">🕘 Accuracy by hour of day</div>
+      <div id="adminHourSubtitle" style="font-size:0.72rem;color:var(--text-muted);margin:0 0 10px"></div>
+      <div id="adminHourStrip"></div>
+    </div>
+
+    <!-- Wrong-answer patterns moved to My weak questions (2026-05-19) -->
+
+    <!-- Activity chart -->
+    <div class="home-panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px">
+        <div class="section-label" style="margin:0" id="adminChartTitle">📅 Activity over 30 days</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <div class="admin-chart-scope" id="adminChartRange" role="tablist">
+            <button type="button" class="admin-chart-scope-btn" data-range="7" role="tab" aria-selected="false">1 wk</button>
+            <button type="button" class="admin-chart-scope-btn is-active" data-range="14" role="tab" aria-selected="true">2 wks</button>
+            <button type="button" class="admin-chart-scope-btn" data-range="30" role="tab" aria-selected="false">Month</button>
+            <button type="button" class="admin-chart-scope-btn" data-range="60" role="tab" aria-selected="false">2 mo</button>
+            <button type="button" class="admin-chart-scope-btn" data-range="90" role="tab" aria-selected="false">3 mo</button>
+          </div>
+        </div>
+      </div>
+      <div id="adminChartNote" style="font-size:0.72rem;color:var(--text-muted);margin:0 0 8px"></div>
+      <div style="position:relative;height:200px"><canvas id="adminActivityChart"></canvas></div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:6px">⏱️ Time on tests by day (min)</div>
+        <div style="position:relative;height:160px"><canvas id="adminTimeChart"></canvas></div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:6px">📈 Accuracy by day</div>
+        <div style="position:relative;height:160px"><canvas id="adminAccuracyChart"></canvas></div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:6px">🎯 Readiness by day</div>
+        <div style="position:relative;height:160px"><canvas id="adminReadinessChart"></canvas></div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:6px">🎲 Pass probability by day (PL-300 heuristic)</div>
+        <div style="position:relative;height:160px"><canvas id="adminPassChart"></canvas></div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:6px">🧠 Mastery distribution by day</div>
+        <div style="position:relative;height:231px"><canvas id="adminLeitnerBoxChart"></canvas></div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06)">
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:6px">📚 Questions seen &amp; exam coverage</div>
+        <div style="position:relative;height:180px"><canvas id="adminCoverageChart"></canvas></div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<!-- My Statistics v2 — Stitch Advanced design preview (static mockup) -->
+<div class="app s2-shell" id="statsV2App" style="display:none">
+  <aside class="s2-sidebar" id="statsV2Sidebar">
+    <div class="s2-sidebar-brand">
+      <span class="s2-sidebar-logo" aria-hidden="true">📊</span>
+      <span class="s2-sidebar-brand-title" data-brand="name">BI Visualization</span>
+    </div>
+    <nav class="s2-sidebar-nav" role="navigation" aria-label="Sections">
+      <button type="button" class="s2-sidebar-item" data-nav="home"><span class="s2-sidebar-icon" aria-hidden="true">🏠</span><span>Home</span></button>
+      <button type="button" class="s2-sidebar-item is-active" data-nav="stats" aria-current="page"><span class="s2-sidebar-icon" aria-hidden="true">📊</span><span>Statistics</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="weak"><span class="s2-sidebar-icon" aria-hidden="true">📉</span><span>Weak questions</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="favorites"><span class="s2-sidebar-icon" aria-hidden="true">⭐</span><span>My Favorites</span></button>
+      <button type="button" class="s2-sidebar-item" data-nav="topics"><span class="s2-sidebar-icon" aria-hidden="true">🧩</span><span>Statistics by topic</span></button>
+    </nav>
+  </aside>
+  <div class="s2-main">
+  <header class="header s2-topbar" style="justify-content:space-between">
+    <div class="s2-title-block">
+      <h1 class="s2-report-title">Statistics</h1>
+    </div>
+    <div class="s2-topbar-actions">
+      <button id="statsV2CloseBtn" class="back-btn s2-back-btn" title="Back">← Back</button>
+    </div>
+  </header>
+  <div class="global-exam-bar">
+    <div class="s2-tabs-row" style="margin:0">
+      <nav class="s2-tabs" id="s2Tabs" role="tablist" aria-label="Exam"></nav>
+      <div class="s2-scope-toggle" id="s2ScopeToggle" role="group" aria-label="Audience scope">
+        <button class="s2-scope-btn is-active" type="button" data-scope="me" aria-pressed="true">👤 Just me</button>
+        <button class="s2-scope-btn" type="button" data-scope="all" aria-pressed="false">👥 All</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="s2-canvas">
+    <!-- SVG gradient defs moved to global root (top of <body>) so refs
+         resolve even when this screen is display:none. -->
+
+    <!-- Today's session strip — quick context band -->
+    <div class="s2-today-strip is-empty" id="s2TodayStrip"></div>
+
+    <!-- KPI strip -->
+    <div class="s2-kpi-grid">
+      <div class="s2-kpi is-today">
+        <div class="s2-kpi-label">📅 Today</div>
+        <div class="s2-kpi-row">
+          <div class="s2-kpi-val" id="s2KpiTodayAnswers">—</div>
+          <div class="s2-kpi-delta is-flat" id="s2KpiTodayAcc">—</div>
+        </div>
+        <div class="s2-kpi-spark" id="s2SparkToday"></div>
+      </div>
+      <div class="s2-kpi">
+        <div class="s2-kpi-label" id="s2Kpi2Label">Answers</div>
+        <div class="s2-kpi-row">
+          <div class="s2-kpi-val" id="s2KpiAnswers">—</div>
+          <div class="s2-kpi-delta is-flat" id="s2DeltaAnswers"></div>
+        </div>
+        <div class="s2-kpi-spark" id="s2SparkAnswers"></div>
+      </div>
+      <div class="s2-kpi">
+        <div class="s2-kpi-label" data-kpi="success" title="Доля правильных ответов за всё время по выбранному экзамену = correct / answered. Δ внизу сравнивает аккуратность последних 7 дней с предыдущими 7 днями.">Accuracy (all-time)</div>
+        <div class="s2-kpi-row">
+          <div class="s2-kpi-val" id="s2KpiSuccess">—</div>
+          <div class="s2-kpi-delta is-flat" id="s2DeltaSuccess"></div>
+        </div>
+        <div class="s2-kpi-spark" id="s2SparkSuccess"></div>
+      </div>
+      <div class="s2-kpi">
+        <div class="s2-kpi-label">Practice Time</div>
+        <div class="s2-kpi-row">
+          <div class="s2-kpi-val" id="s2KpiTime">—</div>
+          <div class="s2-kpi-delta is-flat" id="s2DeltaTime"></div>
+        </div>
+        <div class="s2-kpi-spark" id="s2SparkTime"></div>
+      </div>
+      <div class="s2-kpi is-readiness">
+        <div class="s2-kpi-label">🎯 Readiness</div>
+        <div class="s2-kpi-row">
+          <div class="s2-kpi-val" id="s2KpiReadiness">—</div>
+          <div class="s2-kpi-delta is-flat" id="s2KpiReadinessSub">/100</div>
+        </div>
+        <div class="s2-kpi-spark" id="s2SparkReadiness"></div>
+      </div>
+      <div class="s2-kpi">
+        <div class="s2-kpi-label" title="Coverage: уникальные вопросы, которые ты видел, делённые на общий пул выбранного экзамена. Δ — за неделю.">Coverage</div>
+        <div class="s2-kpi-row">
+          <div class="s2-kpi-val" id="s2KpiCoverage">—</div>
+          <div class="s2-kpi-delta is-flat" id="s2DeltaCoverage"></div>
+        </div>
+        <div class="s2-kpi-spark" id="s2SparkCoverage"></div>
+      </div>
+    </div>
+
+    <!-- Top weak topic actionable callout (hidden by default) -->
+    <div class="s2-weak-callout" id="s2WeakCallout" style="display:none"></div>
+
+    <!-- 12-col grid: Mastery (4) + Focus areas (8) -->
+    <div class="s2-grid">
+      <!-- Mastery Distribution -->
+      <section class="s2-card s2-col-4">
+        <header class="s2-card-head">
+          <span class="s2-card-icon" aria-hidden="true">🎯</span>
+          <h3 class="s2-card-title">Mastery Distribution</h3>
+        </header>
+        <div class="s2-card-body" id="s2MasteryBody">
+          <div class="s2-empty">No mastery data yet. Answer some questions to see your progress.</div>
+        </div>
+      </section>
+
+      <!-- Performance by Focus Area -->
+      <section class="s2-card s2-col-8">
+        <header class="s2-card-head">
+          <span class="s2-card-icon" aria-hidden="true">📡</span>
+          <h3 class="s2-card-title">Performance by Focus Area</h3>
+          <span class="s2-card-meta" id="s2FocusMeta"></span>
+        </header>
+        <div class="s2-card-body" id="s2FocusBody">
+          <div class="s2-empty">Need at least 5 answers per section to populate.</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Trend charts (2×2) — Activity / Accuracy / Readiness / Pass probability -->
+    <div class="s2-grid">
+      <section class="s2-card s2-col-6">
+        <header class="s2-card-head">
+          <span class="s2-card-icon" aria-hidden="true">📊</span>
+          <h3 class="s2-card-title">Activity over 14 days</h3>
+        </header>
+        <div class="s2-card-body">
+          <div style="position:relative;height:200px"><canvas id="s2ActivityChart"></canvas></div>
+        </div>
+      </section>
+      <section class="s2-card s2-col-6">
+        <header class="s2-card-head">
+          <span class="s2-card-icon" aria-hidden="true">📈</span>
+          <h3 class="s2-card-title">Accuracy by day</h3>
+        </header>
+        <div class="s2-card-body">
+          <div style="position:relative;height:200px"><canvas id="s2AccuracyChart"></canvas></div>
+        </div>
+      </section>
+      <section class="s2-card s2-col-6">
+        <header class="s2-card-head">
+          <span class="s2-card-icon" aria-hidden="true">🎯</span>
+          <h3 class="s2-card-title">Readiness by day</h3>
+        </header>
+        <div class="s2-card-body">
+          <div style="position:relative;height:200px"><canvas id="s2ReadinessChart"></canvas></div>
+        </div>
+      </section>
+      <section class="s2-card s2-col-6">
+        <header class="s2-card-head">
+          <span class="s2-card-icon" aria-hidden="true">🎲</span>
+          <h3 class="s2-card-title">Pass probability by day (PL-300 heuristic)</h3>
+        </header>
+        <div class="s2-card-body">
+          <div style="position:relative;height:200px"><canvas id="s2PassChart"></canvas></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Leaderboard -->
+    <section class="s2-card">
+      <header class="s2-card-head">
+        <span class="s2-card-icon" aria-hidden="true">🏆</span>
+        <h3 class="s2-card-title">Top Performance Leaderboard</h3>
+      </header>
+      <div class="s2-table-wrap" id="s2LeaderWrap">
+        <div class="s2-empty" style="padding:24px;text-align:center">Loading…</div>
+      </div>
+    </section>
+  </div>
+  </div>
+</div>
+
+<!-- Home v2 — MS Cert Dashboard Production Export (Stitch Dark) -->
+<div class="app dark h2-shell" id="homeV2App" style="display:none">
+  <div class="deep-space-bg text-slate-200 h-full font-sans antialiased overflow-hidden flex flex-col flex-1">
+    <!-- TopBar -->
+    <header class="h-16 border-b border-stitch-border flex items-center justify-between px-6 shrink-0 z-20">
+      <div class="flex items-center space-x-8">
+        <h1 class="text-xl font-bold tracking-tight text-white">Stitch Professional</h1>
+        <div class="h-4 w-[1px] bg-white/20"></div>
+        <span class="text-sm font-medium text-slate-400">Naruto Quiz</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button class="p-2 text-slate-400 hover:text-white transition-colors relative" title="Notifications">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <span class="absolute top-2 right-2 h-2 w-2 bg-stitch-danger rounded-full border border-stitch-bg"></span>
+        </button>
+        <button class="p-2 text-slate-400 hover:text-white transition-colors" title="Settings">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </button>
+        <button id="homeV2CloseBtn" class="flex items-center space-x-2 border border-stitch-border rounded-lg px-4 py-1.5 text-sm hover:bg-white/5 transition-colors text-slate-300">
+          <span>← Назад</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="flex-1 flex overflow-hidden">
+      <!-- LeftSidebar -->
+      <aside class="w-[240px] flex flex-col border-r border-stitch-border p-4 shrink-0 overflow-y-auto custom-scrollbar">
+        <div class="mb-8">
+          <div class="bg-stitch-surface rounded-xl p-3 flex items-center space-x-3 mb-6 border border-stitch-border">
+            <div class="w-10 h-10 rounded-lg bg-stitch-purple/20 flex items-center justify-center text-stitch-purple">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xs font-semibold text-white">Путь обучения</span>
+              <span class="text-[10px] text-slate-400" id="h2SideExamSub">PL-300</span>
+            </div>
+          </div>
+          <nav class="space-y-1" id="h2SideNav"></nav>
+        </div>
+        <div class="mt-auto space-y-2">
+          <button id="h2NewExamBtn" class="w-full bg-stitch-purple-light text-indigo-950 font-bold py-3 rounded-xl shadow-lg hover:bg-stitch-purple transition-all text-sm">Новый экзамен</button>
+          <button id="h2HelpBtn" class="w-full text-left px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg text-sm transition-all">❓ Помощь</button>
+          <button id="h2LogoutBtn" class="w-full text-left px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg text-sm transition-all">⏏ Выход</button>
+        </div>
+      </aside>
+
+      <!-- MainContent -->
+      <main class="flex-1 p-8 overflow-y-auto custom-scrollbar">
+        <!-- Daily Goal Banner -->
+        <section class="hero-gradient glass-card rounded-2xl p-8 mb-10 relative overflow-hidden" id="h2ContinuePanel">
+          <div class="relative z-10">
+            <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-2">Daily Goal</p>
+            <div class="flex items-center justify-between flex-wrap gap-4">
+              <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-white">Сегодня: <span class="text-stitch-purple"><span id="h2TodayCount">0</span> вопросов</span></h2>
+                <div class="flex items-center space-x-3 flex-wrap gap-2">
+                  <button id="h2ResumeBtn" class="px-8 py-3 bg-stitch-purple-light text-indigo-950 font-bold rounded-full hover:bg-stitch-purple transition-all">Start Session</button>
+                  <p class="text-sm text-slate-400 max-w-[320px] leading-relaxed" id="h2ContinueSub">Не теряй темп — продолжай практику!</p>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <div class="bg-black/20 backdrop-blur-md rounded-full px-4 py-2 border border-stitch-border flex items-center space-x-2">
+                  <div class="w-8 h-8 bg-stitch-warning/20 rounded-full flex items-center justify-center">
+                    <svg class="h-5 w-5 text-stitch-warning" fill="currentColor" viewBox="0 0 24 24"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.99 7.99 0 0120 13a7.98 7.98 0 01-2.343 5.657z"></path><path d="M9.879 16.121A3 3 0 1012.015 11L11 14l2.5 1 1 .5a4.5 4.5 0 01-4.621 1.621z"></path></svg>
+                  </div>
+                  <span class="text-xs font-bold uppercase tracking-widest text-white"><span id="h2Streak">0</span> Day Streak</span>
+                </div>
+                <div class="bg-black/20 backdrop-blur-md rounded-full px-4 py-2 border border-stitch-border flex items-center space-x-2 h2-daily-plan-chip" id="h2DailyPlanChip" title="Daily plan">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center h2-daily-plan-icon-bg">
+                    <span class="h2-daily-plan-icon" aria-hidden="true">🎯</span>
+                  </div>
+                  <span class="text-xs font-bold uppercase tracking-widest text-white h2-daily-plan-text"><span id="h2DailyPlanProgress">0</span><span class="h2-daily-plan-sep">/</span><span id="h2DailyPlanTarget">30</span> Daily plan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -top-10 -right-10 w-64 h-64 bg-stitch-purple/10 rounded-full blur-3xl"></div>
+        </section>
+
+        <!-- Exam Filters -->
+        <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+          <div class="flex space-x-3 flex-wrap" id="h2ExamPills"></div>
+          <div class="flex items-center space-x-3 flex-wrap">
+            <span class="text-[10px] uppercase font-bold text-slate-500">Language:</span>
+            <div class="flex space-x-2" id="h2LangPills"></div>
+          </div>
+        </div>
+
+        <!-- Section Title -->
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-xl font-bold text-white">Раздел — <span id="h2SectionName" class="text-stitch-purple">All</span></h3>
+        </div>
+
+        <!-- Mode Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10" id="h2Modes"></div>
+
+        <!-- Activity Heatmap -->
+        <section class="glass-card rounded-2xl p-6">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Активность · последние 7 дней</h4>
+          <div class="flex items-center justify-between space-x-3" id="h2ActBars"></div>
+        </section>
+      </main>
+
+      <!-- RightSidebar -->
+      <aside class="w-[340px] border-l border-stitch-border p-6 shrink-0 overflow-y-auto custom-scrollbar bg-stitch-bg/50">
+        <!-- Overall Progress -->
+        <section class="mb-8">
+          <h3 class="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-6">Общий прогресс</h3>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="bg-stitch-surface border border-stitch-border p-4 rounded-2xl">
+              <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Пул</p>
+              <p class="text-2xl font-mono text-white" id="h2StatPool">—</p>
+            </div>
+            <div class="bg-stitch-surface border border-stitch-border p-4 rounded-2xl">
+              <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Попыток</p>
+              <p class="text-2xl font-mono text-white" id="h2StatAttempts">—</p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 bg-stitch-surface/50 rounded-2xl border border-stitch-border">
+              <div>
+                <p class="text-sm font-bold text-white mb-1">Точность</p>
+                <p class="text-xs text-slate-500">по всем экзаменам</p>
+              </div>
+              <div class="circular-progress">
+                <svg class="w-12 h-12 -rotate-90"><circle class="text-slate-800" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="4"></circle><circle id="h2AccuracyRing" class="text-stitch-purple" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-width="4"></circle></svg>
+                <div class="absolute inset-0 flex items-center justify-center"><span class="text-[10px] font-bold text-white" id="h2StatAccuracy">—</span></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-stitch-surface/50 rounded-2xl border border-stitch-border">
+              <div>
+                <p class="text-sm font-bold text-white mb-1">Охват</p>
+                <p class="text-xs text-slate-500">от полного пула</p>
+              </div>
+              <div class="circular-progress">
+                <svg class="w-12 h-12 -rotate-90"><circle class="text-slate-800" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="4"></circle><circle id="h2CoverageRing" class="text-blue-400" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-width="4"></circle></svg>
+                <div class="absolute inset-0 flex items-center justify-center"><span class="text-[10px] font-bold text-white" id="h2StatCoverage">—</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Study Plan -->
+        <section class="mb-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">План обучения</h3>
+            <button id="h2PlanBtn" class="p-1 text-slate-500 hover:text-white transition-colors" title="Открыть статистику">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </button>
+          </div>
+          <div class="mb-8">
+            <div class="flex items-baseline space-x-1 mb-2">
+              <span class="text-3xl font-bold text-white" id="h2PlanScore">—</span>
+              <span class="text-slate-500 text-sm">/ 100 Readiness</span>
+              <span id="h2PlanBadge" class="ml-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-stitch-danger/10 text-stitch-danger border border-stitch-danger/20">—</span>
+            </div>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+              <div class="bg-gradient-to-r from-stitch-purple to-blue-400 h-full rounded-full transition-all" id="h2PlanScoreBar" style="width:0%"></div>
+            </div>
+          </div>
+          <h4 class="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-4">Priority focus areas</h4>
+          <div class="space-y-3" id="h2PlanSections"></div>
+          <div id="h2PlanPriority" class="text-xs text-stitch-warning mt-3" style="display:none"></div>
+        </section>
+
+        <!-- Card Review (Leitner) -->
+        <section id="h2ReviewPanel" style="display:none">
+          <h3 class="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-3">Обзор карточек</h3>
+          <p class="text-sm text-slate-300 mb-3" id="h2ReviewSub">—</p>
+          <div class="flex gap-3">
+            <button id="h2ReviewOpenBtn" class="flex-1 py-3 bg-stitch-surface border border-stitch-border hover:bg-white/5 rounded-xl flex flex-col items-center transition-all">
+              <span class="text-[10px] text-slate-500 uppercase">Обзор</span>
+              <span class="text-base font-bold text-white" id="h2ReviewCount">0</span>
+            </button>
+            <button id="h2ReviewPracticeBtn" class="flex-1 py-3 bg-stitch-purple-light text-indigo-950 font-bold rounded-xl hover:bg-stitch-purple transition-all">Практика</button>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- Profile Screen -->
+<!-- Hotkeys Screen -->
+<div class="app s2-shell" id="hotkeysApp" style="display:none">
+  <div class="s2-main">
+  <header class="header s2-topbar" style="justify-content:space-between">
+    <div class="s2-title-block">
+      <h1 class="s2-report-title">⌨️ Hotkeys</h1>
+    </div>
+    <div class="s2-topbar-actions">
+      <button id="hotkeysCloseBtn" class="back-btn s2-back-btn" title="Back">← Back</button>
+    </div>
+  </header>
+  <div class="s2-canvas" style="gap:20px;max-width:840px;margin:0 auto;width:100%">
+
+    <section class="dashboard-hero">
+      <div class="dashboard-hero-text">
+        <h2 class="dashboard-hero-title">Keyboard shortcuts</h2>
+        <p class="dashboard-hero-desc">Faster answering with your keyboard. All shortcuts ignore when focus is in a text input or modifier keys are held.</p>
+      </div>
+    </section>
+
+    <div class="home-panel">
+      <div class="section-label" style="margin-bottom:12px">During a question</div>
+      <div class="hotkeys-list">
+        <div class="hotkey-row">
+          <div class="hotkey-keys">
+            <kbd>A</kbd><kbd>B</kbd><kbd>C</kbd><kbd>D</kbd><kbd>E</kbd><kbd>F</kbd>
+          </div>
+          <div class="hotkey-desc">Select / toggle option by letter (case-insensitive).</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys">
+            <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><kbd>5</kbd><kbd>6</kbd>
+          </div>
+          <div class="hotkey-desc">Same as letters — works from main row and numpad.</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>Enter</kbd></div>
+          <div class="hotkey-desc">Multi-select: submit current selection. After an answer: go to next question.</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>→</kbd></div>
+          <div class="hotkey-desc">Skip an unanswered question. After answering: also goes to next.</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>H</kbd></div>
+          <div class="hotkey-desc">Reveal the hint (tip) for the current question, if one is available.</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>S</kbd></div>
+          <div class="hotkey-desc">Star / unstar the current question (toggle favorite). Letter <kbd>F</kbd> is taken by option F, so we use S for Star.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-panel">
+      <div class="section-label" style="margin-bottom:12px">UI navigation</div>
+      <div class="hotkeys-list">
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>Esc</kbd></div>
+          <div class="hotkey-desc">Close any open menu / dropdown / modal (including question preview and Plans).</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>Tab</kbd></div>
+          <div class="hotkey-desc">Move focus to the next interactive element (sidebar buttons, options, CTAs).</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>?</kbd></div>
+          <div class="hotkey-desc">Open this Hotkeys page from anywhere. (Shift+/ on most layouts.)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-panel">
+      <div class="section-label" style="margin-bottom:12px">Blocked by the app</div>
+      <div class="hotkeys-list">
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>Ctrl</kbd>+<kbd>S</kbd></div>
+          <div class="hotkey-desc">Save page — disabled (saving the static page makes little sense here).</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>Ctrl</kbd>+<kbd>P</kbd></div>
+          <div class="hotkey-desc">Print — disabled.</div>
+        </div>
+        <div class="hotkey-row">
+          <div class="hotkey-keys"><kbd>Ctrl</kbd>+<kbd>U</kbd></div>
+          <div class="hotkey-desc">View source — disabled.</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="color:var(--text-muted);font-size:0.8rem">Shortcuts intentionally do not fire while typing in inputs or with <kbd>Shift</kbd> / <kbd>Ctrl</kbd> / <kbd>Alt</kbd> / <kbd>Cmd</kbd> held.</p>
+  </div>
+  </div>
+</div>
+
+<div class="app" id="profileApp" style="display:none">
+  <header class="header" style="justify-content:space-between">
+    <h1 style="font-size:1.1rem">👤 My profile</h1>
+    <button id="profileCloseBtn" class="back-btn">← Back</button>
+  </header>
+  <div class="profile-shell">
+
+    <div class="profile-hero">
+      <div id="profileAvatar" style="font-size:4rem;line-height:1.2">🎯</div>
+    </div>
+
+    <div class="profile-grid">
+      <!-- LEFT column: account/access settings -->
+      <div class="profile-grid-left">
+
+<!-- Visible Exams — per-user UI preference. Hides exams from sidebar/
+             stats/weak/etc. without revoking access. Phase 1 (no monetization). -->
+        <div class="home-panel" id="visibleExamsPanel">
+          <div class="visible-exams-head">
+            <span class="section-label">📘 Visible Exams</span>
+            <span class="visible-exams-count" id="visibleExamsCount">(0 selected)</span>
+          </div>
+          <p class="visible-exams-hint">Pick which exams appear on Home, Statistics, Weak Questions and other pages. Locked exams (no access) are hidden from this list.</p>
+          <div class="visible-exams-toolbar">
+            <input type="search" id="visibleExamsSearch" placeholder="Filter…" />
+            <button type="button" class="visible-exams-ghost" data-action="select-all">Select all</button>
+            <button type="button" class="visible-exams-ghost" data-action="clear">Clear</button>
+          </div>
+          <div class="visible-exams-grid" id="visibleExamsGrid"></div>
+          <div class="visible-exams-warn hidden" id="visibleExamsWarn">⚠️ Keep at least one exam selected.</div>
+        </div>
+
+        <div class="home-panel" id="passwordSection" style="display:none">
+          <div class="section-label">Change password</div>
+          <div style="display:flex;flex-direction:column;gap:10px;padding-top:4px">
+            <input type="password" id="newPasswordInput" placeholder="New password (min. 8 characters)"
+              style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.06);border:1px solid var(--border-light);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-size:1rem;font-family:inherit;outline:none">
+            <input type="password" id="confirmPasswordInput" placeholder="Confirm password"
+              style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.06);border:1px solid var(--border-light);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-size:1rem;font-family:inherit;outline:none">
+            <div id="passwordError" style="color:var(--danger);font-size:0.85rem;min-height:1.2em"></div>
+            <button id="changePasswordBtn" class="start-btn" style="background:rgba(255,255,255,0.07);color:var(--text-primary)">Change password</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT column: personal settings -->
+      <div class="profile-grid-right">
+        <div class="home-panel">
+          <div class="section-label">Nickname</div>
+          <input type="text" id="profileNameInput" placeholder="Your nickname" maxlength="20"
+            style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.06);border:1px solid var(--border-light);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-size:1rem;font-family:inherit;outline:none">
+        </div>
+
+        <div class="home-panel">
+          <div class="section-label">Avatar</div>
+          <div id="avatarGrid" style="display:flex;flex-wrap:wrap;gap:8px;padding-top:4px"></div>
+        </div>
+
+        <!-- Admin tools (premium users only) -->
+        <div id="profileAdminTools" class="hidden home-panel" style="display:flex;flex-direction:column;gap:10px">
+          <div class="section-label" style="margin:0 0 4px">Admin tools</div>
+          <a id="profileAdminPanelLink" class="result-btn" href="/admin.html"
+             style="display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none">
+            <span aria-hidden="true">📝</span><span>Admin drafts panel</span>
+          </a>
+          <button id="profileAllQuestionsBtn" class="result-btn" type="button"
+                  style="display:flex;align-items:center;justify-content:center;gap:10px">
+            <span aria-hidden="true">📋</span><span>All questions</span>
+          </button>
+          <a id="profileAdminFeedbackLink" class="result-btn" href="/admin-feedback.html"
+             style="display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none">
+            <span aria-hidden="true">💬</span><span>Question feedback</span>
+          </a>
+        </div>
+
+        <div id="profileError" style="color:var(--danger);font-size:0.85rem;text-align:center;min-height:1.2em"></div>
+        <button id="profileSaveBtn" class="start-btn">Save profile</button>
+
+        <div class="home-panel">
+          <div class="section-label">Target exam and date</div>
+          <div style="display:flex;flex-direction:column;gap:10px;padding-top:4px">
+            <select id="targetExamPicker" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.06);border:1px solid var(--border-light);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-size:1rem;font-family:inherit;outline:none">
+              <option value="">— Выбери тест —</option>
+              <option value="NARUTO">Naruto Quiz</option>
+            </select>
+            <input type="date" id="examDatePicker"
+              style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.06);border:1px solid var(--border-light);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-size:1rem;font-family:inherit;outline:none;color-scheme:dark">
+            <label for="dailyPlanPicker" style="font-size:0.78rem;color:var(--text-muted);margin-top:6px;display:flex;align-items:center;gap:6px">
+              <span>🎯 Daily plan</span>
+              <span style="opacity:0.7;font-weight:500">— questions per day across all exams</span>
+            </label>
+            <input type="number" id="dailyPlanPicker" min="1" max="2000" step="5" placeholder="30" inputmode="numeric"
+              style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.06);border:1px solid var(--border-light);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-size:1rem;font-family:inherit;outline:none">
+            <label for="useBootstrapCI" style="display:flex;align-items:flex-start;gap:8px;margin-top:10px;padding:8px 10px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:8px;cursor:pointer">
+              <input type="checkbox" id="useBootstrapCI" style="margin-top:2px;cursor:pointer">
+              <span style="display:flex;flex-direction:column;gap:2px">
+                <span style="font-size:0.86rem;color:var(--text-primary);font-weight:600">🎲 Use bootstrap CI for Readiness</span>
+                <span style="font-size:0.72rem;color:var(--text-muted);line-height:1.35">More accurate uncertainty estimate (resamples your history 500×). Recomputed once a day. Default uses Wilson 95% (analytical, faster).</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="home-panel">
+          <div class="section-label">Home cards</div>
+          <label class="profile-toggle-row">
+            <input type="checkbox" id="hideQODToggle">
+            <span>Hide 🧠 Question of the day on home screen</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- References Screen removed (MS-specific content) -->
+<div class="app s2-shell" id="referencesApp" style="display:none">
+  <div class="s2-main">
+  <header class="header s2-topbar" style="justify-content:space-between">
+    <div class="s2-title-block">
+      <h1 class="s2-report-title">📖 Материалы</h1>
+    </div>
+    <div class="s2-topbar-actions">
+      <button id="referencesCloseBtn" class="back-btn s2-back-btn" title="Back">← Back</button>
+    </div>
+  </header>
+  <div class="references-layout">
+    <aside class="references-toc" id="referencesToc">
+      <div class="toc-title">📑 Содержание</div>
+      <nav>
+        <ul>
+          <li><a href="#ref-about" data-toc>Об экзамене</a></li>
+          <li><a href="#ref-logistics" data-toc>Логистика (числа)</a></li>
+          <li><a href="#ref-faq" data-toc>FAQ</a></li>
+          <li><a href="#ref-providers" data-toc>Pearson VUE / OnVUE / тест-центры</a></li>
+          <li><a href="#ref-test-centers" data-toc>Тест-центры в Казахстане</a></li>
+          <li>
+            <a href="#ref-modules" data-toc>4 модуля экзамена</a>
+            <ul>
+              <li><a href="#ref-mod-prep" data-toc>Prepare the Data</a></li>
+              <li><a href="#ref-mod-model" data-toc>Model the Data ⚡</a></li>
+              <li><a href="#ref-mod-viz" data-toc>Visualize and Analyze</a></li>
+              <li><a href="#ref-mod-deploy" data-toc>Deploy and Maintain</a></li>
+            </ul>
+          </li>
+          <li><a href="#ref-question-types" data-toc>Типы вопросов</a></li>
+          <li>
+            <a href="#ref-before" data-toc>Перед сдачей</a>
+            <ul>
+              <li><a href="#ref-when-register" data-toc>Когда регистрироваться</a></li>
+              <li><a href="#ref-register-steps" data-toc>Регистрация (7 шагов)</a></li>
+              <li><a href="#ref-discounts" data-toc>Скидки и ваучеры</a></li>
+              <li><a href="#ref-reschedule" data-toc>Перенос / отмена</a></li>
+            </ul>
+          </li>
+          <li><a href="#ref-onvue" data-toc>OnVUE — checklist</a></li>
+          <li><a href="#ref-test-center" data-toc>Тест-центр — checklist</a></li>
+          <li><a href="#ref-exam-day" data-toc>В день экзамена</a></li>
+          <li>
+            <a href="#ref-after" data-toc>После экзамена</a>
+            <ul>
+              <li><a href="#ref-results" data-toc>Результаты и отчёт</a></li>
+              <li><a href="#ref-scoring" data-toc>Как оценивается</a></li>
+              <li><a href="#ref-retake" data-toc>Политика пересдачи</a></li>
+            </ul>
+          </li>
+          <li><a href="#ref-renewal" data-toc>Продление сертификации</a></li>
+          <li><a href="#ref-strategy" data-toc>Стратегия подготовки</a></li>
+          <li><a href="#ref-links" data-toc>Полезные ссылки</a></li>
+          <li><a href="#ref-attribution" data-toc>Источник</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="references-content">
+    <h2 style="margin:0 0 6px">PL-300 — Cheatsheet</h2>
+    <p class="references-lede">Выжимка из гайда школы по аналитике данных <strong>DataBoom</strong> (KZ Data Community), версия апрель 2025. Все 138 ссылок из оригинала — кликабельны.</p>
+
+    <h3 id="ref-about">Об экзамене</h3>
+    <p>PL-300 — единственный сертификационный экзамен Microsoft по фундаментальному Power BI. Сдавший получает статус <strong>Microsoft Power BI Data Analyst</strong>. Для дата-аналитиков, бизнес-аналитиков и всех, кто использует Power BI в работе.</p>
+    <p><strong>Что проверяется:</strong> бизнес-требования → очистка/трансформация данных → построение моделей → отчёты → публикация в Power BI Service. Плюс Power Query и базовый DAX.</p>
+    <p>Официальная страница: <a href="https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/?practice-assessment-type=certification" target="_blank" rel="noopener">Microsoft PL-300 certification</a> · Бесплатный курс: <a href="https://learn.microsoft.com/en-us/training/courses/pl-300t00" target="_blank" rel="noopener">PL-300T00 на MS Learn</a>.</p>
+
+    <h3 id="ref-logistics">Логистика (числа)</h3>
+    <table class="ref-table">
+      <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td>Стоимость в Казахстане</td><td><strong>$83</strong> (могут быть скидки от Microsoft и партнёров)</td></tr>
+        <tr><td>Длительность</td><td><strong>100 минут</strong></td></tr>
+        <tr><td>Количество вопросов</td><td><strong>40–60</strong></td></tr>
+        <tr><td>Проходной балл</td><td><strong>700 / 1000</strong> (≈ 70%)</td></tr>
+        <tr><td>Срок действия</td><td><strong>1 год</strong></td></tr>
+        <tr><td>Продление</td><td>Бесплатно, за 6 мес. до истечения, <strong>25 вопросов / 45 мин / 57%</strong> проходной</td></tr>
+        <tr><td>Языки</td><td>Русский, английский и другие</td></tr>
+        <tr><td>Сложность</td><td>средняя</td></tr>
+        <tr><td>Тест-центры в КЗ</td><td>Алматы, Астана, Атырау, Шымкент, Караганда</td></tr>
+        <tr><td>Online-платформа</td><td>OnVUE (Pearson VUE)</td></tr>
+      </tbody>
+    </table>
+
+    <h3 id="ref-faq">FAQ — часто задаваемые вопросы</h3>
+    <details class="ref-faq" open><summary>Как можно сдавать экзамен PL-300?</summary><p>Экзамен можно сдавать как онлайн (через OnVUE), так и офлайн (в тест-центре).</p></details>
+    <details class="ref-faq"><summary>На каких языках доступен экзамен?</summary><p>На русском, английском и других языках. Полный список — на <a href="https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/" target="_blank" rel="noopener">официальном сайте Microsoft</a>.</p></details>
+    <details class="ref-faq"><summary>Какова сложность экзамена?</summary><p>Средняя.</p></details>
+    <details class="ref-faq"><summary>Сколько времени дается на прохождение?</summary><p>100 минут.</p></details>
+    <details class="ref-faq"><summary>Как долго действителен сертификат PL-300?</summary><p>1 год. Продлить нужно за 6 месяцев до истечения. Продление бесплатно, выполняется онлайн.</p></details>
+    <details class="ref-faq"><summary>Сколько вопросов содержит экзамен?</summary><p>40–60, точное количество может варьироваться.</p></details>
+    <details class="ref-faq"><summary>Какой проходной балл?</summary><p>700 из 1000 (≈ 70%).</p></details>
+    <details class="ref-faq"><summary>Сколько стоит экзамен в Казахстане?</summary><p>$83. Цена может зависеть от страны/региона. Microsoft и партнёры предоставляют скидочные ваучеры.</p></details>
+    <details class="ref-faq"><summary>Какие категории знаний проверяются?</summary><ul><li>Подготовка данных (15–20%)</li><li>Моделирование данных (30–35%) ⚡</li><li>Визуализация и анализ (25–30%)</li><li>Управление и безопасность Power BI (20–25%)</li></ul></details>
+    <details class="ref-faq"><summary>Какие типы вопросов встречаются?</summary><p>Single/multiple answer, drag-drop (перетаскивание), кейсы для анализа, симуляции в среде Power BI.</p></details>
+    <details class="ref-faq"><summary>Что запрещено использовать во время экзамена?</summary><p>Мобильные устройства, устройства для записи, бумага, ручки, камеры. На онлайн-сдаче — закрыть все ненужные приложения.</p></details>
+    <details class="ref-faq"><summary>Как можно продлить сертификацию PL-300?</summary><p>Бесплатно, через повторное тестирование онлайн без прокторинга. ~25 вопросов, 45 минут, проходной 57%.</p></details>
+
+    <h3 id="ref-providers">Pearson VUE / OnVUE / тест-центры</h3>
+    <p><strong>Pearson VUE</strong> — официальный партнёр Microsoft, предоставляет платформу (онлайн и офлайн) для сдачи PL-300. <strong>OnVUE</strong> — онлайн-платформа от Pearson VUE для сдачи удалённо с веб-камерой и проктором.</p>
+    <p>Тест-центр (solution/service provider) — уполномоченный офлайн-центр вне США, помогающий Pearson VUE проводить экзамены. Тест-центры предоставляют ваучеры (скидки) и консультируют по сдаче.</p>
+    <p>Проктор — администратор, контролирующий процесс сдачи и помогающий в случае вопросов или технических проблем.</p>
+    <p>Гайд по OnVUE: <a href="https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/onvue/pearson-vue-online-testing-guide-en.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://www.youtube.com/watch?v=987xaZLMkz4" target="_blank" rel="noopener">видео-инструкция (EN)</a> · <a href="https://www.youtube.com/watch?v=OSWXzhavOwg" target="_blank" rel="noopener">что ожидать в тест-центре (EN)</a>.</p>
+
+    <h3 id="ref-test-centers">Тест-центры в Казахстане (Pearson VUE)</h3>
+    <p>Список офлайн тест-центров с прямыми ссылками на расписание Pearson VUE:</p>
+    <ul class="ref-links">
+      <li>Алматы: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=63014&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 1</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=87883&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 2</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=49554&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 3</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=82790&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 4</a></li>
+      <li>Астана: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=81793&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 1</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=86198&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 2</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=56568&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 3</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=89814&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 4</a></li>
+      <li>Атырау: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=57663&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 1</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=63839&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 2</a></li>
+      <li>Шымкент: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=54952&clientCode=MICROSOFT" target="_blank" rel="noopener">центр 1</a></li>
+      <li>Караганда / другие: <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=89614&clientCode=MICROSOFT" target="_blank" rel="noopener">1</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=72076&clientCode=MICROSOFT" target="_blank" rel="noopener">2</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=83554&clientCode=MICROSOFT" target="_blank" rel="noopener">3</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=83675&clientCode=MICROSOFT" target="_blank" rel="noopener">4</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=90244&clientCode=MICROSOFT" target="_blank" rel="noopener">5</a> · <a href="https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=72491&clientCode=MICROSOFT" target="_blank" rel="noopener">6</a></li>
+    </ul>
+    <p>Все 15 центров можно найти и через <a href="https://home.pearsonvue.com/Test-owners/Industry-expertise/Technology/VOC.aspx#myDIV" target="_blank" rel="noopener">официальный поиск Pearson VUE</a>.</p>
+
+    <h3 id="ref-modules">4 модуля экзамена</h3>
+    <table class="ref-table">
+      <thead><tr><th>Модуль</th><th>Вес</th><th>Ключевое</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Prepare the Data</strong></td><td>15–20%</td><td>Power Query, sources, transforms, joins, types, combine queries</td></tr>
+        <tr><td><strong>Model the Data</strong> ⚡</td><td><strong>30–35%</strong></td><td>Самый большой! Relationships, star schema, DAX, CALCULATE, Time Intelligence, RLS, Q&amp;A</td></tr>
+        <tr><td><strong>Visualize and Analyze</strong></td><td>25–30%</td><td>Reports, dashboards, bookmarks, tooltips, slicers, AI visuals, Forecast</td></tr>
+        <tr><td><strong>Deploy and Maintain</strong></td><td>20–25%</td><td>Workspaces, apps, gateways, scheduled refresh, sensitivity labels, certify content</td></tr>
+      </tbody>
+    </table>
+
+    <h4 id="ref-mod-prep">Prepare the Data — детальные темы</h4>
+    <ul class="ref-links">
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources" target="_blank" rel="noopener">Identify and connect to a data source</a></li>
+      <li><a href="https://www.c-sharpcorner.com/article/how-to-change-data-source-of-existing-report-in-power-bi/" target="_blank" rel="noopener">Change data source settings</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/service-datasets-share" target="_blank" rel="noopener">Select shared dataset / create local</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode" target="_blank" rel="noopener">Storage mode</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-powerbi-connector" target="_blank" rel="noopener">Microsoft Dataverse connector</a></li>
+      <li><a href="https://biinsight.com/power-bi-desktop-query-parameters-part-1/" target="_blank" rel="noopener">Query parameters (часть 1)</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-configure-consume" target="_blank" rel="noopener">Connecting to a dataflow</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-query/data-profiling-tools" target="_blank" rel="noopener">Data profiling tools</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-query/error-handling" target="_blank" rel="noopener">Resolve null / quality issues</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-create-and-manage-relationships" target="_blank" rel="noopener">Identify keys for joins</a></li>
+      <li><a href="https://www.testpreptraining.com/tutorial/evaluating-and-transforming-column-data-types/" target="_blank" rel="noopener">Evaluate and transform column types</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-shape-and-combine-data" target="_blank" rel="noopener">Shape and transform tables</a></li>
+      <li><a href="https://blog.enterprisedna.co/how-to-merge-queries-in-power-bi/" target="_blank" rel="noopener">Combine queries (Append vs Merge)</a></li>
+      <li><a href="https://www.sqlbi.com/articles/data-import-best-practices-in-power-bi/" target="_blank" rel="noopener">Naming conventions</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/refresh-data" target="_blank" rel="noopener">Configure data loading / refresh</a></li>
+      <li><a href="https://powerbi.tips/2020/01/handle-errors-in-data-refreshes-with-power-automate/" target="_blank" rel="noopener">Resolve data import errors</a></li>
+    </ul>
+
+    <h4 id="ref-mod-model">Model the Data ⚡ — детальные темы (САМЫЙ БОЛЬШОЙ модуль!)</h4>
+    <ul class="ref-links">
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-tables" target="_blank" rel="noopener">Define the tables</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-calculated-tables" target="_blank" rel="noopener">Create calculated tables</a></li>
+      <li><a href="https://data-mozart.com/welcome-to-powerbi-thetare-role-playing-dimensions/" target="_blank" rel="noopener">Role-playing dimensions</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-relationships-understand" target="_blank" rel="noopener">Cardinality &amp; cross-filter direction</a></li>
+      <li><a href="https://radacad.com/power-bi-basics-of-modeling-star-schema-and-how-to-build-it" target="_blank" rel="noopener">Star schema</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/model-date-tables" target="_blank" rel="noopener">Common date table</a></li>
+      <li><a href="https://spreadsheeto.com/power-bi-hierarchy/" target="_blank" rel="noopener">Hierarchies</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-tutorial-create-calculated-columns" target="_blank" rel="noopener">Calculated columns</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/admin/service-admin-rls" target="_blank" rel="noopener">Row-level security (RLS)</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/power-bi-tutorial-q-and-a" target="_blank" rel="noopener">Q&amp;A feature</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-measures" target="_blank" rel="noopener">Basic DAX measures</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/dax-avoid-avoid-filter-as-filter-argument" target="_blank" rel="noopener">CALCULATE + filters (best practice)</a></li>
+      <li><a href="https://www.red-gate.com/simple-talk/sql/bi/creating-time-intelligence-functions-in-dax/" target="_blank" rel="noopener">Time Intelligence в DAX</a></li>
+      <li><a href="https://radacad.com/explicit-vs-implicit-dax-measures-in-power-bi" target="_blank" rel="noopener">Explicit vs implicit measures</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/dax/statistical-functions-dax" target="_blank" rel="noopener">Statistical DAX functions</a></li>
+      <li><a href="https://www.sqlbi.com/articles/semi-additive-measures-in-dax/" target="_blank" rel="noopener">Semi-additive measures</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-quick-measures" target="_blank" rel="noopener">Quick measures</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/import-modeling-data-reduction" target="_blank" rel="noopener">Optimize: remove rows/columns</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/power-bi-optimization" target="_blank" rel="noopener">Performance optimization</a></li>
+      <li><a href="https://towardsdatascience.com/boost-power-bi-performance-by-improving-cardinality-levels-ace820e5bd6f" target="_blank" rel="noopener">Reduce cardinality</a></li>
+    </ul>
+
+    <h4 id="ref-mod-viz">Visualize and Analyze — детальные темы</h4>
+    <ul class="ref-links">
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-report-add-visualizations-i" target="_blank" rel="noopener">Add visualizations to reports</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a" target="_blank" rel="noopener">Choose visualization type</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/visuals/service-getting-started-with-color-formatting-and-axis-properties" target="_blank" rel="noopener">Format visualizations (color, axis)</a></li>
+      <li><a href="https://data-flair.training/blogs/power-bi-custom-visuals/" target="_blank" rel="noopener">Custom visuals</a></li>
+      <li><a href="https://data-flair.training/blogs/power-bi-conditional-formatting/" target="_blank" rel="noopener">Conditional formatting</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes" target="_blank" rel="noopener">Apply &amp; customize theme</a></li>
+      <li><a href="https://okviz.com/blog/design-guide-for-power-bi-slicers-and-filters/" target="_blank" rel="noopener">Slicers and filters design</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/power-bi-report-display-settings" target="_blank" rel="noopener">Configure report page</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-analyze-in-excel" target="_blank" rel="noopener">Analyze in Excel</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/guidance/report-paginated-or-power-bi" target="_blank" rel="noopener">Paginated reports</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboard-tiles" target="_blank" rel="noopener">Dashboard tiles</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-create-phone-report" target="_blank" rel="noopener">Mobile view</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-q-and-a" target="_blank" rel="noopener">Q&amp;A on dashboards</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-insights" target="_blank" rel="noopener">Quick Insights</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboard-themes" target="_blank" rel="noopener">Dashboard themes</a></li>
+      <li><a href="https://www.youtube.com/watch?v=QIVromazBw4" target="_blank" rel="noopener">Pin live report page (видео)</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-bookmarks" target="_blank" rel="noopener">Bookmarks</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-tooltips" target="_blank" rel="noopener">Custom tooltips</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/service-reports-visual-interactions" target="_blank" rel="noopener">Edit interactions between visuals</a></li>
+      <li><a href="https://data-marc.com/2020/05/22/personalize-your-power-bi-page-navigation/" target="_blank" rel="noopener">Page navigation</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-sort-by-column" target="_blank" rel="noopener">Sort by column</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/developer/visuals/enable-sync-slicers" target="_blank" rel="noopener">Sync Slicers</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/power-bi-create-mobile-optimized-report-order-layers" target="_blank" rel="noopener">Selection pane (group/layer)</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-drill" target="_blank" rel="noopener">Drilldown</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-export" target="_blank" rel="noopener">Export report data</a></li>
+      <li><a href="https://powerbi.microsoft.com/en-us/blog/create-stunning-mobile-reports-with-the-updated-mobile-authoring-in-power-bi-desktop/" target="_blank" rel="noopener">Mobile-optimised reports</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/consumer/end-user-analyze-visuals" target="_blank" rel="noopener">Analyze feature</a></li>
+      <li><a href="http://datacornering.com/how-to-identify-outliers-in-microsoft-power-bi/" target="_blank" rel="noopener">Identify outliers</a></li>
+      <li><a href="https://www.burningsuit.co.uk/7-secrets-of-the-line-chart/" target="_blank" rel="noopener">Continuous vs categorical axes</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-grouping-and-binning" target="_blank" rel="noopener">Groupings and binning</a></li>
+      <li><a href="https://www.tutorialgateway.org/power-bi-clusters/" target="_blank" rel="noopener">Clustering</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/learn/modules/ai-visuals-power-bi/" target="_blank" rel="noopener">AI visuals (MS Learn модуль)</a></li>
+      <li><a href="https://www.pluralsight.com/guides/forecasting-in-power-bi" target="_blank" rel="noopener">Forecast feature</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-analytics-pane" target="_blank" rel="noopener">Reference lines (Analytics pane)</a></li>
+    </ul>
+
+    <h4 id="ref-mod-deploy">Deploy and Maintain Assets — детальные темы</h4>
+    <ul class="ref-links">
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/service-gateway-onprem" target="_blank" rel="noopener">When a gateway is required</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/report-server/configure-scheduled-refresh" target="_blank" rel="noopener">Scheduled refresh</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/report-server/row-level-security-report-server" target="_blank" rel="noopener">RLS group membership</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/connect-data/service-datasets-build-permissions" target="_blank" rel="noopener">Providing dataset access</a></li>
+      <li><a href="https://bi.unija.com/en/preparing-work-environment-in-power-bi-desktop/" target="_blank" rel="noopener">Manage global options</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-create-the-new-workspaces" target="_blank" rel="noopener">Create &amp; configure workspace</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-new-workspaces" target="_blank" rel="noopener">Workspace roles</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-create-distribute-apps#change-your-published-app" target="_blank" rel="noopener">Configure / update app</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-upload-desktop-files" target="_blank" rel="noopener">Publish / import / update assets</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/admin/service-security-apply-data-sensitivity-labels" target="_blank" rel="noopener">Sensitivity labels</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/collaborate-share/service-report-subscribe" target="_blank" rel="noopener">Subscriptions</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/power-bi/create-reports/service-set-data-alerts" target="_blank" rel="noopener">Data alerts</a></li>
+      <li><a href="https://powerbi.microsoft.com/en-us/blog/certified-and-promoted-reports-and-apps/" target="_blank" rel="noopener">Promote / certify content</a></li>
+    </ul>
+
+    <h3 id="ref-question-types">Типы вопросов</h3>
+    <ul>
+      <li>Single answer (один правильный)</li>
+      <li>Multiple answer (баллы за каждый правильный компонент — частичный скор)</li>
+      <li>Drag-drop (последовательность)</li>
+      <li>Case studies (кейсы для анализа)</li>
+      <li>Симуляции в Power BI</li>
+    </ul>
+    <p><strong>Скоринг:</strong> угадывание не наказывается, экспериментальные вопросы не учитываются (но не знаешь какие).</p>
+
+    <h3 id="ref-before">Перед сдачей экзамена</h3>
+
+    <h4 id="ref-when-register">Когда регистрироваться</h4>
+    <ul>
+      <li><strong>Завершение подготовки</strong> — записывайся, когда уверен в знаниях</li>
+      <li><strong>Доступность экзамена</strong> — для онлайн можно зарегистрироваться даже за день, для офлайн зависит от центра</li>
+      <li><strong>Личный график</strong> — не планируй на стрессовые моменты</li>
+      <li><strong>Акции и скидки</strong> — следи за предложениями Microsoft и Pearson VUE</li>
+      <li><strong>Цели сертификации</strong> — учитывай дедлайны карьерные/трудовые</li>
+    </ul>
+
+    <h4 id="ref-register-steps">Регистрация (7 шагов)</h4>
+    <ol>
+      <li>Открыть страницу экзамена на <a href="https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/" target="_blank" rel="noopener">learn.microsoft.com</a> → «Запланировать экзамен»</li>
+      <li>Войти в Microsoft Learn (или создать профиль)</li>
+      <li>Заполнить профиль — <strong>юридическое имя должно совпадать с ID</strong> (потом не изменить!)</li>
+      <li>Подтвердить контакты (для Pearson VUE)</li>
+      <li>Выбрать провайдера → <strong>Pearson VUE</strong></li>
+      <li>На сайте Pearson VUE: дата, время, формат (онлайн/офлайн)</li>
+      <li>Оплата (Visa/Amex/MasterCard) → email-подтверждение</li>
+    </ol>
+    <p>Видео-инструкция на русском: <a href="https://www.youtube.com/watch?v=987xaZLMkz4" target="_blank" rel="noopener">YouTube</a>.</p>
+
+    <h4 id="ref-discounts">Скидки и ваучеры</h4>
+    <ul>
+      <li><strong>Ваучеры от партнёров</strong>: KZ Data Community работает с центром в Грузии, периодически дают ваучеры — следи за <a href="https://t.me/%2B5JC3gaIp44tjNjAy" target="_blank" rel="noopener">чатом по сертификациям Microsoft</a></li>
+      <li><strong>Microsoft Learn / cert programs</strong> — периодические акции, бесплатные ваучеры через учебные курсы</li>
+      <li><strong>Microsoft Ignite</strong> и виртуальные челленджи — иногда раздают ваучеры</li>
+      <li><strong>Microsoft Imagine Academy</strong> — скидки для студентов и преподавателей</li>
+      <li><strong>Exam Replay</strong> — ваучер с возможностью повторной сдачи</li>
+      <li><strong>Партнёры Microsoft</strong> — компании со специальными соглашениями имеют скидки</li>
+      <li><strong>Некоммерческие / госслужащие</strong> — могут иметь право на снижение стоимости</li>
+    </ul>
+
+    <h4 id="ref-reschedule">Перенос / отмена / неявка</h4>
+    <ul>
+      <li><strong>Перенос:</strong> возможен в Microsoft Learn / Pearson VUE, не позднее <strong>24 ч</strong> до экзамена</li>
+      <li><strong>Плата:</strong> перенос менее чем за 24 ч → теряешь оплату</li>
+      <li><strong>Возврат:</strong> отмена за 24+ ч → полный возврат через 5–7 рабочих дней. Ваучеры не возвращаются</li>
+      <li><strong>Неявка:</strong> теряешь всю сумму</li>
+      <li><a href="https://learn.microsoft.com/ru-ru/credentials/support/reschedule-and-cancellation-policy?wt.mc_id=DP-MVP-5004137" target="_blank" rel="noopener">Официальная политика переноса/отмены</a></li>
+    </ul>
+
+    <h3 id="ref-onvue">OnVUE — онлайн-сдача (полный checklist)</h3>
+    <p>Документация: <a href="https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/onvue/pearson-vue-online-testing-guide-en.pdf" target="_blank" rel="noopener">PDF-гайд OnVUE</a> · <a href="https://www.youtube.com/watch?v=987xaZLMkz4" target="_blank" rel="noopener">видео о платформе</a> · <a href="https://www.pearsonvue.com/us/en/onvue/requirements.html?tab=id-requirements" target="_blank" rel="noopener">требования к ID</a>.</p>
+    <h4>Оборудование</h4>
+    <ul class="checklist">
+      <li>✅ Десктоп или ноутбук (планшет — только как экран с внешней клавиатурой)</li>
+      <li>✅ Один монитор (лишние убрать или отключить)</li>
+      <li>✅ Веб-камера, мышь, клавиатура</li>
+      <li>✅ Личный компьютер (не служебный — политики безопасности могут прервать)</li>
+    </ul>
+    <h4>Сеть</h4>
+    <ul class="checklist">
+      <li>✅ Проводное соединение &gt; Wi-Fi</li>
+      <li>❌ <strong>VPN отключить</strong> (OnVUE с ним работает плохо)</li>
+      <li>✅ Run system test за неделю и за 2–3 дня до экзамена</li>
+    </ul>
+    <h4>Помещение</h4>
+    <ul class="checklist">
+      <li>✅ Приватное, тихое, хорошо освещённое</li>
+      <li>✅ Стол очищен от личных вещей</li>
+      <li>✅ Телефон в комнате, но <strong>вне досягаемости</strong></li>
+    </ul>
+    <h4>Регистрация в OnVUE-сессии</h4>
+    <ul>
+      <li>Окно регистрации: за 30 мин до и до 15 мин после старта. Раньше нельзя</li>
+      <li>Нажми «Begin Exam» → получи Access Code → закрой все приложения → запусти OnVUE из папки загрузок</li>
+    </ul>
+    <h4>Фотографирование</h4>
+    <ul>
+      <li>Фото лица — на однотонной стене</li>
+      <li>Фото ID — фронт + зад (или паспортная страница)</li>
+      <li>4 фото рабочего пространства</li>
+    </ul>
+    <h4>Технические проблемы</h4>
+    <p>До начала — перенос/отмена с возвратом средств. Во время — ваучер на новый экзамен. Если сильно отключило — служба поддержки сама создаст запрос.</p>
+
+    <h3 id="ref-test-center">Тест-центр (офлайн) — checklist</h3>
+    <p>Документация: <a href="https://www.youtube.com/watch?v=OSWXzhavOwg" target="_blank" rel="noopener">видео о сдаче в тест-центре</a> · <a href="https://www.pearsonvue.com/content/dam/VUE/vue/global/documents/global-id-policy/Pearson-VUE-ID-Policies-1-English.pdf" target="_blank" rel="noopener">политика идентификации (PDF)</a>.</p>
+    <ul class="checklist">
+      <li>✅ Прийти за <strong>15 минут</strong> минимум — проверка/сверка/фото/подпись</li>
+      <li>✅ <strong>2 документа</strong>, удостоверяющих личность (паспорт + ID/права)</li>
+      <li>✅ Имя/фамилия буква в букву как в паспорте</li>
+      <li>✅ Регулярно проверяй почту — центр может отменить дату</li>
+      <li>✅ Личные вещи — в шкафчик</li>
+      <li>✅ На перерыве можно телефон/еду/медикаменты, нельзя учебные материалы</li>
+    </ul>
+
+    <h3 id="ref-exam-day">В день экзамена</h3>
+    <ul>
+      <li>Если офлайн — выдели достаточно времени на дорогу</li>
+      <li>Если онлайн — подготовь пространство и проверь систему</li>
+      <li><strong>Что взять:</strong> онлайн — ID + компьютер; офлайн — 2 документа ID</li>
+      <li>Имя на ID = имя в Microsoft Learn (исключения только за 5 рабочих дней до)</li>
+      <li>Чрезвычайные ситуации (погода/болезнь) — связаться со <a href="https://home.pearsonvue.com/microsoft/contact" target="_blank" rel="noopener">службой поддержки Pearson VUE</a></li>
+    </ul>
+
+    <h3 id="ref-after">После экзамена</h3>
+
+    <h4 id="ref-results">Результаты и отчёт</h4>
+    <ul>
+      <li>В тест-центре — отчёт сразу (до 30 мин печать)</li>
+      <li>Онлайн через <a href="https://learn.microsoft.com/" target="_blank" rel="noopener">Microsoft Learn</a> — в течение <strong>24 часов</strong></li>
+      <li>Отчёт: числовая оценка, pass/fail, гистограмма по областям навыков (короткие полосы — слабость, длинные — сила)</li>
+      <li><strong>Оспорить вопрос:</strong> форма в течение <strong>15 календарных дней</strong>. Microsoft редко изменяет результаты</li>
+    </ul>
+    <p>Где смотреть: Microsoft Learn → Credentials → Certifications → View details on provider site → Pearson VUE → My account → View score reports.</p>
+
+    <h4 id="ref-scoring">Как оценивается экзамен</h4>
+    <ul>
+      <li>Многокомпонентные вопросы: 1 балл за каждый правильный компонент (можно набрать частичный)</li>
+      <li>Угадывание не наказывается — за неверный ответ 0, никаких минусов</li>
+      <li>Часть вопросов — экспериментальные, не учитываются в оценке (но какие именно — не знаешь)</li>
+      <li>Microsoft вводит новые типы вопросов с альтернативной оценкой — это будет помечено в самом вопросе</li>
+    </ul>
+
+    <h4 id="ref-retake">Политика пересдачи</h4>
+    <table class="ref-table">
+      <thead><tr><th>Попытка</th><th>Ожидание</th></tr></thead>
+      <tbody>
+        <tr><td>1-я → 2-я</td><td><strong>24 часа</strong></td></tr>
+        <tr><td>2-я и далее (до 5-й)</td><td><strong>14 дней</strong></td></tr>
+        <tr><td>После 5 попыток</td><td><strong>12 месяцев</strong> до следующей</td></tr>
+        <tr><td>Каждая пересдача</td><td>Повторная оплата</td></tr>
+        <tr><td>Отказ от ожидания</td><td>Только при тех. сбое с номером инцидента Pearson VUE</td></tr>
+      </tbody>
+    </table>
+    <p>Связь по отказу: <a href="https://trainingsupport.microsoft.com/en-us/?auth=1" target="_blank" rel="noopener">служба поддержки Microsoft</a>.</p>
+
+    <h3 id="ref-renewal">Продление сертификации</h3>
+    <p>Сертификат PL-300 действителен <strong>1 год</strong>. Продлить нужно в течение 6 месяцев до истечения. Уведомление приходит за 180 дней до окончания.</p>
+    <h4>Формат продления</h4>
+    <ul>
+      <li>~25 вопросов, основанных на сценариях, формат multiple choice + fill-in-the-blanks</li>
+      <li>Длительность: 45 минут (таймер может не отображаться — следи сам)</li>
+      <li>Проходной балл: <strong>57%</strong></li>
+      <li>Проводится онлайн, без прокторинга, бесплатно</li>
+    </ul>
+    <h4>Оцениваемые навыки на продлении</h4>
+    <ul>
+      <li>Очистка, преобразование и загрузка данных в Power BI</li>
+      <li>Проектирование модели данных</li>
+      <li>Добавление мер в модели Power BI Desktop</li>
+      <li>Оптимизация модели для производительности</li>
+      <li>Проектирование отчётов</li>
+      <li>Улучшение дизайна для удобства пользователей</li>
+      <li>Выполнение аналитики</li>
+      <li>Создание и управление рабочими пространствами</li>
+      <li>Управление наборами данных</li>
+    </ul>
+
+    <h3 id="ref-strategy">Стратегия подготовки</h3>
+    <ol>
+      <li>Изучи <strong>skills measured</strong> на learn.microsoft.com</li>
+      <li><a href="https://learn.microsoft.com/en-us/training/courses/pl-300t00" target="_blank" rel="noopener">Microsoft Learn — бесплатный курс PL-300T00</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/shows/exam-readiness-zone/preparing-for-pl-300-prepare-the-data" target="_blank" rel="noopener">Exam Readiness Zone — Preparing for PL-300</a></li>
+      <li>Решай практические тесты — для формата и слабых зон</li>
+      <li>Регулярно работай в Power BI Desktop — теория без практики не работает</li>
+      <li>Учебная группа / наставник</li>
+      <li>Управление временем: 100 мин / 40–60 вопросов = ≈1.5–2.5 мин на вопрос</li>
+      <li>Высыпайся перед экзаменом</li>
+    </ol>
+
+    <h3 id="ref-links">Полезные ссылки и сообщество</h3>
+    <h4>Официальные ресурсы Microsoft / Pearson VUE</h4>
+    <ul class="ref-links">
+      <li><a href="https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/?practice-assessment-type=certification" target="_blank" rel="noopener">Страница сертификации PL-300</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/training/courses/pl-300t00" target="_blank" rel="noopener">PL-300T00 — официальный курс</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/power-bi/" target="_blank" rel="noopener">Power BI documentation</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/powerapps/" target="_blank" rel="noopener">Power Apps documentation</a></li>
+      <li><a href="https://home.pearsonvue.com/microsoft/contact" target="_blank" rel="noopener">Pearson VUE customer service</a></li>
+      <li><a href="https://trainingsupport.microsoft.com/en-us/?auth=1" target="_blank" rel="noopener">Microsoft Training Support</a></li>
+    </ul>
+    <h4>Сообщество Power Users</h4>
+    <ul class="ref-links">
+      <li><a href="https://powerusers.microsoft.com/t5/Power-Apps-Community/ct-p/PowerApps1" target="_blank" rel="noopener">Power Apps Community</a></li>
+      <li><a href="https://powerusers.microsoft.com/t5/Power-Query/bd-p/PA_PowerQuery" target="_blank" rel="noopener">Power Query forum</a></li>
+      <li><a href="https://powerusers.microsoft.com/t5/Building-Power-Apps/bd-p/PowerAppsForum1" target="_blank" rel="noopener">Building Power Apps forum</a></li>
+    </ul>
+    <h4>KZ Data Community</h4>
+    <ul class="ref-links">
+      <li><a href="https://t.me/kz_bi" target="_blank" rel="noopener">Telegram: KZ BI &amp; Data Analytics</a></li>
+      <li><a href="https://t.me/kz_bi_news" target="_blank" rel="noopener">Telegram: KZ BI News</a></li>
+      <li><a href="https://t.me/kz_bi_jobs" target="_blank" rel="noopener">Telegram: KZ BI Jobs</a></li>
+      <li><a href="https://t.me/datakz" target="_blank" rel="noopener">Telegram: DataKZ (Data Science)</a></li>
+      <li><a href="https://t.me/datanewskz" target="_blank" rel="noopener">Telegram: DataNews KZ</a></li>
+      <li><a href="https://t.me/datajobskz" target="_blank" rel="noopener">Telegram: DataJobs KZ</a></li>
+      <li><a href="https://www.instagram.com/kz_bi_community/" target="_blank" rel="noopener">Instagram: kz_bi_community</a></li>
+      <li><a href="https://t.me/%2B5JC3gaIp44tjNjAy" target="_blank" rel="noopener">Чат по сертификациям Microsoft (скидки)</a></li>
+      <li><a href="https://rekhert4.com/community" target="_blank" rel="noopener">Сайт rekhert4.com — бесплатные материалы</a></li>
+    </ul>
+    <h4>Видео-истории сдавших PL-300 (KZ Data community)</h4>
+    <ul class="ref-links">
+      <li><a href="https://www.youtube.com/watch?v=E-0h0uaDMPQ&list=PLCwOzG21fwctLbd9RgLS7A1feNcUnpLND&index=21&t=7s" target="_blank" rel="noopener">Митап со сдавшими PL-300 — март 2024</a></li>
+      <li><a href="https://www.youtube.com/watch?v=W94H5D9ZFxY&list=PLCwOzG21fwctLbd9RgLS7A1feNcUnpLND&index=5&pp=iAQB" target="_blank" rel="noopener">Митап со сдавшими PL-300 — сентябрь 2024</a></li>
+    </ul>
+    <h4>Excel и Office (для работы аналитика)</h4>
+    <ul class="ref-links">
+      <li><a href="https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188" target="_blank" rel="noopener">Все функции Microsoft Excel (алфавитный список)</a></li>
+      <li><a href="https://support.office.com/ru-ru/excel/?wt.mc_id=DP-MVP-5004137" target="_blank" rel="noopener">Справка Excel</a></li>
+      <li><a href="https://blogs.technet.microsoft.com/tasush/?wt.mc_id=DP-MVP-5004137" target="_blank" rel="noopener">Блог Microsoft Office</a></li>
+      <li><a href="https://www.microsoft.com/ru-ru/microsoft-365/blog/2019/02/06/excel-with-microsoft-excel-in-office-365/?wt.mc_id=DP-MVP-5004137" target="_blank" rel="noopener">Блог Microsoft Office о Excel в 365</a></li>
+    </ul>
+
+    <div class="references-attribution" id="ref-attribution">
+      <div class="references-attribution-title">📚 Источник</div>
+      <div class="references-attribution-text">
+        Все права на оригинальный материал принадлежат <strong>школе по аналитике данных DataBoom</strong> (KZ Data Community).
+        <br>Версия гайда: апрель 2025.
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="src/view-as.js"></script>
+<script type="module" src="src/firebase-init.js"></script>
+<script src="src/config/exam-profiles.js"></script>
+<script src="src/metrics.js?v=20260522a"></script>
+<script src="src/branding.js?v=20260522a"></script>
+<!-- Floating Next FAB lives at body root so position:fixed isn't broken
+     by any transformed ancestor (.question-card uses transform for swipe). -->
+<button class="floating-next-fab hidden" id="floatingNextFab" type="button" aria-label="Next question" title="Next question">→</button>
+
+
+<!-- App version mismatch toast (Step 1A.3.b). -->
+<div id="versionToast" class="version-toast hidden" role="status" aria-live="polite">
+  <span class="version-toast-icon" aria-hidden="true">⟳</span>
+  <span class="version-toast-text">Доступна новая версия приложения — обнови страницу.</span>
+  <button type="button" class="version-toast-reload" id="versionToastReloadBtn">Reload</button>
+  <button type="button" class="version-toast-close" id="versionToastCloseBtn" aria-label="Dismiss">×</button>
+</div>
+
+
+<script src="src/app.js?v=20260521b"></script>
+<script src="src/engine/readiness.js?v=20260520b"></script>
+<script src="src/engine/readiness-bootstrap.js?v=20260520a"></script>
+<script src="src/engine/recommendation.js?v=20260509a"></script>
+<script src="src/ui/study-plan.js?v=20260520a"></script>
+<script src="src/ui/remediation.js?v=20260521a"></script>
+<script src="src/ui/exam-coach.js?v=20260509a"></script>
+<script src="src/ui/question-feedback.js?v=20260515a"></script>
+</body>
+</html>

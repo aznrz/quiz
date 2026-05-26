@@ -1,0 +1,7 @@
+#!/bin/bash
+# Auto-updates "База обновлена" date in index.html before each commit.
+# Install: copy this file to .git/hooks/pre-commit
+
+DATE=$(date '+%d.%m.%Y — %H:%M')
+sed -i "s|<span id=\"dbDate\">[^<]*</span>|<span id=\"dbDate\">${DATE}</span>|" index.html
+git add index.html

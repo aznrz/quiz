@@ -1,0 +1,60 @@
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+
+# Playwright e2e artifacts
+test-results/
+playwright-report/
+playwright/.cache/
+tmp/
+
+# Playwright CLI page snapshots (temp)
+.playwright-cli/
+
+# Local browser scratch profiles (Edge/Chrome) created during manual testing
+.tmp-*/
+.tmp-*
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Local source materials for batch generation (real exam dumps, etc.)
+tmp_docx/
+
+# Personal study materials — keep README.md (structure+walkthrough), ignore binaries
+study-materials/**/*.pdf
+study-materials/**/*.pbix
+study-materials/**/*.xlsx
+study-materials/**/*.csv
+
+# Firebase Functions runtime artifacts
+functions/data/
+firebase-debug.log
+firebase-debug.*.log
+audit-prod.json
+audit-local.json
+audit-local-v2.json
+audit-local-v3.json
+audit-screens/
+audit-screens-local/
+audit-screens-local-v2/
+audit-screens-local-v3/
+
+# Claude Code per-repo config (local IDE state, not project artifact)
+.claude/
+
+# Firebase CLI cache (regenerated on every `firebase deploy`)
+.firebase/
+
+# Transient batch-input files for one-off scripts (role questions etc.)
+_role-questions-input.json
+_*-input.json

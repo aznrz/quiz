@@ -1,0 +1,365 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#a855f7"/>
+    </marker>
+    <marker id="arrow-pink" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#ec4899"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000040"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1500" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="600" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#f1f5f9">exams-quiz — Project Pipeline</text>
+  <text x="600" y="56" text-anchor="middle" font-size="12" fill="#64748b">Step-by-step: Authoring → Data → Build → Deploy → Runtime</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- STEP 1: AUTHORING -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <text x="40" y="100" font-size="13" font-weight="700" fill="#fbbf24">① AUTHORING</text>
+  <text x="40" y="118" font-size="11" fill="#94a3b8">where new questions come from</text>
+
+  <!-- Admin panel browser -->
+  <rect x="40" y="135" width="220" height="110" rx="10" fill="#065f46" fill-opacity="0.25" stroke="#10b981" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="150" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#6ee7b7">Admin Panel (browser)</text>
+  <text x="150" y="178" text-anchor="middle" font-size="11" fill="#a7f3d0">admin.html · src/admin.js</text>
+  <text x="150" y="195" text-anchor="middle" font-size="10" fill="#86efac">draft form · drag-n-drop image</text>
+  <text x="150" y="211" text-anchor="middle" font-size="10" fill="#86efac">live preview · whitelist auth</text>
+  <text x="150" y="232" text-anchor="middle" font-size="9" fill="#34d399">naziz.kz@gmail.com only</text>
+
+  <!-- AI generation skill -->
+  <rect x="290" y="135" width="220" height="110" rx="10" fill="#1e3a5f" fill-opacity="0.5" stroke="#3b82f6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#93c5fd">AI generation</text>
+  <text x="400" y="178" text-anchor="middle" font-size="11" fill="#bfdbfe">/microsoft-realism-test</text>
+  <text x="400" y="195" text-anchor="middle" font-size="10" fill="#7dd3fc">batch JSON to data/raw_batches/</text>
+  <text x="400" y="211" text-anchor="middle" font-size="10" fill="#7dd3fc">version: gen2</text>
+  <text x="400" y="232" text-anchor="middle" font-size="9" fill="#60a5fa">PL-300 · DP-900 · AI-901 · MO-200 · Python</text>
+
+  <!-- Real exam sources -->
+  <rect x="540" y="135" width="220" height="110" rx="10" fill="#7c4400" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="650" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#fcd34d">Real exam sources</text>
+  <text x="650" y="178" text-anchor="middle" font-size="11" fill="#fde68a">Coursera · DataBoom · live exam</text>
+  <text x="650" y="198" text-anchor="middle" font-size="10" fill="#fbbf24">cs24 — Coursera 2024 set</text>
+  <text x="650" y="214" text-anchor="middle" font-size="10" fill="#fbbf24">db1 / db2 — DataBoom DB</text>
+  <text x="650" y="230" text-anchor="middle" font-size="10" fill="#fbbf24">real1 — actual exam</text>
+
+  <!-- Manual edit -->
+  <rect x="790" y="135" width="220" height="110" rx="10" fill="#4a1d96" fill-opacity="0.3" stroke="#a855f7" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="900" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#d8b4fe">Manual edit</text>
+  <text x="900" y="178" text-anchor="middle" font-size="11" fill="#e9d5ff">direct JSON tweak</text>
+  <text x="900" y="195" text-anchor="middle" font-size="10" fill="#c084fc">fix prompt · options · explanation</text>
+  <text x="900" y="211" text-anchor="middle" font-size="10" fill="#c084fc">gen1 → gen2 on rewrite</text>
+  <text x="900" y="232" text-anchor="middle" font-size="9" fill="#a855f7">(cs/real/db version stays)</text>
+
+  <!-- Storage for images (right of AUTHORING) -->
+  <rect x="1040" y="135" width="140" height="110" rx="10" fill="#4a1d96" fill-opacity="0.3" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="1110" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#d8b4fe">Firebase</text>
+  <text x="1110" y="174" text-anchor="middle" font-size="12" font-weight="700" fill="#d8b4fe">Storage</text>
+  <text x="1110" y="194" text-anchor="middle" font-size="10" fill="#e9d5ff">drafts/{uid}/</text>
+  <text x="1110" y="208" text-anchor="middle" font-size="10" fill="#e9d5ff">images/**</text>
+  <text x="1110" y="226" text-anchor="middle" font-size="9" fill="#c084fc">5 MB · image/* only</text>
+
+  <!-- Admin → Storage arrow -->
+  <line x1="260" y1="195" x2="1040" y2="195" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-purple)"/>
+  <text x="650" y="190" text-anchor="middle" font-size="9" fill="#a855f7">image upload</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- ARROW: 1 → 2 -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <line x1="600" y1="252" x2="600" y2="290" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- STEP 2: DRAFT STORAGE & EXPORT -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <text x="40" y="320" font-size="13" font-weight="700" fill="#fbbf24">② DRAFT &amp; EXPORT</text>
+  <text x="40" y="338" font-size="11" fill="#94a3b8">drafts live in Firestore until exported as a batch</text>
+
+  <!-- Firestore drafts -->
+  <rect x="40" y="355" width="260" height="120" rx="10" fill="#1e3a5f" fill-opacity="0.5" stroke="#3b82f6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="170" y="378" text-anchor="middle" font-size="13" font-weight="700" fill="#93c5fd">Firestore: drafts/{uid}/questions</text>
+  <text x="170" y="397" text-anchor="middle" font-size="10" fill="#bfdbfe">user-private draft questions</text>
+  <text x="170" y="413" text-anchor="middle" font-size="10" fill="#bfdbfe">images stored as URL refs to Storage</text>
+  <text x="170" y="431" text-anchor="middle" font-size="10" fill="#7dd3fc">→ Admin Panel reads/writes here</text>
+  <text x="170" y="450" text-anchor="middle" font-size="10" fill="#60a5fa">collection per uid · auth-gated</text>
+  <text x="170" y="465" text-anchor="middle" font-size="9" fill="#3b82f6">firestore.rules: owner-only</text>
+
+  <!-- Export script -->
+  <rect x="340" y="355" width="260" height="120" rx="10" fill="#1c1917" fill-opacity="0.6" stroke="#78716c" stroke-width="1.5"/>
+  <text x="470" y="378" text-anchor="middle" font-size="13" font-weight="700" fill="#d6d3d1">Export to JSON batch</text>
+  <text x="470" y="397" text-anchor="middle" font-size="10" fill="#a8a29e">admin "export" button</text>
+  <text x="470" y="413" text-anchor="middle" font-size="10" fill="#a8a29e">→ data/raw_batches/{date}.json</text>
+  <text x="470" y="431" text-anchor="middle" font-size="10" fill="#78716c">title-learn-links auto-suggest</text>
+  <text x="470" y="450" text-anchor="middle" font-size="10" fill="#78716c">manual cleanup if needed</text>
+  <text x="470" y="465" text-anchor="middle" font-size="9" fill="#57534e">data/title-learn-links.json reference</text>
+
+  <!-- Raw batches dir -->
+  <rect x="640" y="355" width="260" height="120" rx="10" fill="#1c1917" fill-opacity="0.6" stroke="#78716c" stroke-width="1.5"/>
+  <text x="770" y="378" text-anchor="middle" font-size="13" font-weight="700" fill="#d6d3d1">data/raw_batches/</text>
+  <text x="770" y="397" text-anchor="middle" font-size="10" fill="#a8a29e">staging area for new batches</text>
+  <text x="770" y="413" text-anchor="middle" font-size="10" fill="#a8a29e">one JSON file per batch</text>
+  <text x="770" y="431" text-anchor="middle" font-size="10" fill="#78716c">batch # = folder count</text>
+  <text x="770" y="450" text-anchor="middle" font-size="10" fill="#78716c">(never read questions.json at runtime)</text>
+  <text x="770" y="465" text-anchor="middle" font-size="9" fill="#57534e">per-batch metadata + questions[]</text>
+
+  <!-- Skill outputs into raw_batches -->
+  <rect x="940" y="355" width="220" height="120" rx="10" fill="#1e3a5f" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="1050" y="378" text-anchor="middle" font-size="12" font-weight="700" fill="#93c5fd">AI batches land here</text>
+  <text x="1050" y="397" text-anchor="middle" font-size="10" fill="#bfdbfe">/microsoft-realism-test</text>
+  <text x="1050" y="413" text-anchor="middle" font-size="10" fill="#bfdbfe">writes JSON directly</text>
+  <text x="1050" y="431" text-anchor="middle" font-size="10" fill="#7dd3fc">to raw_batches/</text>
+  <text x="1050" y="450" text-anchor="middle" font-size="10" fill="#60a5fa">no Firestore round-trip</text>
+
+  <!-- Arrows S2 -->
+  <line x1="300" y1="415" x2="340" y2="415" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="600" y1="415" x2="640" y2="415" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="940" y1="415" x2="900" y2="415" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- ARROW: 2 → 3 -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <line x1="600" y1="482" x2="600" y2="520" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- STEP 3: MERGE & VERIFY -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <text x="40" y="550" font-size="13" font-weight="700" fill="#fbbf24">③ MERGE &amp; VERIFY (Python)</text>
+  <text x="40" y="568" font-size="11" fill="#94a3b8">batch is merged into the canonical file</text>
+
+  <!-- merge_batch.py -->
+  <rect x="40" y="585" width="260" height="130" rx="10" fill="#7c4400" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="170" y="608" text-anchor="middle" font-size="13" font-weight="700" fill="#fcd34d">scripts/merge_batch.py</text>
+  <text x="170" y="627" text-anchor="middle" font-size="10" fill="#fde68a">read raw_batches/{file}.json</text>
+  <text x="170" y="643" text-anchor="middle" font-size="10" fill="#fde68a">assign per-exam seq (1…N)</text>
+  <text x="170" y="659" text-anchor="middle" font-size="10" fill="#fde68a">enrich with title_learn_links</text>
+  <text x="170" y="675" text-anchor="middle" font-size="10" fill="#fde68a">append to questions.v2.json</text>
+  <text x="170" y="694" text-anchor="middle" font-size="9" fill="#fbbf24">never modifies version tags</text>
+
+  <!-- assign_seq.py -->
+  <rect x="340" y="585" width="260" height="130" rx="10" fill="#7c4400" fill-opacity="0.25" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="470" y="608" text-anchor="middle" font-size="12" font-weight="700" fill="#fcd34d">scripts/assign_seq.py</text>
+  <text x="470" y="627" text-anchor="middle" font-size="10" fill="#fde68a">one-shot migration · idempotent</text>
+  <text x="470" y="643" text-anchor="middle" font-size="10" fill="#fde68a">fills missing seq fields</text>
+  <text x="470" y="659" text-anchor="middle" font-size="10" fill="#fbbf24">PL-300: 4027 · AI-900: 353</text>
+  <text x="470" y="675" text-anchor="middle" font-size="10" fill="#fbbf24">DP-900: 240 · MO-200: 165</text>
+  <text x="470" y="691" text-anchor="middle" font-size="10" fill="#fbbf24">IT-Spec-Python: 84</text>
+
+  <!-- Verify scripts -->
+  <rect x="640" y="585" width="260" height="130" rx="10" fill="#7c2d12" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="770" y="608" text-anchor="middle" font-size="12" font-weight="700" fill="#fca5a5">Verify (lint scripts)</text>
+  <text x="770" y="627" text-anchor="middle" font-size="10" fill="#fecaca">duplicate id check</text>
+  <text x="770" y="643" text-anchor="middle" font-size="10" fill="#fecaca">schema validation (v2)</text>
+  <text x="770" y="659" text-anchor="middle" font-size="10" fill="#fca5a5">required: id · prompt · options</text>
+  <text x="770" y="675" text-anchor="middle" font-size="10" fill="#fca5a5">      correct · explanation · version</text>
+  <text x="770" y="691" text-anchor="middle" font-size="10" fill="#f87171">stop on broken question</text>
+
+  <!-- questions.v2.json target -->
+  <rect x="940" y="585" width="220" height="130" rx="10" fill="#1d4ed8" fill-opacity="0.25" stroke="#3b82f6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="1050" y="608" text-anchor="middle" font-size="13" font-weight="700" fill="#93c5fd">data/questions.v2.json</text>
+  <text x="1050" y="628" text-anchor="middle" font-size="10" fill="#bfdbfe">SOURCE OF TRUTH</text>
+  <text x="1050" y="644" text-anchor="middle" font-size="10" fill="#bfdbfe">5 exams · 4869 questions</text>
+  <text x="1050" y="664" text-anchor="middle" font-size="10" fill="#7dd3fc">grouped by exam_code</text>
+  <text x="1050" y="680" text-anchor="middle" font-size="10" fill="#7dd3fc">includes seq, version, images</text>
+  <text x="1050" y="697" text-anchor="middle" font-size="9" fill="#60a5fa">questions.json — DEAD (do not edit)</text>
+
+  <!-- arrows merge -->
+  <line x1="300" y1="650" x2="340" y2="650" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="600" y1="650" x2="640" y2="650" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="900" y1="650" x2="940" y2="650" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- ARROW: 3 → 4 -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <line x1="600" y1="725" x2="600" y2="765" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
+  <text x="608" y="750" font-size="10" fill="#ec4899">git add · commit</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- STEP 4: GIT & GITHUB -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <text x="40" y="795" font-size="13" font-weight="700" fill="#fbbf24">④ GIT &amp; GITHUB</text>
+  <text x="40" y="813" font-size="11" fill="#94a3b8">commit triggers two parallel deploys</text>
+
+  <!-- Local git -->
+  <rect x="40" y="830" width="240" height="110" rx="10" fill="#1f2937" fill-opacity="0.7" stroke="#6b7280" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="160" y="853" text-anchor="middle" font-size="13" font-weight="700" fill="#e5e7eb">local repo</text>
+  <text x="160" y="873" text-anchor="middle" font-size="10" fill="#d1d5db">git commit -m "..."</text>
+  <text x="160" y="889" text-anchor="middle" font-size="10" fill="#d1d5db">includes data/questions.v2.json</text>
+  <text x="160" y="906" text-anchor="middle" font-size="10" fill="#d1d5db">+ src changes + sw.js bump</text>
+  <text x="160" y="925" text-anchor="middle" font-size="9" fill="#9ca3af">branch: main</text>
+
+  <!-- GitHub remote -->
+  <rect x="320" y="830" width="240" height="110" rx="10" fill="#1f2937" fill-opacity="0.85" stroke="#9ca3af" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="440" y="853" text-anchor="middle" font-size="13" font-weight="700" fill="#f3f4f6">GitHub</text>
+  <text x="440" y="873" text-anchor="middle" font-size="11" fill="#e5e7eb">scythianmozg/exams-quiz</text>
+  <text x="440" y="891" text-anchor="middle" font-size="10" fill="#d1d5db">git push origin main</text>
+  <text x="440" y="908" text-anchor="middle" font-size="10" fill="#d1d5db">webhook → Cloudflare</text>
+  <text x="440" y="925" text-anchor="middle" font-size="9" fill="#9ca3af">single source of all code &amp; data</text>
+
+  <!-- Cloudflare auto -->
+  <rect x="600" y="830" width="240" height="110" rx="10" fill="#7c4400" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="720" y="853" text-anchor="middle" font-size="13" font-weight="700" fill="#fcd34d">Cloudflare Pages</text>
+  <text x="720" y="873" text-anchor="middle" font-size="11" fill="#fde68a">auto-deploy on push</text>
+  <text x="720" y="891" text-anchor="middle" font-size="10" fill="#fbbf24">serves static: html · js · css · sw.js</text>
+  <text x="720" y="908" text-anchor="middle" font-size="10" fill="#fbbf24">global edge + HTTPS</text>
+  <text x="720" y="925" text-anchor="middle" font-size="9" fill="#f59e0b">~1-2 min build time</text>
+
+  <!-- Manual firebase deploy -->
+  <rect x="880" y="830" width="280" height="110" rx="10" fill="#14532d" fill-opacity="0.35" stroke="#22c55e" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="1020" y="853" text-anchor="middle" font-size="13" font-weight="700" fill="#86efac">firebase deploy --only functions</text>
+  <text x="1020" y="873" text-anchor="middle" font-size="10" fill="#bbf7d0">MANUAL · after every questions.v2.json change</text>
+  <text x="1020" y="891" text-anchor="middle" font-size="10" fill="#bbf7d0">predeploy: functions/sync-data.js</text>
+  <text x="1020" y="908" text-anchor="middle" font-size="10" fill="#bbf7d0">  copies questions.v2.json → functions/data/</text>
+  <text x="1020" y="925" text-anchor="middle" font-size="9" fill="#22c55e">FUNCTIONS_DISCOVERY_TIMEOUT=60</text>
+
+  <!-- arrows -->
+  <line x1="280" y1="885" x2="320" y2="885" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
+  <line x1="560" y1="885" x2="600" y2="885" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="580" y="880" text-anchor="middle" font-size="9" fill="#f59e0b">webhook</text>
+  <line x1="560" y1="900" x2="880" y2="900" stroke="#22c55e" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-green)"/>
+  <text x="720" y="895" text-anchor="middle" font-size="9" fill="#22c55e">manual CLI</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- ARROW: 4 → 5 -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <line x1="600" y1="947" x2="600" y2="985" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- STEP 5: FIREBASE BACKEND -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <text x="40" y="1015" font-size="13" font-weight="700" fill="#fbbf24">⑤ FIREBASE BACKEND</text>
+  <text x="40" y="1033" font-size="11" fill="#94a3b8">runtime services for browser</text>
+
+  <!-- Auth -->
+  <rect x="40" y="1050" width="220" height="120" rx="10" fill="#7c2d12" fill-opacity="0.3" stroke="#f97316" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="150" y="1073" text-anchor="middle" font-size="13" font-weight="700" fill="#fdba74">Firebase Auth</text>
+  <text x="150" y="1093" text-anchor="middle" font-size="11" fill="#fed7aa">Google Sign-In</text>
+  <text x="150" y="1110" text-anchor="middle" font-size="10" fill="#fb923c">uid → user identity</text>
+  <text x="150" y="1126" text-anchor="middle" font-size="10" fill="#fb923c">guards Firestore + Storage</text>
+  <text x="150" y="1145" text-anchor="middle" font-size="9" fill="#f97316">admin whitelist (client + callable)</text>
+  <text x="150" y="1160" text-anchor="middle" font-size="9" fill="#f97316">naziz.kz@gmail.com</text>
+
+  <!-- Cloud Functions -->
+  <rect x="290" y="1050" width="280" height="120" rx="10" fill="#14532d" fill-opacity="0.3" stroke="#22c55e" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="430" y="1073" text-anchor="middle" font-size="13" font-weight="700" fill="#86efac">Cloud Functions (Node 22)</text>
+  <text x="430" y="1093" text-anchor="middle" font-size="10" fill="#bbf7d0">getQuestionsAllV2() — primary</text>
+  <text x="430" y="1109" text-anchor="middle" font-size="10" fill="#bbf7d0">getQuestionsAll() — legacy</text>
+  <text x="430" y="1125" text-anchor="middle" font-size="10" fill="#bbf7d0">getAdminStatus()</text>
+  <text x="430" y="1143" text-anchor="middle" font-size="10" fill="#4ade80">HTTPS callable · cold-start cached</text>
+  <text x="430" y="1160" text-anchor="middle" font-size="9" fill="#22c55e">data bundled at deploy time</text>
+
+  <!-- Firestore -->
+  <rect x="600" y="1050" width="240" height="120" rx="10" fill="#1e3a5f" fill-opacity="0.5" stroke="#3b82f6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="720" y="1073" text-anchor="middle" font-size="13" font-weight="700" fill="#93c5fd">Firestore (per-user)</text>
+  <text x="600" y="1093" font-size="10" fill="#bfdbfe">  users/{uid}/analytics</text>
+  <text x="600" y="1109" font-size="10" fill="#bfdbfe">  users/{uid}/leitner</text>
+  <text x="600" y="1125" font-size="10" fill="#bfdbfe">  users/{uid}/streaks</text>
+  <text x="600" y="1141" font-size="10" fill="#bfdbfe">  users/{uid}/reflections · favorites</text>
+  <text x="600" y="1157" font-size="10" fill="#bfdbfe">  users/{uid}/question_stats</text>
+
+  <!-- Storage runtime -->
+  <rect x="870" y="1050" width="290" height="120" rx="10" fill="#4a1d96" fill-opacity="0.3" stroke="#a855f7" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="1015" y="1073" text-anchor="middle" font-size="13" font-weight="700" fill="#d8b4fe">Firebase Storage</text>
+  <text x="1015" y="1093" text-anchor="middle" font-size="11" fill="#e9d5ff">drafts/{uid}/images/**</text>
+  <text x="1015" y="1110" text-anchor="middle" font-size="10" fill="#c084fc">storage.rules: owner-write · public-read</text>
+  <text x="1015" y="1126" text-anchor="middle" font-size="10" fill="#c084fc">deploy: firebase deploy --only storage</text>
+  <text x="1015" y="1145" text-anchor="middle" font-size="10" fill="#c084fc">image URLs persist in question.images[]</text>
+  <text x="1015" y="1160" text-anchor="middle" font-size="9" fill="#a855f7">survive after merge to questions.v2.json</text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- ARROW: 5 → 6 -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <line x1="600" y1="1180" x2="600" y2="1220" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- STEP 6: RUNTIME / BROWSER -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <text x="40" y="1250" font-size="13" font-weight="700" fill="#fbbf24">⑥ RUNTIME (Browser PWA)</text>
+  <text x="40" y="1268" font-size="11" fill="#94a3b8">what end-users actually run</text>
+
+  <!-- Service worker -->
+  <rect x="40" y="1285" width="240" height="120" rx="10" fill="#7c3aed" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="160" y="1308" text-anchor="middle" font-size="13" font-weight="700" fill="#c4b5fd">Service Worker</text>
+  <text x="160" y="1328" text-anchor="middle" font-size="11" fill="#ddd6fe">sw.js · CACHE = v165</text>
+  <text x="160" y="1345" text-anchor="middle" font-size="10" fill="#a78bfa">network-first: app.js · style.css</text>
+  <text x="160" y="1361" text-anchor="middle" font-size="10" fill="#a78bfa">                  /data/* · admin.*</text>
+  <text x="160" y="1378" text-anchor="middle" font-size="10" fill="#a78bfa">cache-first: assets, manifest</text>
+  <text x="160" y="1395" text-anchor="middle" font-size="9" fill="#8b5cf6">bump CACHE on every release</text>
+
+  <!-- App shell -->
+  <rect x="320" y="1285" width="280" height="120" rx="10" fill="#1d4ed8" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="460" y="1308" text-anchor="middle" font-size="13" font-weight="700" fill="#93c5fd">App shell</text>
+  <text x="460" y="1328" text-anchor="middle" font-size="11" fill="#bfdbfe">index.html · src/app.js · style.css</text>
+  <text x="460" y="1345" text-anchor="middle" font-size="10" fill="#7dd3fc">📝 Quiz · ⭐ Favorites · 📉 Weak</text>
+  <text x="460" y="1361" text-anchor="middle" font-size="10" fill="#7dd3fc">📊 Analytics · 🃏 Flashcard</text>
+  <text x="460" y="1377" text-anchor="middle" font-size="10" fill="#60a5fa">id pill (#seq) · version pill</text>
+  <text x="460" y="1395" text-anchor="middle" font-size="9" fill="#3b82f6">Chart.js · Firebase SDK v11</text>
+
+  <!-- Question rendering flow -->
+  <rect x="640" y="1285" width="240" height="120" rx="10" fill="#065f46" fill-opacity="0.25" stroke="#10b981" stroke-width="1.5"/>
+  <text x="760" y="1308" text-anchor="middle" font-size="12" font-weight="700" fill="#6ee7b7">Question fetch flow</text>
+  <text x="760" y="1328" text-anchor="middle" font-size="10" fill="#a7f3d0">1. user signs in (Auth)</text>
+  <text x="760" y="1344" text-anchor="middle" font-size="10" fill="#a7f3d0">2. call getQuestionsAllV2()</text>
+  <text x="760" y="1360" text-anchor="middle" font-size="10" fill="#a7f3d0">3. cache locally in IndexedDB</text>
+  <text x="760" y="1376" text-anchor="middle" font-size="10" fill="#a7f3d0">4. render cards · track progress</text>
+  <text x="760" y="1395" text-anchor="middle" font-size="9" fill="#10b981">5. write stats to Firestore</text>
+
+  <!-- Admin runtime -->
+  <rect x="920" y="1285" width="240" height="120" rx="10" fill="#065f46" fill-opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+  <text x="1040" y="1308" text-anchor="middle" font-size="12" font-weight="700" fill="#6ee7b7">Admin runtime</text>
+  <text x="1040" y="1328" text-anchor="middle" font-size="10" fill="#a7f3d0">admin.html · src/admin.js</text>
+  <text x="1040" y="1345" text-anchor="middle" font-size="10" fill="#a7f3d0">drag-n-drop image upload</text>
+  <text x="1040" y="1361" text-anchor="middle" font-size="10" fill="#86efac">live preview with id+version pills</text>
+  <text x="1040" y="1378" text-anchor="middle" font-size="10" fill="#86efac">save → Firestore drafts</text>
+  <text x="1040" y="1395" text-anchor="middle" font-size="9" fill="#10b981">export → raw_batches/</text>
+
+  <!-- Browser arrows down to backend -->
+  <line x1="160" y1="1285" x2="150" y2="1170" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-orange)"/>
+  <line x1="460" y1="1285" x2="430" y2="1170" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="700" y1="1285" x2="720" y2="1170" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <line x1="1040" y1="1285" x2="1015" y2="1170" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-purple)"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- LEGEND -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <rect x="40" y="1430" width="1120" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="60" y="1450" font-size="11" font-weight="600" fill="#94a3b8">LEGEND</text>
+
+  <line x1="120" y1="1462" x2="150" y2="1462" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="158" y="1466" font-size="10" fill="#94a3b8">data flow</text>
+
+  <line x1="240" y1="1462" x2="270" y2="1462" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="278" y="1466" font-size="10" fill="#94a3b8">Firestore r/w</text>
+
+  <line x1="370" y1="1462" x2="400" y2="1462" stroke="#f97316" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow-orange)"/>
+  <text x="408" y="1466" font-size="10" fill="#94a3b8">Auth</text>
+
+  <line x1="450" y1="1462" x2="480" y2="1462" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow-purple)"/>
+  <text x="488" y="1466" font-size="10" fill="#94a3b8">image upload</text>
+
+  <line x1="580" y1="1462" x2="610" y2="1462" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
+  <text x="618" y="1466" font-size="10" fill="#94a3b8">git push</text>
+
+  <line x1="690" y1="1462" x2="720" y2="1462" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="728" y="1466" font-size="10" fill="#94a3b8">webhook / static</text>
+
+  <line x1="850" y1="1462" x2="880" y2="1462" stroke="#22c55e" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-green)"/>
+  <text x="888" y="1466" font-size="10" fill="#94a3b8">manual CLI deploy</text>
+
+  <text x="1140" y="1466" text-anchor="end" font-size="10" fill="#64748b">v165 · 4869 questions · 5 exams</text>
+</svg>
