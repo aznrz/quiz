@@ -240,21 +240,28 @@ function normalizeExamPayload(examCode, payload, meta = {}) {
     questions: questions.map(q => {
       if (!q || typeof q !== 'object') return q;
       const sectionKey = q.section_key || q.section || 'other';
-      let correctAnswers = q.correct_answers;
-      if (!Array.isArray(correctAnswers)) {
-        if (typeof q.correct === 'number' && Array.isArray(q.options)) {
-          const opt = q.options[q.correct];
-          let key = String.fromCharCode(65 + q.correct);
-          if (opt && typeof opt === 'object') {
-            key = opt.key || opt.id || key;
-          } else if (typeof opt === 'string') {
+      let options = q.options;
+      if (Array.isArray(options)) {
+        options = options.map((opt, idx) => {
+          if (typeof opt === 'string') {
             const raw = opt.trim();
             const prefixed = raw.match(/^([A-ZА-ЯЁ])[\.\)]\s+([\s\S]+)$/u);
-            if (prefixed) {
-              key = prefixed[1].toUpperCase();
-            }
+            const key = prefixed ? prefixed[1].toUpperCase() : String.fromCharCode(65 + idx);
+            const text = prefixed ? prefixed[2] : raw;
+            return { key, text };
           }
-          correctAnswers = [key];
+          return opt;
+        });
+      }
+      let correctAnswers = q.correct_answers;
+      if (!Array.isArray(correctAnswers)) {
+        if (typeof q.correct === 'number' && Array.isArray(options)) {
+          const optObj = options[q.correct];
+          if (optObj && typeof optObj === 'object') {
+            correctAnswers = [optObj.key || optObj.id || String.fromCharCode(65 + q.correct)];
+          } else {
+            correctAnswers = [String.fromCharCode(65 + q.correct)];
+          }
         } else if (q.correct_answers) {
           correctAnswers = [q.correct_answers];
         } else {
@@ -265,6 +272,7 @@ function normalizeExamPayload(examCode, payload, meta = {}) {
         group_type: 'std_test',
         question_type: 'mcq_single',
         ...q,
+        options,
         section_key: sectionKey,
         correct_answers: correctAnswers,
       };
