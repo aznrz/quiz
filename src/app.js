@@ -237,7 +237,16 @@ function normalizeExamPayload(examCode, payload, meta = {}) {
     question_count: questionCount,
     sections: source.sections || meta.sections || {},
     domains: source.domains || meta.domains || {},
-    questions,
+    questions: questions.map(q => {
+      if (!q || typeof q !== 'object') return q;
+      const sectionKey = q.section_key || q.section || 'other';
+      return {
+        group_type: 'std_test',
+        question_type: 'mcq_single',
+        ...q,
+        section_key: sectionKey,
+      };
+    }),
   };
 }
 
