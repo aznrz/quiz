@@ -4,13 +4,12 @@ import { getFirestore, doc, setDoc, getDoc, getDocFromServer, collection, getDoc
 import { getFunctions, httpsCallable, connectFunctionsEmulator } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBFM_XIFCGCpANGYqm3b8FUkQXJRBNBcOQ",
-  authDomain: "exams-quiz-db.firebaseapp.com",
-  projectId: "exams-quiz-db",
-  storageBucket: "exams-quiz-db.firebasestorage.app",
-  messagingSenderId: "646730568865",
-  appId: "1:646730568865:web:e02a6ea49eb7effca44ce0",
-  measurementId: "G-0F35NX2X4K"
+  apiKey: "AIzaSyBP0e2_8YnfMyi0Rs75AiBxrETej0DR4_s",
+  authDomain: "naruto-quiz-98b5.firebaseapp.com",
+  projectId: "naruto-quiz-98b5",
+  storageBucket: "naruto-quiz-98b5.firebasestorage.app",
+  messagingSenderId: "30585339854",
+  appId: "1:30585339854:web:6bb72c22612b85060e759f"
 };
 
 const app = initializeApp(firebaseConfig);

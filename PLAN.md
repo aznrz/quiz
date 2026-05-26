@@ -56,18 +56,10 @@ Deleted MS-specific docs, data, directories:
 - `manifest.json` → name "Naruto Quiz", short_name "Naruto", theme_color #f97316, background_color #1a1a1a
 - `sw.js` → cache `naruto-quiz-v1`; admin files removed from ASSETS/NETWORK_FIRST arrays
 
-### 🔴 Step 6 — Firebase config (WAITING ON USER)
+### ✅ Step 6 — Firebase config (DONE)
 
-`src/firebase-init.js` lines 7–15 still point to OLD project `exams-quiz-db`. Must replace.
-
-User must:
-1. Create Firebase project at console.firebase.google.com
-2. Enable Auth → Google sign-in
-3. Enable Firestore (production mode)
-4. Get `firebaseConfig` from Project Settings → Your apps → Web app
-5. Provide config to bot
-
-Bot then replaces `src/firebase-init.js` lines 7–15 + updates `.firebaserc` project id.
+Automatically created new Firebase project `naruto-quiz-98b5` and registered Web app `Naruto Quiz Web` via Firebase CLI.
+Replaced configuration in `src/firebase-init.js` and updated project ID in `.firebaserc`.
 
 ### ✅ Step 7 — Naruto questions (DONE — 10 questions)
 `data/questions.v2.json` created with 10 questions (nrt-001…nrt-010):
