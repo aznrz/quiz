@@ -240,11 +240,33 @@ function normalizeExamPayload(examCode, payload, meta = {}) {
     questions: questions.map(q => {
       if (!q || typeof q !== 'object') return q;
       const sectionKey = q.section_key || q.section || 'other';
+      let correctAnswers = q.correct_answers;
+      if (!Array.isArray(correctAnswers)) {
+        if (typeof q.correct === 'number' && Array.isArray(q.options)) {
+          const opt = q.options[q.correct];
+          let key = String.fromCharCode(65 + q.correct);
+          if (opt && typeof opt === 'object') {
+            key = opt.key || opt.id || key;
+          } else if (typeof opt === 'string') {
+            const raw = opt.trim();
+            const prefixed = raw.match(/^([A-ZА-ЯЁ])[\.\)]\s+([\s\S]+)$/u);
+            if (prefixed) {
+              key = prefixed[1].toUpperCase();
+            }
+          }
+          correctAnswers = [key];
+        } else if (q.correct_answers) {
+          correctAnswers = [q.correct_answers];
+        } else {
+          correctAnswers = [];
+        }
+      }
       return {
         group_type: 'std_test',
         question_type: 'mcq_single',
         ...q,
         section_key: sectionKey,
+        correct_answers: correctAnswers,
       };
     }),
   };
