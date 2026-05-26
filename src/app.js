@@ -1184,7 +1184,7 @@ const ALLOWED_EMAILS = [
   'akbobekkuramys@gmail.com',
 ];
 
-let isPremium = false; // true если email в белом списке
+let isPremium = true; // true для всех пользователей (открытый доступ)
 
 function checkAuth() {
   return currentUser !== null;
@@ -5182,7 +5182,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         } catch (_) {}
         updateWatermark();
-        isPremium = ALLOWED_EMAILS.includes(user.email);
+        isPremium = true;
         syncAdminToolsVisibility();
         hideLandingDemo();
         $('screenLogin').classList.remove('active');

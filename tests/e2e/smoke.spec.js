@@ -51,7 +51,7 @@ test.describe('smoke', () => {
     expect(globals.buildCoachReport).toBe('function');
   });
 
-  test('exam profiles cover core Microsoft exams with valid weights', async ({ page }) => {
+  test('exam profiles cover NARUTO exam with valid weights', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
@@ -71,23 +71,14 @@ test.describe('smoke', () => {
     });
 
     const codes = profiles.map(p => p.code);
-    // Required core — these must always be present. The profile list has
-    // since grown (STATS, ML, MATHDS, etc.); use arrayContaining so we
-    // don't break every time a new exam is added.
-    expect(codes).toEqual(expect.arrayContaining([
-      'PL-300', 'DP-900', 'AI-900', 'MO-200', 'IT-Specialist-Python',
-    ]));
-    // Sanity floor — anything below 5 means we lost a Microsoft cert.
-    expect(codes.length).toBeGreaterThanOrEqual(5);
+    expect(codes).toContain('NARUTO');
+    expect(codes.length).toBe(1);
 
     for (const p of profiles) {
-      expect(p.sectionCount, `${p.code} has section weights`).toBeGreaterThan(0);
-      expect(p.weightSum, `${p.code} weights ~ 1`).toBeGreaterThan(0.9);
-      expect(p.weightSum, `${p.code} weights ~ 1`).toBeLessThanOrEqual(1.05);
+      expect(p.sectionCount, `${p.code} has section weights`).toBe(3); // easy, medium, hard
+      expect(p.weightSum, `${p.code} weights ~ 1`).toBeGreaterThan(0.99);
+      expect(p.weightSum, `${p.code} weights ~ 1`).toBeLessThanOrEqual(1.01);
     }
-
-    const pl300 = profiles.find(p => p.code === 'PL-300');
-    expect(pl300.supportsCaseStudy).toBe(true);
   });
 
   test('readiness engine returns explainable breakdown for empty store', async ({ page }) => {
@@ -96,7 +87,7 @@ test.describe('smoke', () => {
 
     const result = await page.evaluate(() => {
       try {
-        return window.readinessEngine.getReadinessBreakdown('PL-300');
+        return window.readinessEngine.getReadinessBreakdown('NARUTO');
       } catch (e) {
         return { __error: String(e) };
       }
@@ -120,7 +111,7 @@ test.describe('smoke', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    const action = await page.evaluate(() => window.recommendationEngine.getRecommendedAction('PL-300'));
+    const action = await page.evaluate(() => window.recommendationEngine.getRecommendedAction('NARUTO'));
 
     expect(action).not.toBeNull();
     expect(typeof action.type).toBe('string');
@@ -136,10 +127,10 @@ test.describe('smoke', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    const plan = await page.evaluate(() => window.recommendationEngine.getStudyPlanDraft('PL-300'));
+    const plan = await page.evaluate(() => window.recommendationEngine.getStudyPlanDraft('NARUTO'));
 
     expect(plan).toBeDefined();
-    expect(plan.examCode).toBe('PL-300');
+    expect(plan.examCode).toBe('NARUTO');
     expect(typeof plan.readiness).toBe('number');
     expect(Array.isArray(plan.blocks)).toBe(true);
     expect(plan.blocks.length).toBeGreaterThan(0);
