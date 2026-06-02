@@ -5630,6 +5630,15 @@ async function openStatsV2() {
   renderStatsV2();
   if (!adminUsers.length) {
     try { adminUsers = await window.cloudSync.getAllAnalytics(); } catch { adminUsers = []; }
+    // Non-admins can't read the whole analytics collection; fall back to their
+    // own analytics so Statistics works for everyone (mirrors loadAdminData).
+    if (!adminUsers.length && currentUser && currentUser.uid
+        && typeof window.cloudSync.getMyAnalytics === 'function') {
+      try {
+        const mine = await window.cloudSync.getMyAnalytics(currentUser.uid);
+        if (mine) adminUsers = [mine];
+      } catch {}
+    }
   }
   renderStatsV2();
 }
@@ -7582,6 +7591,17 @@ async function loadAdminData() {
   $('adminSummary').innerHTML='<div style="color:var(--text-muted);grid-column:1/-1">Loading...</div>';
   $('adminLeaderboard').innerHTML='';
   adminUsers = await window.cloudSync.getAllAnalytics();
+  // Non-admin users can't read the whole `analytics` collection (Firestore
+  // rules allow reading only one's own doc), so getAllAnalytics returns [].
+  // Fall back to the user's own analytics so Detailed Statistics is available
+  // to everyone, showing their personal data instead of "No data."
+  if (!adminUsers.length && currentUser && currentUser.uid
+      && typeof window.cloudSync.getMyAnalytics === 'function') {
+    try {
+      const mine = await window.cloudSync.getMyAnalytics(currentUser.uid);
+      if (mine) adminUsers = [mine];
+    } catch {}
+  }
   if (!adminUsers.length) { $('adminSummary').innerHTML='<div style="color:var(--text-muted);grid-column:1/-1">No data.</div>'; return; }
   initAdminExamSelect();
   initAdminChartScope();
