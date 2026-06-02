@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile, updatePassword, connectAuthEmulator } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, getDocFromServer, collection, getDocs, deleteDoc, connectFirestoreEmulator, increment } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, getDocFromServer, collection, getDocs, deleteDoc, connectFirestoreEmulator, increment, deleteField } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { getFunctions, httpsCallable, connectFunctionsEmulator } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js";
 
 const firebaseConfig = {
@@ -122,8 +122,11 @@ window.cloudSync = {
 
       await setDoc(doc(db, "analytics", user.uid), {
         uid: user.uid,
-        email: user.email,
-        displayName: user.displayName || user.email,
+        // The analytics collection is readable by all signed-in users for the
+        // shared leaderboard, so we don't expose email here. deleteField() also
+        // scrubs the address from docs written before this became shared.
+        email: deleteField(),
+        displayName: user.displayName || (user.email ? user.email.split('@')[0] : 'Anonymous'),
         sessions,
         totalAnswered,
         totalCorrect,

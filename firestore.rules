@@ -16,7 +16,9 @@ service cloud.firestore {
     }
 
     // ─── Shared aggregates and stats (authed users only) ─────────────
-    match /analytics/{uid}           { allow read, write: if isSelf(uid); }
+    // Read is open to all signed-in users so the leaderboard can show everyone's
+    // progress; each user may only write their own analytics doc.
+    match /analytics/{uid}           { allow read: if signedIn(); allow write: if isSelf(uid); }
     match /daily_stats/{date}        { allow read, write: if signedIn(); }
     match /question_stats/{qid}      { allow read, write: if signedIn(); }
 
