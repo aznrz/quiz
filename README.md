@@ -115,22 +115,44 @@ python -m http.server 8080
 
 ## ⚡ Синхронизация и Деплой
 
-Публикация изменений на боевой сайт выполняется с помощью терминала:
+Боевой сайт состоит из двух частей, которые деплоятся независимо:
 
-### 1. Синхронизация вопросов перед публикацией
-Скопируйте актуальный файл базы вопросов в бандл облачных функций:
+| Что изменили | Чем деплоить | Куда уходит |
+| --- | --- | --- |
+| Вопросы (`data/questions.v2.json`), фронтенд (`src/**`, `index.html`) | `npx wrangler deploy` | Cloudflare Worker (статика и PWA) |
+| Правила доступа (`firestore.rules`), индексы (`firestore.indexes.json`) | `firebase deploy --only firestore:rules` | Firebase (проект `naruto-quiz-98b5`) |
+
+> [!IMPORTANT]
+> Вопросы сайт грузит напрямую из статического `data/questions.v2.json`, который раздаёт Cloudflare Worker — то есть новые квизы публикуются командой `npx wrangler deploy`. Cloud Functions используются лишь как резервный источник, поэтому перед их деплоем нужна синхронизация (см. шаг 1).
+
+### Шаг 1 — Синхронизация вопросов (перед деплоем функций)
+Скопируйте актуальную базу вопросов в бандл облачных функций (запускается автоматически в `predeploy` при `firebase deploy`, но можно и вручную):
 ```bash
 node functions/sync-data.js
 ```
 
-### 2. Деплой статики и PWA-слоя в Cloudflare
-Опубликуйте изменения во фронтенде:
+### Шаг 2 — Деплой статики и PWA-слоя в Cloudflare
+Публикует фронтенд и базу вопросов. Достаточно для добавления нового квиза или правок UI:
 ```bash
 npx wrangler deploy
 ```
-
-### 3. Деплой Firestore-правил и индексов
-Обновите правила безопасности базы данных Firebase (при изменении `firestore.rules`):
+Проверка после деплоя:
 ```bash
-firebase deploy --only firestore,hosting
+curl -s https://naruto.ms-cert.workers.dev/data/questions.v2.json | grep '"label"'
 ```
+
+### Шаг 3 — Деплой правил Firestore
+Нужен **только** при изменении `firestore.rules` или `firestore.indexes.json` (например, при настройке общего доступа к статистике):
+```bash
+firebase deploy --only firestore:rules
+```
+
+### Полный деплой (всё сразу)
+```bash
+node functions/sync-data.js
+npx wrangler deploy
+firebase deploy --only firestore:rules
+```
+
+> [!NOTE]
+> **Общий лидерборд (виден прогресс всех участников).** Таблица «Top Performance Leaderboard» и графики читают коллекцию `analytics/{uid}` из Firestore. Чтобы каждый видел прогресс других, правило в `firestore.rules` открывает чтение этой коллекции всем авторизованным пользователям (запись — только своего документа), а email в неё намеренно **не** сохраняется (см. `src/firebase-init.js`). После правок `firestore.rules` обязательно выполните **Шаг 3**, иначе изменение доступа не вступит в силу. Участники появляются в таблице по мере того, как заходят и завершают сессии — у каждого создаётся свой документ `analytics`.
