@@ -1,4 +1,4 @@
-# 🍥 Pop-Culture Quiz — an adaptive‑learning PWA on a free serverless stack
+# 🍥 Quiz — 7 universes — an adaptive‑learning PWA on a free serverless stack
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Firebase](https://img.shields.io/badge/Firebase-Firestore-DD2C00?style=flat-square&logo=firebase&logoColor=white)
