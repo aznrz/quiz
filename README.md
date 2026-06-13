@@ -1,5 +1,12 @@
 # 🍥 Pop-Culture Quiz — an adaptive‑learning PWA on a free serverless stack
 
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Firebase](https://img.shields.io/badge/Firebase-Firestore-DD2C00?style=flat-square&logo=firebase&logoColor=white)
+![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-Offline-5A0FC8?style=flat-square&logo=pwa&logoColor=white)
+![Квизы](https://img.shields.io/badge/Квизы-7_тем-16a34a?style=flat-square)
+![Статус](https://img.shields.io/badge/Статус-Активный-22c55e?style=flat-square)
+
 A fast, installable **Progressive Web App** for testing knowledge across pop-culture universes: **Naruto**, **Demon Slayer**, **Marvel**, **DC Comics**, **Bridgerton**, **Squid Game** and **Music** (240 questions total). It looks like a simple trivia game, but under the hood it runs a full **adaptive learning engine** — spaced repetition, readiness scoring, weak‑area detection and a recommendation system — entirely on **free‑tier** infrastructure (Cloudflare Workers + Firebase Spark).
 
 This repository is published as a **learning project**: a worked example of how to build a polished, secure, offline‑capable web app with **zero framework** and **zero monthly cost**.
